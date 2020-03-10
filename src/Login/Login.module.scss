@@ -1,0 +1,36 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  max-width: 390px;
+  margin: 0 auto;
+  // padding: 3em 0;
+
+  &__shield {
+    width: 200px;
+    height: 230px;
+    margin: 0 auto;
+  }
+  &__title {
+    margin: 0 auto;
+    padding: 24px 0px 64px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  &__btn {
+    background: #FFB677;
+    border-radius: 4px;
+    padding: 19px 64px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    max-width: 190px;
+    align-self: flex-end;
+    margin-top: 40px;
+  }
+}
