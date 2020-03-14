@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route, BrowserRouter, Switch, NavLink } from 'react-router-dom'
 import style from './Main.module.scss'
 import shield from '../img/shield.png'
 import plus from '../img/Icon-plus.png'
@@ -23,7 +24,11 @@ const Main = () => {
 
         <div>
           <p>Logput</p>
+          {/* <Route path="/main"> */}
+          <NavLink to="/login"> 
           <img src={arrow} alt="SPassword logo" />
+          </NavLink>
+          {/* </Route> */}
         </div>
       </section>
       
