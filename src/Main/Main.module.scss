@@ -1,3 +1,47 @@
 .Main {
-  
+
+  .sidebar {
+
+    .sidebar__header {
+      display: flex;
+      padding-bottom: 65px;
+
+      & > img {
+        height: 55px;
+        width: 48px;
+        padding-right: 24px;
+      }
+      .sidebar__header_name {
+        font-weight: bold;
+        font-size: 24px;
+        //font-family: Montserrat;
+      }
+    }
+
+    .sidebar__addGroup {
+      display: flex;
+      color: #FFB677;
+      padding-bottom: 33px;
+      //font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+
+      & > img {
+        padding-left: 16px;
+      }
+    }
+
+    .sidebar__logout {
+      display: flex;
+      color: #FFB677;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+
+      & > p {
+        padding-right: 24px;
+      }
+    }
+  }
 }

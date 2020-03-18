@@ -9,30 +9,27 @@ import NavListbar from './NavListbar/NavListbar'
 const Main = () => {
   return (
     <main className={style.Main}>
-      <section>
-        <div>
+      <section className={style.sidebar}>
+        <div className={style.sidebar__header}>
           <img src={shield} alt="SPassword logo" />
-          <p>SPassword</p>
+          <p className={style.sidebar__header_name}>SPassword</p>
         </div>
 
-        <div>
+        <div className={style.sidebar__addGroup}>
           <p>Add group</p>
           <img src={plus} alt="SPassword logo" />
         </div>
 
         <NavListbar />
 
-        <div>
-          <p>Logput</p>
-          {/* <Route path="/main"> */}
+        <div className={style.sidebar__logout}>
+          <p>Logout</p>
           <NavLink to="/login"> 
           <img src={arrow} alt="SPassword logo" />
           </NavLink>
-          {/* </Route> */}
         </div>
       </section>
       
-      <section>2</section>
     </main>
   )
 }
