@@ -7,8 +7,8 @@ const Login = () => {
     <div className={style.Login}>
       <img className={style.Login__shield} src={shield} alt='shield'/>
       <span className={style.Login__title}>SPassword - Your safe</span>
-      <input />
-      <input />
+      <input className={style.Login__input} placeholder="Placeholder" />
+      <input className={style.Login__input} placeholder="Placeholder" />
       <button className={style.Login__btn} type='button'>Login</button>
     </div>
   )

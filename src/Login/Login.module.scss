@@ -3,10 +3,25 @@
   flex-direction: column;
   max-width: 390px;
   margin: 0 auto;
-  // padding: 3em 0;
+  padding-top: 100px;
+
+  &__input {
+    border: 1px solid #5F6CAF;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 10px rgba(123, 123, 123, 0.25);
+    border-radius: 4px;
+    height: 60px;
+    margin-bottom: 20px;
+
+    font-family: Montserrat;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 25px;
+    color: #5F6CAF;
+  }
 
   &__shield {
-    width: 200px;
+    width: 200px; 
     height: 230px;
     margin: 0 auto;
   }
@@ -31,6 +46,6 @@
     border-radius: 4px;
     max-width: 190px;
     align-self: flex-end;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
