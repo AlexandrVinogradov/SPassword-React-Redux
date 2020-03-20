@@ -20,16 +20,25 @@ const Main = () => {
           <img src={plus} alt="SPassword logo" />
         </div>
 
-        <NavListbar />
+        <div className={style.sidebar__navAndLogout}>
+          <NavListbar />
 
-        <div className={style.sidebar__logout}>
-          <p>Logout</p>
-          <NavLink to="/login"> 
-          <img src={arrow} alt="SPassword logo" />
-          </NavLink>
+          <div className={style.sidebar__logout}>
+            <p>Logout</p>
+            <NavLink to="/login">
+              <img src={arrow} alt="SPassword logo" />
+            </NavLink>
+          </div>
         </div>
       </section>
-      
+
+      <section className={style.interface}>
+        <div className={style.interface__header}>
+          <h1>GitHub</h1>
+        </div>
+
+        <div className={style.interface__content}>MARKDOWN CONTENT</div>
+      </section>
     </main>
   )
 }

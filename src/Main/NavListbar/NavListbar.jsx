@@ -27,6 +27,20 @@ const NavListbar = () => {
             </div>
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/main" activeClassName={style.active} className={style.a}>
+            <div className={style.name} data-text={style.home}>
+              Steam
+            </div>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/main" activeClassName={style.active} className={style.a}>
+            <div className={style.name} data-text={style.home}>
+              La2 Accounts
+            </div>
+          </NavLink>
+        </li>
       </ul>
     </nav>
   )
