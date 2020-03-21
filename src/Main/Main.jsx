@@ -1,10 +1,11 @@
 import React from 'react'
-import { Route, BrowserRouter, Switch, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import style from './Main.module.scss'
 import shield from '../img/shield.png'
 import plus from '../img/Icon-plus.png'
 import arrow from '../img/icon-arrow.png'
 import NavListbar from './NavListbar/NavListbar'
+// import SVGIcon from "./SVGIcon";
 
 const Main = () => {
   return (
@@ -35,6 +36,11 @@ const Main = () => {
       <section className={style.interface}>
         <div className={style.interface__header}>
           <h1>GitHub</h1>
+
+          {/* <SVGIcon name="wifi" width={100} fill={randomColor()} /> */}
+          {/* https://blog.lftechnology.com/using-svg-icons-components-in-react-44fbe8e5f91 */}
+
+
         </div>
 
         <div className={style.interface__content}>MARKDOWN CONTENT</div>
