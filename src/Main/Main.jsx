@@ -5,7 +5,7 @@ import shield from '../img/shield.png'
 import plus from '../img/Icon-plus.png'
 import arrow from '../img/icon-arrow.png'
 import NavListbar from './NavListbar/NavListbar'
-// import SVGIcon from "./SVGIcon";
+import SVGIcon from '../SVGIcons'
 
 const Main = () => {
   return (
@@ -37,10 +37,14 @@ const Main = () => {
         <div className={style.interface__header}>
           <h1>GitHub</h1>
 
-          {/* <SVGIcon name="wifi" width={100} fill={randomColor()} /> */}
-          {/* https://blog.lftechnology.com/using-svg-icons-components-in-react-44fbe8e5f91 */}
-
-
+          <div className={style.interface__header_btns}>
+            <button type="button" className={style.interface__header_btn}>
+              <SVGIcon className={style.icon_pencil} name="pencil" width={24} fill={'#5F6CAF'} />
+            </button>
+            <button type="button" className={style.interface__header_btn}>
+              <SVGIcon name="bucket" width={18} fill={'#FF8364'} />
+            </button>
+          </div>
         </div>
 
         <div className={style.interface__content}>MARKDOWN CONTENT</div>

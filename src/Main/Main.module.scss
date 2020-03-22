@@ -62,7 +62,32 @@
 
 
     .interface__header {
+      display: flex;
+      justify-content: space-between;
 
+      .interface__header_btns {
+        display: flex;
+
+        .interface__header_btn {
+          padding: 0;
+          margin: 0;
+          border: none;
+          display: inline-flex;
+          background-color: inherit;
+          cursor: pointer;
+
+          &:first-child {
+            margin-right: 45px;
+          }
+
+          .icon_pencil {
+            fill: red;
+            &:hover {
+              fill: red;
+            }
+          }
+        }
+      }
     }
     .interface__content {
       height: 80vh;
