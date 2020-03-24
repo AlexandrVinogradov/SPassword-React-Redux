@@ -5,7 +5,7 @@ import style from './NavListbar.module.scss'
 const NavListbar = () => {
   return (
     <nav>
-      <ul>
+      <ul className={style.NavListBar_ul}>
         <li>
           <NavLink to="/main" activeClassName={style.active} className={style.a}>
             <div className={style.name} data-text={style.home}>
