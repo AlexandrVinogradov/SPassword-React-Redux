@@ -7,38 +7,28 @@ const NavListbar = () => {
     <nav>
       <ul className={style.NavListBar_ul}>
         <li>
-          <NavLink to="/main" activeClassName={style.active} className={style.a}>
-            <div className={style.name} data-text={style.home}>
-              Vk
-            </div>
+          <NavLink to="/main/vk" activeClassName={style.active} className={style.a}>
+            Vk
           </NavLink>
         </li>
         <li>
-          <NavLink to="/main" activeClassName={style.active} className={style.a}>
-            <div className={style.name} data-text={style.home}>
-              Github
-            </div>
+          <NavLink to="/main/github" activeClassName={style.active} className={style.a}>
+            Github
           </NavLink>
         </li>
         <li>
-          <NavLink to="/main" activeClassName={style.active} className={style.a}>
-            <div className={style.name} data-text={style.home}>
-              Facebook
-            </div>
+          <NavLink to="/main/facebook" activeClassName={style.active} className={style.a}>
+            Facebook
           </NavLink>
         </li>
         <li>
-          <NavLink to="/main" activeClassName={style.active} className={style.a}>
-            <div className={style.name} data-text={style.home}>
-              Steam
-            </div>
+          <NavLink to="/main/steam" activeClassName={style.active} className={style.a}>
+            Steam
           </NavLink>
         </li>
         <li>
-          <NavLink to="/main" activeClassName={style.active} className={style.a}>
-            <div className={style.name} data-text={style.home}>
-              La2 Accounts
-            </div>
+          <NavLink to="/main/la2" activeClassName={style.active} className={style.a}>
+            La2 Accounts
           </NavLink>
         </li>
       </ul>

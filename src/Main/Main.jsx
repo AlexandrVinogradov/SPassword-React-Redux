@@ -47,7 +47,9 @@ const Main = () => {
           </div>
         </div>
 
-        <div className={style.interface__content}>MARKDOWN CONTENT</div>
+        <div className={style.interface__content}>
+          <p>MARKDOWN CONTENT</p>
+        </div>
       </section>
     </main>
   )

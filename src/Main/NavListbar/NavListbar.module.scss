@@ -2,4 +2,34 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  // font-family: Montserrat;
+
+  & > li  {
+    padding-top: 10px;
+
+    & > .a {
+      color: #9CA6DB;
+      font-size: 18px;
+      line-height: 22px;
+      text-decoration: none;
+
+      &:after {
+
+        content: "";
+        height: 1px;
+        width: 1px;
+        // border: 1px solid red;
+        // border-radius: 100px;
+        // background: silver;
+
+        // display: inline-block;
+        // vertical-align: middle;
+        // padding-top: 100%;
+
+      }
+    }
+    & > a.active {
+      color: #5F6CAF;
+    }
+  }
 }
