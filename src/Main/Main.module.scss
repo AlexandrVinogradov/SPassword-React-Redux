@@ -1,22 +1,24 @@
+@import "../fonts.scss";
+
 .Main {
   margin: 0 auto;
   max-width: 1150px;
   display: flex;
-  padding-top: 60px; 
+  padding-top: 60px;
 
-  .sidebar { // section1
-  border-right: 2px solid #EDF7FA;
-  margin-right: 64px;
-  padding-right: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
+  .sidebar {
+    // section1
+    border-right: 2px solid #edf7fa;
+    margin-right: 64px;
+    padding-right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 
     .sidebar__header {
       display: flex;
       padding-bottom: 65px;
-      color: #B8B8B8;
+      color: #b8b8b8;
 
       & > img {
         height: 55px;
@@ -30,31 +32,20 @@
       }
     }
 
-    .sidebar__addGroup {
+    .circle_btn {
       display: flex;
-      color: #FFB677;
-      padding-bottom: 33px;
-      //font-family: Montserrat;
+      color: #ffb677;
+      font-family: "Montserrat-regular";
       font-style: normal;
       font-weight: normal;
       font-size: 18px;
+      justify-content: flex-end;
 
       & > img {
         padding-left: 16px;
       }
     }
 
-    .sidebar__logout {
-      display: flex;
-      color: #FFB677;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 18px;
-
-      & > p {
-        padding-right: 24px;
-      }
-    }
     .sidebar__navAndLogout {
       display: flex;
       flex-direction: column;
@@ -63,8 +54,8 @@
     }
   }
 
-  .interface { //section2
-
+  .interface {
+    //section2
 
     .interface__header {
       display: flex;
@@ -74,7 +65,7 @@
       & > h1 {
         font-weight: 500;
         text-transform: none;
-        color: #4E4E4E;
+        color: #4e4e4e;
       }
 
       .interface__header_btns {
@@ -104,8 +95,8 @@
     .interface__content {
       height: 80vh;
       width: 50vw;
-      color: #D2D2D2;
-      background-color: #EEEEEE;
+      color: #d2d2d2;
+      background-color: #eeeeee;
       text-align: center;
       font-weight: bold;
       font-size: 48px;
@@ -116,7 +107,7 @@
         top: 45%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(-50%, -50%) 
+        transform: translate(-50%, -50%);
       }
     }
   }

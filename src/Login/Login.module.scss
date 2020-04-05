@@ -1,3 +1,5 @@
+@import "../fonts.scss";
+
 .Login {
   display: flex;
   flex-direction: column;
@@ -6,22 +8,27 @@
   padding-top: 100px;
 
   &__input {
-    border: 1px solid #5F6CAF;
+    border: 1px solid #5f6caf;
     box-sizing: border-box;
     box-shadow: 0px 6px 10px rgba(123, 123, 123, 0.25);
     border-radius: 4px;
     height: 60px;
     margin-bottom: 20px;
 
-    font-family: Montserrat;
+    font-family: "Montserrat-regular";
     font-size: 18px;
     line-height: 22px;
     padding: 25px;
-    color: #5F6CAF;
+    color: #5f6caf;
+
+    &::placeholder {
+      color: red;
+      color: #5f6caf;
+    }
   }
 
   &__shield {
-    width: 200px; 
+    width: 200px;
     height: 230px;
     margin: 0 auto;
   }
@@ -35,28 +42,34 @@
   }
 
   &__btn {
-    background: #FFB677;
+    background: #ff8364;
     border-radius: 4px;
     padding: 19px 64px;
     font-weight: bold;
     font-size: 18px;
     line-height: 22px;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     max-width: 190px;
     align-self: flex-end;
     margin-top: 20px;
+
+    position: relative;
+    z-index: 1;
+
+    &:before {
+      content: " ";
+      width: 185px;
+      background: #ffb677;
+      display: block;
+      position: absolute;
+      bottom: 5px;
+      left: 0px;
+      z-index: -1;
+      border-radius: 4px;
+      height: 60px;
+    }
   }
-}
-
-
-@font-face {
-  font-family: "Montserrat-bold";
-  src: url("../fonts/Montserrat-Bold.eot"); 
-  src: url("../fonts/Montserrat-Bold.eot?#iefix") format('embedded-opentype'), 
-  url("../fonts/Montserrat-Bold.woff2") format('woff2'),
-  url("../fonts/Montserrat-Bold.woff") format('woff'),
-  url("../fonts/Montserrat-Bold.ttf") format("truetype");
 }

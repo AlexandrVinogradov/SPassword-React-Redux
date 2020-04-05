@@ -1,44 +1,38 @@
+@import "../../fonts.scss";
+
 .NavListBar_ul {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  // font-family: Montserrat;
+  font-family: "Montserrat-regular";
+  margin-right: 64px;
+  padding-top: 33px;
 
-  & > li  {
+  & > li {
     padding-top: 10px;
 
-    // &::marker {
-    //   font-size: 20px;
-    //   color: green;
-    // }
-
     & > .a {
-      color: #9CA6DB;
+      color: #9ca6db;
       font-size: 18px;
       line-height: 22px;
       text-decoration: none;
-
-
-
-      &:after::marker {
-        color: red;
-        font-size: 10px;
-        // content: "";
-        // height: 1px;
-        // width: 1px;
-
-        // border: 1px solid red;
-        // border-radius: 100px;
-        // background: silver;
-
-        // display: inline-block;
-        // vertical-align: middle;
-        // padding-top: 100%;
-
-      }
+      position: relative;
+      // padding-right: 64px;
     }
     & > a.active {
-      color: #5F6CAF;
+      color: #5f6caf;
+
+      &:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 100px;
+        background: #5f6caf;
+        position: absolute;
+        right: -23px;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
     }
   }
 }

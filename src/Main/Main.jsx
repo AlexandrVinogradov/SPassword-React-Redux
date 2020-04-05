@@ -16,20 +16,19 @@ const Main = () => {
           <p className={style.sidebar__header_name}>SPassword</p>
         </div>
 
-        <div className={style.sidebar__addGroup}>
+        <NavLink className={style.circle_btn} to="/login">
           <p>Add group</p>
-          <img src={plus} alt="SPassword logo" />
-        </div>
+          <img src={plus} alt="Add group" />
+        </NavLink>
+
 
         <div className={style.sidebar__navAndLogout}>
           <NavListbar />
 
-          <div className={style.sidebar__logout}>
+          <NavLink className={style.circle_btn} to="/login">
             <p>Logout</p>
-            <NavLink to="/login">
-              <img src={arrow} alt="SPassword logo" />
-            </NavLink>
-          </div>
+            <img src={arrow} alt="Logout" />
+          </NavLink>
         </div>
       </section>
 
