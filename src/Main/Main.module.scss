@@ -1,11 +1,14 @@
 @import "../scss/fonts.scss";
+@import "../scss/variables.scss";
+@import "../scss/mixins.scss";
 
 .Main {
   margin: 0 auto;
   max-width: 1150px;
   display: flex;
   padding-top: 60px;
-
+  width: 100%;
+ 
   .sidebar {
     // section1
     border-right: 2px solid #edf7fa;
@@ -93,13 +96,13 @@
       }
     }
     .interface__content {
-      height: 80vh;
-      width: 50vw;
+      height: get-vw(500px);
+      width: get-vw(500px);
       color: #d2d2d2;
       background-color: #eeeeee;
       text-align: center;
       font-weight: bold;
-      font-size: 48px;
+      // font-size: get-vw(48px);
       position: relative;
 
       & > p {
