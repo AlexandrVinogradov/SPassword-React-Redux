@@ -2,8 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import style from './Main.module.scss'
 import shield from '../img/shield.png'
-import plus from '../img/Icon-plus.png'
-import arrow from '../img/icon-arrow.png'
 import NavListbar from './NavListbar/NavListbar'
 import SVGIcon from '../SVGIcons'
 
@@ -18,16 +16,15 @@ const Main = () => {
 
         <NavLink className={style.circle_btn} to="/login">
           <p>Add group</p>
-          <img src={plus} alt="Add group" />
+          <SVGIcon className={style.circle_btn__icon} name="addGroup" fill={'#FFB677'} />
         </NavLink>
 
+        <NavListbar />
 
-          <NavListbar />
-
-          <NavLink className={style.circle_btn + ' ' + style.circle_btn__logout} to="/login">
-            <p>Logout</p>
-            <img src={arrow} alt="Logout" />
-          </NavLink>
+        <NavLink className={style.circle_btn + ' ' + style.circle_btn__logout} to="/login">
+          <p>Logout</p>
+          <SVGIcon className={style.circle_btn__icon} name="logout" fill={'#FFB677'} />
+        </NavLink>
       </section>
 
       <section className={style.interface}>
@@ -36,10 +33,10 @@ const Main = () => {
 
           <div className={style.interface__header_btns}>
             <button type="button" className={style.interface__header_btn}>
-              <SVGIcon className={style.icon_pencil} name="pencil" width={24} fill={'#5F6CAF'} />
+              <SVGIcon className={style.icon_pencil} name="pencil" fill={'#5F6CAF'} />
             </button>
             <button type="button" className={style.interface__header_btn}>
-              <SVGIcon name="bucket" width={18} fill={'#FF8364'} />
+              <SVGIcon className={style.icon_bucket} name="bucket" fill={'#FF8364'} />
             </button>
           </div>
         </div>

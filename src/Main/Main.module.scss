@@ -3,21 +3,31 @@
 @import "../scss/mixins.scss";
 
 .Main {
-  margin: 0 auto;
-  max-width: get-vw(1150px);
-  display: flex;
-  padding-top: 60px;
-  width: 100%;
-
-  .sidebar {
-    // section1
-    border-right: 2px solid #edf7fa;
-    margin-right: get-vw(64px);
-    padding-right: get-vw(24px);
+  @include min-width(320px) {
+    margin: 0 auto;
+    padding: get-vw(60px) 16px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    position: relative;
+    width: 100%;
+  }
+  @include min-width(768px) {
+    max-width: get-vw(1150px);
+    padding: get-vw(60px) 0px;
+  }
+
+  // section1
+  .sidebar {
+    @include min-width(320px) {
+      display: none;
+    }
+    @include min-width(768px) {
+      border-right: 2px solid #edf7fa;
+      margin-right: get-vw(64px);
+      padding-right: get-vw(24px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      position: relative;
+    }
 
     .sidebar__header {
       display: flex;
@@ -32,7 +42,6 @@
       .sidebar__header_name {
         font-weight: bold;
         font-size: get-vw(24px);
-        //font-family: Montserrat;
       }
     }
 
@@ -45,7 +54,9 @@
       font-size: get-vw(18px);
       justify-content: flex-end;
 
-      & > img {
+      .circle_btn__icon {
+        fill: #ffb677;
+        width: get-vw(24px);
         padding-left: get-vw(16px);
       }
     }
@@ -58,6 +69,12 @@
 
   .interface {
     //section2
+    @include min-width(320px) {
+      width: 100%;
+    }
+    @include min-width(768px) {
+      width: auto;
+    }
 
     .interface__header {
       display: flex;
@@ -65,9 +82,17 @@
       padding-bottom: get-vw(16px);
 
       & > h1 {
-        font-weight: 500;
-        text-transform: none;
-        color: #4e4e4e;
+        @include min-width(320px) {
+          font-size: 24px;
+          line-height: 29px;
+          font-weight: 500;
+          text-transform: none;
+          color: #4e4e4e;
+        }
+        @include min-width(768px) {
+          font-size: get-vw(36px);
+          line-height: get-vw(44px);
+        }
       }
 
       .interface__header_btns {
@@ -86,24 +111,33 @@
           }
 
           .icon_pencil {
+            width: get-vw(24px);
             fill: red;
             &:hover {
               fill: red;
             }
           }
+          .icon_bucket {
+            width: get-vw(18px);
+          }
         }
       }
     }
     .interface__content {
-      height: get-vw(712px);
-      width: get-vw(834px);
-      color: #d2d2d2;
-      background-color: #eeeeee;
-      text-align: center;
-      font-weight: bold;
-      font-size: get-vw(48px);
-      // font-size: 2.526vw;
-      position: relative;
+      @include min-width(320px) {
+        height: 100%;
+        width: 100%;
+        color: #d2d2d2;
+        background-color: #eeeeee;
+        text-align: center;
+        font-weight: bold;
+        font-size: get-vw(48px);
+        position: relative;
+      }
+      @include min-width(768px) {
+        height: get-vw(712px);
+        width: get-vw(834px);
+      }
 
       & > p {
         position: absolute;

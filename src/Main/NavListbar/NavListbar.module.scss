@@ -12,6 +12,7 @@
 
   & > li {
     padding-top: get-vw(10px);
+    line-height: get-vw(22px);
 
     & > .a {
       color: #9ca6db;
@@ -19,7 +20,6 @@
       line-height: get-vw(22px);
       text-decoration: none;
       position: relative;
-      // padding-right: 64px;
     }
     & > a.active {
       color: #5f6caf;
