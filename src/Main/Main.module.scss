@@ -4,33 +4,34 @@
 
 .Main {
   margin: 0 auto;
-  max-width: 1150px;
+  max-width: get-vw(1150px);
   display: flex;
   padding-top: 60px;
   width: 100%;
- 
+
   .sidebar {
     // section1
     border-right: 2px solid #edf7fa;
-    margin-right: 64px;
-    padding-right: 24px;
+    margin-right: get-vw(64px);
+    padding-right: get-vw(24px);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    position: relative;
 
     .sidebar__header {
       display: flex;
-      padding-bottom: 65px;
+      padding-bottom: get-vw(65px);
       color: #b8b8b8;
 
       & > img {
-        height: 55px;
-        width: 48px;
-        padding-right: 24px;
+        height: get-vw(55px);
+        width: get-vw(48px);
+        padding-right: get-vw(24px);
       }
       .sidebar__header_name {
         font-weight: bold;
-        font-size: 24px;
+        font-size: get-vw(24px);
         //font-family: Montserrat;
       }
     }
@@ -41,19 +42,17 @@
       font-family: "Montserrat-regular";
       font-style: normal;
       font-weight: normal;
-      font-size: 18px;
+      font-size: get-vw(18px);
       justify-content: flex-end;
 
       & > img {
-        padding-left: 16px;
+        padding-left: get-vw(16px);
       }
     }
-
-    .sidebar__navAndLogout {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 67vh;
+    .circle_btn__logout {
+      position: absolute;
+      bottom: 0px;
+      right: get-vw(24px);
     }
   }
 
@@ -63,7 +62,7 @@
     .interface__header {
       display: flex;
       justify-content: space-between;
-      padding-bottom: 16px;
+      padding-bottom: get-vw(16px);
 
       & > h1 {
         font-weight: 500;
@@ -83,7 +82,7 @@
           cursor: pointer;
 
           &:first-child {
-            margin-right: 45px;
+            margin-right: get-vw(45px);
           }
 
           .icon_pencil {
@@ -96,13 +95,14 @@
       }
     }
     .interface__content {
-      height: get-vw(500px);
-      width: get-vw(500px);
+      height: get-vw(712px);
+      width: get-vw(834px);
       color: #d2d2d2;
       background-color: #eeeeee;
       text-align: center;
       font-weight: bold;
-      // font-size: get-vw(48px);
+      font-size: get-vw(48px);
+      // font-size: 2.526vw;
       position: relative;
 
       & > p {

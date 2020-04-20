@@ -1,20 +1,22 @@
 @import "../../scss/fonts.scss";
+@import "../../scss/mixins.scss";
+@import "../../scss/variables.scss";
 
 .NavListBar_ul {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   font-family: "Montserrat-regular";
-  margin-right: 64px;
-  padding-top: 33px;
+  margin-right: get-vw(64px);
+  padding-top: get-vw(33px);
 
   & > li {
-    padding-top: 10px;
+    padding-top: get-vw(10px);
 
     & > .a {
       color: #9ca6db;
-      font-size: 18px;
-      line-height: 22px;
+      font-size: get-vw(18px);
+      line-height: get-vw(22px);
       text-decoration: none;
       position: relative;
       // padding-right: 64px;
@@ -24,12 +26,13 @@
 
       &:after {
         content: "";
-        width: 10px;
-        height: 10px;
+        width: get-vw(10px);
+        height: get-vw(10px);
         border-radius: 100px;
         background: #5f6caf;
+        line-height: get-vw(22px);
         position: absolute;
-        right: -23px;
+        right: get-vw(-33px);
         top: 50%;
         transform: translate(0, -50%);
       }

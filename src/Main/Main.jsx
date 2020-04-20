@@ -22,14 +22,12 @@ const Main = () => {
         </NavLink>
 
 
-        <div className={style.sidebar__navAndLogout}>
           <NavListbar />
 
-          <NavLink className={style.circle_btn} to="/login">
+          <NavLink className={style.circle_btn + ' ' + style.circle_btn__logout} to="/login">
             <p>Logout</p>
             <img src={arrow} alt="Logout" />
           </NavLink>
-        </div>
       </section>
 
       <section className={style.interface}>

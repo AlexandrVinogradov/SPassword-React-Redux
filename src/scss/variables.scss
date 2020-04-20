@@ -1,18 +1,18 @@
-$vw-viewport: 1900;
+$vw-viewport19000: 1900;
 $vw-enable: true;
 @function get-vw($font) {
   @if $vw-enable {
-    $vw-context: $vw-viewport * 0.01 * 1px;
+    $vw-context: $vw-viewport19000 * 0.01 * 1px;
     @return $font / $vw-context * 1vw;
   }
 @return $font;
 }
 
-$vw-viewport: 1230;
+$vw-viewport1230: 1230;
 $vw-enable: true;
 @function get-vw1230($font) {
   @if $vw-enable {
-    $vw-context: $vw-viewport * 0.01 * 1px;
+    $vw-context: $vw-viewport1230 * 0.01 * 1px;
     @return $font / $vw-context * 1vw;
   }
 @return $font;
