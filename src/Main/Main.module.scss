@@ -33,6 +33,7 @@
       display: flex;
       padding-bottom: get-vw(65px);
       color: #b8b8b8;
+      align-items: center;
 
       & > img {
         height: get-vw(55px);
@@ -67,94 +68,5 @@
     }
   }
 
-  .interface {
-    //section2
-    @include min-width(320px) {
-      width: 100%;
-    }
-    @include min-width(768px) {
-      width: auto;
-    }
 
-    .interface__header {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: get-vw(16px);
-
-      & > h1 {
-        @include min-width(320px) {
-          font-size: 24px;
-          line-height: 29px;
-          font-weight: 500;
-          text-transform: none;
-          color: #4e4e4e;
-        }
-        @include min-width(768px) {
-          font-size: get-vw(36px);
-          line-height: get-vw(44px);
-        }
-      }
-
-      .interface__header_btns {
-        display: flex;
-
-        .interface__header_btn {
-          padding: 0;
-          margin: 0;
-          border: none;
-          display: inline-flex;
-          background-color: inherit;
-          cursor: pointer;
-
-          &:first-child {
-            margin-right: get-vw(45px);
-          }
-
-          .icon_pencil {
-            width: get-vw(24px);
-            fill: red;
-            &:hover {
-              fill: red;
-            }
-          }
-          .icon_bucket {
-            width: get-vw(18px);
-          }
-        }
-      }
-    }
-    .interface__content {
-      @include min-width(320px) {
-        height: 451px;
-        width: 100%;
-        color: #d2d2d2;
-        background-color: #eeeeee;
-        text-align: center;
-        font-weight: bold;
-        font-size: get-vw(48px);
-        position: relative;
-      }
-      @include min-width(768px) {
-        height: get-vw(712px);
-        width: get-vw(834px);
-      }
-
-      & > p {
-        @include min-width(320px) {
-          font-size: 36px;
-          line-height: 44px;
-
-          position: absolute;
-          top: 45%;
-          left: 50%;
-          margin-right: -50%;
-          transform: translate(-50%, -50%);
-        }
-        @include min-width(768px) {
-          font-size: get-vw(48px);
-          line-height: get-vw(59px);
-        }
-      }
-    }
-  }
 }

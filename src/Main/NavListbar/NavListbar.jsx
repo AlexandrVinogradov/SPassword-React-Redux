@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import style from './NavListbar.module.scss'
+import style from './NavListBar.module.scss'
 
-const NavListbar = () => {
+const NavListBar = () => {
   return (
     <nav>
       <ul className={style.NavListBar_ul}>
@@ -36,4 +36,4 @@ const NavListbar = () => {
   )
 }
 
-export default NavListbar
+export default NavListBar
