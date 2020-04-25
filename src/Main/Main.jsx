@@ -18,7 +18,10 @@ class Main extends React.Component {
     this.setState({ showModal: true })
   }
 
-  handleCloseModal = () => {
+  handleCloseModal = (event) => {
+    console.log(event.target.classList.contains('addGroup__popup_container__31n-c')); 
+    // console.log(event.target.classList); 
+    // if (event.target.classList.contains('addGroup__popup_content') )
     this.setState({ showModal: false })
   }
 
@@ -27,24 +30,26 @@ class Main extends React.Component {
 
     return (
       <main className={style.Main}>
+
+        {showModal ? (
+        <div onClick={this.handleCloseModal} className={style.addGroup__popup_container} isOpen={showModal}>
+          <button type="button" onClick={this.handleCloseModal}>
+            close
+          </button>
+          <div id="popup" className={style.addGroup__popup_content}>
+            <input  />
+            <button type="button">
+              <SVGIcon className={style.checkMark_btn__icon} name="checkMark" fill={'#FFFFFF'} />
+            </button>
+          </div>
+        </div>
+        ) : null}
+
         <section className={style.sidebar}>
           <div className={style.sidebar__header}>
             <img src={shield} alt="SPassword logo" />
             <p className={style.sidebar__header_name}>SPassword</p>
           </div>
-
-          {showModal ? (
-            <div isOpen={showModal} contentLabel="Minimal Modal Example">
-              <button type="button" onClick={this.handleCloseModal}>
-                close
-              </button>
-            </div>
-          ) : null}
-
-          {/* <NavLink onClick={this.handleOpenModal} className={style.circle_btn} to="/login">
-            <p>Add group</p>
-            <SVGIcon className={style.circle_btn__icon} name="addGroup" fill={'#FFB677'} />
-          </NavLink> */}
 
           <button type="button" onClick={this.handleOpenModal} className={style.circle_btn}>
             <p>Add group</p>

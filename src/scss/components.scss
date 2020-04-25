@@ -1,0 +1,29 @@
+input {
+  @include min-width(320px) {
+    font-family: "Montserrat-regular";
+    border: 1px solid #5f6caf;
+    box-sizing: border-box;
+    box-shadow: 0px 6px 10px rgba(123, 123, 123, 0.25);
+    border-radius: 4px;
+    color: #5f6caf;
+    height: 60px;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 25px;
+  }
+  @include min-width(768px) {
+    height: get-vw1230(60px);
+    font-size: get-vw1230(18px);
+    line-height: get-vw1230(22px);
+    padding: get-vw1230(25px);
+  }
+  @include min-width(1230px) {
+    font-size: 18px;
+    line-height: 22px;
+    padding: 25px;
+    height: 60px;
+  }
+  &::placeholder {
+    color: #5f6caf;
+  }
+}
