@@ -61,9 +61,12 @@
       justify-content: flex-end;
 
       .circle_btn__icon {
-        fill: #ffb677;
         width: get-vw(24px);
         padding-left: get-vw(16px);
+
+        & path {
+          fill: #ffb677;
+        }
       }
     }
     .circle_btn__logout {
@@ -73,7 +76,7 @@
     }
   }
 
-  // need encapsulation 
+  // need encapsulation
   .addGroup__popup_container {
     width: 100%;
     height: 100%;
@@ -112,6 +115,10 @@
       .checkMark_btn__icon {
         width: 24px;
         height: 17.6px;
+
+        & path {
+          fill: #FFFF;
+        }
       }
     }
   }

@@ -18,11 +18,10 @@ class Main extends React.Component {
     this.setState({ showModal: true })
   }
 
-  handleCloseModal = (event) => {
-    console.log(event.target.classList.contains('addGroup__popup_container__31n-c')); 
-    // console.log(event.target.classList); 
-    // if (event.target.classList.contains('addGroup__popup_content') )
-    this.setState({ showModal: false })
+  handleCloseModal = event => {
+    if (event.target.id === 'modal') {
+      this.setState({ showModal: false })
+    }
   }
 
   render() {
@@ -30,19 +29,23 @@ class Main extends React.Component {
 
     return (
       <main className={style.Main}>
-
         {showModal ? (
-        <div onClick={this.handleCloseModal} className={style.addGroup__popup_container} isOpen={showModal}>
-          <button type="button" onClick={this.handleCloseModal}>
-            close
-          </button>
-          <div id="popup" className={style.addGroup__popup_content}>
-            <input  />
-            <button type="button">
-              <SVGIcon className={style.checkMark_btn__icon} name="checkMark" fill={'#FFFFFF'} />
-            </button>
+          <div
+            onKeyDown={this.handleClick} // resolve question
+            tabIndex={0}
+            role="button"
+            id="modal"
+            onClick={this.handleCloseModal}
+            className={style.addGroup__popup_container}
+            isOpen={showModal}
+          >
+            <div id="popup" className={style.addGroup__popup_content}>
+              <input />
+              <button type="button">
+                <SVGIcon className={style.checkMark_btn__icon} name="checkMark" />
+              </button>
+            </div>
           </div>
-        </div>
         ) : null}
 
         <section className={style.sidebar}>
@@ -53,14 +56,14 @@ class Main extends React.Component {
 
           <button type="button" onClick={this.handleOpenModal} className={style.circle_btn}>
             <p>Add group</p>
-            <SVGIcon className={style.circle_btn__icon} name="addGroup" fill={'#FFB677'} />
+            <SVGIcon className={style.circle_btn__icon} name="addGroup" />
           </button>
 
           <NavListBar />
 
           <NavLink className={`${style.circle_btn} ${style.circle_btn__logout}`} to="/login">
             <p>Logout</p>
-            <SVGIcon className={style.circle_btn__icon} name="logout" fill={'#FFB677'} />
+            <SVGIcon className={style.circle_btn__icon} name="logout" />
           </NavLink>
         </section>
 
