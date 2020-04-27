@@ -1,7 +1,7 @@
-@import "../scss/fonts.scss";
-@import "../scss/variables.scss";
-@import "../scss/mixins.scss";
-@import "../scss/components.scss";
+@import "../../scss/fonts.scss";
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+@import "../../scss/components.scss";
 
 .Login {
   @include min-width(320px) {

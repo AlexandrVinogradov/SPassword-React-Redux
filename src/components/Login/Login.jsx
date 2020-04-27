@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import style from './Login.module.scss'
-import shield from '../img/shield.png'
+import shield from '../../img/shield.png'
 
 const Login = () => {
   return (

@@ -1,10 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import style from './Main.module.scss'
-import shield from '../img/shield.png'
+import shield from '../../img/shield.png'
 import NavListBar from './NavListBar/NavListBar'
-import SVGIcon from '../SVGIcons'
-import Interface from './interface/interface'
+import SVGIcon from '../../SVGIcons'
+import Interface from './Interface/Interface'
 
 class Main extends React.Component {
   constructor() {
@@ -26,12 +26,11 @@ class Main extends React.Component {
 
   render() {
     const { showModal } = this.state
-
     return (
       <main className={style.Main}>
         {showModal ? (
           <div
-            onKeyDown={this.handleClick} // resolve question
+            onKeyDown={this.handleClick} // resolve the question
             tabIndex={0}
             role="button"
             id="modal"
@@ -59,7 +58,7 @@ class Main extends React.Component {
             <SVGIcon className={style.circle_btn__icon} name="addGroup" />
           </button>
 
-          <NavListBar />
+          <NavListBar groups={this.props.groups} />
 
           <NavLink className={`${style.circle_btn} ${style.circle_btn__logout}`} to="/login">
             <p>Logout</p>

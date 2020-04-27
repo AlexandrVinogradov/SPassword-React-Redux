@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './Interface.module.scss'
-import shield from '../../img/shield.png'
-import SVGIcon from '../../SVGIcons'
+import shield from '../../../img/shield.png'
+import SVGIcon from '../../../SVGIcons'
 
 const Interface = () => {
   return (
