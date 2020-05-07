@@ -6,6 +6,9 @@ import NavListBar from './NavListBar/NavListBar'
 import SVGIcon from '../../SVGIcons'
 import Interface from './Interface/Interface'
 
+import { Input } from '../common/FormsControls/FormControls';
+
+
 class Main extends React.Component {
   constructor() {
     super()
@@ -25,12 +28,13 @@ class Main extends React.Component {
     }
   }
 
-  onAddGroup = (props) => {
-    this.props.addGroup('123')
-  }
-
   render() {
     const { showModal } = this.state
+
+    // redux-form
+    const groupElement = props.group.map((g) => (
+      <GroupElement id={g.id} key={g.id} text={g.group} />
+    ));
 
     return (
       <main className={style.Main}>
@@ -46,7 +50,7 @@ class Main extends React.Component {
           >
             <div id="popup" className={style.addGroup__popup_content}>
               <input />
-              <button type="button" onClick={this.onAddGroup}>
+              <button type="button">
                 <SVGIcon className={style.checkMark_btn__icon} name="checkMark" />
               </button>
             </div>
@@ -76,6 +80,14 @@ class Main extends React.Component {
       </main>
     )
   }
+}
+
+const GroupElement = props => {
+  return (
+    <div>
+      <li>{props.groups}</li>
+    </div>
+  );
 }
 
 export default Main
