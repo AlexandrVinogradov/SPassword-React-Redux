@@ -19,13 +19,19 @@ class Main extends React.Component {
   }
 
   handleCloseModal = event => {
+    console.log(event.target);
     if (event.target.id === 'modal') {
       this.setState({ showModal: false })
     }
   }
 
+  onAddGroup = (props) => {
+    this.props.addGroup('123')
+  }
+
   render() {
     const { showModal } = this.state
+
     return (
       <main className={style.Main}>
         {showModal ? (
@@ -40,7 +46,7 @@ class Main extends React.Component {
           >
             <div id="popup" className={style.addGroup__popup_content}>
               <input />
-              <button type="button">
+              <button type="button" onClick={this.onAddGroup}>
                 <SVGIcon className={style.checkMark_btn__icon} name="checkMark" />
               </button>
             </div>
