@@ -1,4 +1,5 @@
 import React from 'react'
+import { Field, reduxForm } from 'redux-form'
 import { NavLink } from 'react-router-dom'
 import style from './Main.module.scss'
 import shield from '../../img/shield.png'
@@ -6,8 +7,7 @@ import NavListBar from './NavListBar/NavListBar'
 import SVGIcon from '../../SVGIcons'
 import Interface from './Interface/Interface'
 
-import { Input } from '../common/FormsControls/FormControls';
-
+import { Input } from '../common/FormsControls/FormControls'
 
 class Main extends React.Component {
   constructor() {
@@ -22,19 +22,21 @@ class Main extends React.Component {
   }
 
   handleCloseModal = event => {
-    console.log(event.target);
     if (event.target.id === 'modal') {
       this.setState({ showModal: false })
     }
+  }
+
+  onAddGroup = value => {
+    this.props.addGroup(value.customInput)
+    console.log(value.customInput);
   }
 
   render() {
     const { showModal } = this.state
 
     // redux-form
-    const groupElement = props.group.map((g) => (
-      <GroupElement id={g.id} key={g.id} text={g.group} />
-    ));
+    const groupElement = this.props.groups.map(g => <GroupElement id={g.id} key={g.id} groups={g.groups} />)
 
     return (
       <main className={style.Main}>
@@ -48,6 +50,8 @@ class Main extends React.Component {
             className={style.addGroup__popup_container}
             isOpen={showModal}
           >
+            <GroupReduxForm onSubmit={this.onAddGroup} group={this.props.groups} />
+
             <div id="popup" className={style.addGroup__popup_content}>
               <input />
               <button type="button">
@@ -82,12 +86,25 @@ class Main extends React.Component {
   }
 }
 
+export default Main
+
 const GroupElement = props => {
   return (
     <div>
       <li>{props.groups}</li>
     </div>
-  );
+  )
 }
 
-export default Main
+const GroupForm = props => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <div>
+        <Field component={Input} name="customInput" />
+        <button>add</button>
+      </div>
+    </form>
+  )
+}
+
+const GroupReduxForm = reduxForm({ form: 'my redux form' })(GroupForm)

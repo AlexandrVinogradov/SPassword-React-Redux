@@ -15,7 +15,7 @@ const mainReducer = (state = initialState, action) => {
     case ADD_GROUP:
       return {
         ...state,
-        groups: [...state.groups, { id: 6, name: action.type, login: null, password: null }],
+        groups: [...state.groups, { id: 6, name: action.name, login: null, password: null }],
       }
     default:
       return state
