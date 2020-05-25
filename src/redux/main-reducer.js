@@ -25,3 +25,4 @@ const mainReducer = (state = initialState, action) => {
 export default mainReducer
 
 export const addGroup = name => ({ type: ADD_GROUP, name })
+ 

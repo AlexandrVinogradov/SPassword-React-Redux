@@ -1,13 +1,11 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
 import { NavLink } from 'react-router-dom'
 import style from './Main.module.scss'
 import shield from '../../img/shield.png'
 import NavListBar from './NavListBar/NavListBar'
 import SVGIcon from '../../SVGIcons'
 import Interface from './Interface/Interface'
-
-import { Input } from '../common/FormsControls/FormControls'
+import ModalAdd from './ModalAdd/ModalAdd'
 
 class Main extends React.Component {
   constructor() {
@@ -28,37 +26,26 @@ class Main extends React.Component {
   }
 
   onAddGroup = value => {
-    this.props.addGroup(value.customInput)
-    console.log(value.customInput);
+    const { addGroup } = this.props
+    addGroup(value.customInput)
   }
 
   render() {
     const { showModal } = this.state
+    const { groups } = this.props
 
     // redux-form
-    const groupElement = this.props.groups.map(g => <GroupElement id={g.id} key={g.id} groups={g.groups} />)
+    const groupElement = groups.map(g => <GroupElement id={g.id} key={g.id} groups={g.groups} />)
 
     return (
       <main className={style.Main}>
         {showModal ? (
-          <div
-            onKeyDown={this.handleClick} // resolve the question
-            tabIndex={0}
-            role="button"
-            id="modal"
-            onClick={this.handleCloseModal}
-            className={style.addGroup__popup_container}
-            isOpen={showModal}
-          >
-            <GroupReduxForm onSubmit={this.onAddGroup} group={this.props.groups} />
-
-            <div id="popup" className={style.addGroup__popup_content}>
-              <input />
-              <button type="button">
-                <SVGIcon className={style.checkMark_btn__icon} name="checkMark" />
-              </button>
-            </div>
-          </div>
+          <ModalAdd
+            showModal={showModal}
+            handleCloseModal={this.handleCloseModal}
+            onAddGroup={this.onAddGroup}
+            groups={groups}
+          />
         ) : null}
 
         <section className={style.sidebar}>
@@ -72,7 +59,7 @@ class Main extends React.Component {
             <SVGIcon className={style.circle_btn__icon} name="addGroup" />
           </button>
 
-          <NavListBar groups={this.props.groups} />
+          <NavListBar groups={groups} />
 
           <NavLink className={`${style.circle_btn} ${style.circle_btn__logout}`} to="/login">
             <p>Logout</p>
@@ -89,22 +76,10 @@ class Main extends React.Component {
 export default Main
 
 const GroupElement = props => {
+  const { groups } = props
   return (
     <div>
-      <li>{props.groups}</li>
+      <li>{groups}</li>
     </div>
   )
 }
-
-const GroupForm = props => {
-  return (
-    <form onSubmit={props.handleSubmit}>
-      <div>
-        <Field component={Input} name="customInput" />
-        <button>add</button>
-      </div>
-    </form>
-  )
-}
-
-const GroupReduxForm = reduxForm({ form: 'my redux form' })(GroupForm)
