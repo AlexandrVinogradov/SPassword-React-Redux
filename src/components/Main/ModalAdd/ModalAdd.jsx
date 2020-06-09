@@ -7,7 +7,7 @@ import style from './ModalAdd.module.scss'
 
 const ModalAdd = props => {
   const { handleClick, handleCloseModal, showModal, groups, onAddGroup } = props
-  console.log(props);
+
   return (
     <div
       onKeyDown={handleClick} // resolve the question

@@ -28,6 +28,7 @@ class Main extends React.Component {
   onAddGroup = value => {
     const { addGroup } = this.props
     addGroup(value.customInput)
+    this.state.showModal = false
   }
 
   render() {
