@@ -11,7 +11,7 @@
     width: auto;
   }
   
-  .interface__header_mobile {
+  .header_mobile {
     @include min-width(768px) {
       display: none;
     }
@@ -41,7 +41,7 @@
     }
   }
 
-  .interface__header {
+  .header {
     @include min-width(320px) {
       display: flex;
       justify-content: space-between;
@@ -65,7 +65,7 @@
       }
     }
 
-    .interface__header_btns {
+    .edit_btns {
       @include min-width(320px) {
         display: flex;
         display: none;
@@ -74,7 +74,7 @@
         display: block;
       }
     }
-    .interface__header_btn {
+    .btn {
       padding: 0;
       margin: 0;
       border: none;
@@ -107,7 +107,7 @@
       }
     }
   }
-  .interface__content {
+  .content {
     @include min-width(320px) {
       height: 451px;
       width: 100%;

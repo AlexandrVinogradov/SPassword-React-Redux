@@ -31,7 +31,7 @@
       position: relative;
     }
 
-    .sidebar__header {
+    .header {
       display: flex;
       padding-bottom: get-vw(65px);
       color: #b8b8b8;
@@ -42,7 +42,7 @@
         width: get-vw(48px);
         padding-right: get-vw(24px);
       }
-      .sidebar__header_name {
+      .header_name {
         font-weight: bold;
         font-size: get-vw(24px);
       }

@@ -7,14 +7,14 @@ const Login = () => {
   return (
     <div className={style.Login}>
 
-      <img className={style.Login__shield} src={shield} alt="shield" />
-      <span className={style.Login__title}>SPassword - Your safe</span>
+      <img className={style.shield} src={shield} alt="shield" />
+      <span className={style.title}>SPassword - Your safe</span>
 
-      <input className={style.Login__input} placeholder="Placeholder" />
-      <input className={style.Login__input} placeholder="Placeholder" />
+      <input className={style.input} placeholder="Placeholder" /> 
+      <input className={style.input} placeholder="Placeholder" />
 
-      <NavLink to="/main" className={style.Login__btn_link}>
-        <button className={style.Login__btn} type="button">
+      <NavLink to="/main" className={style.btn_link}>
+        <button className={style.btn} type="button">
           Login
         </button>
       </NavLink>

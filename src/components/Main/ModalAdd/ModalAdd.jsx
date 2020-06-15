@@ -13,7 +13,7 @@ const ModalAdd = props => {
       onKeyDown={handleClick} // resolve the question
       tabIndex={0}
       role="button"
-      id="modal"
+      id="modal" 
       onClick={handleCloseModal}
       className={style.addGroup__popup_container}
       isOpen={showModal}
@@ -28,7 +28,7 @@ const GroupForm = props => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <div id="popup" className={style.addGroup__popup_content}>
+        <div id="popup" className={style.content}>
           <Field component={Input} name="customInput" />
 
           <button type="submit">

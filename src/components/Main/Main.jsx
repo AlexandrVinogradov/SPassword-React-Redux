@@ -28,7 +28,7 @@ class Main extends React.Component {
   onAddGroup = value => {
     const { addGroup } = this.props
     addGroup(value.customInput)
-    this.state.showModal = false
+    this.state.showModal = false 
   }
 
   render() {
@@ -50,9 +50,9 @@ class Main extends React.Component {
         ) : null}
 
         <section className={style.sidebar}>
-          <div className={style.sidebar__header}>
+          <div className={style.header}>
             <img src={shield} alt="SPassword logo" />
-            <p className={style.sidebar__header_name}>SPassword</p>
+            <p className={style.header_name}>SPassword</p>
           </div>
 
           <button type="button" onClick={this.handleOpenModal} className={style.circle_btn}>

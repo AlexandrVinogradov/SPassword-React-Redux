@@ -12,7 +12,7 @@ const NavListBar = props => {
     </nav>
   )
 }
- 
+  
 const Group = props => {
   return (
     <li>

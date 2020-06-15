@@ -20,7 +20,7 @@
     max-width: 390px;
     padding-top: 100px;
   }
-  &__shield {
+  .shield {
     @include min-width(320px) {
       width: 128px;
       height: 147.2px;
@@ -35,7 +35,7 @@
       height: 230px;
     }
   }
-  &__title {
+  .title {
     @include min-width(320px) {
       margin: 0 auto;
       padding: 16.8px 0px 46px;
@@ -55,7 +55,7 @@
       padding: 24px 0px 64px;
     }
   }
-  &__input {
+  .input {
     @include min-width(320px) {
       margin-bottom: 20px;
     }
@@ -69,7 +69,7 @@
       color: #5f6caf;
     }
   }
-  &__btn_link {
+  .btn_link {
     @include min-width(320px) {
       max-width: 190px;
       align-self: center;
@@ -82,7 +82,7 @@
       max-width: 190px;
     }
 
-    .Login__btn {
+    .btn {
       @include min-width(320px) {
         background: #ff8364;
         border-radius: 4px;
