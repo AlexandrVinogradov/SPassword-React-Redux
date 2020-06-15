@@ -33,7 +33,7 @@ class Main extends React.Component {
 
   render() {
     const { showModal } = this.state
-    const { groups } = this.props
+    const { groups, selectGroup} = this.props
 
     // redux-form
     const groupElement = groups.map(g => <GroupElement id={g.id} key={g.id} groups={g.groups} />)
@@ -60,7 +60,7 @@ class Main extends React.Component {
             <SVGIcon className={style.circle_btn__icon} name="addGroup" />
           </button>
 
-          <NavListBar groups={groups} />
+          <NavListBar groups={groups} selectGroup={selectGroup} />
 
           <NavLink className={`${style.circle_btn} ${style.circle_btn__logout}`} to="/login">
             <p>Logout</p>
@@ -68,7 +68,7 @@ class Main extends React.Component {
           </NavLink>
         </section>
 
-        <Interface />
+        <Interface groups={groups} />
       </main>
     )
   }

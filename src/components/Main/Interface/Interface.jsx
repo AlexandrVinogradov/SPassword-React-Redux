@@ -3,8 +3,12 @@ import style from './Interface.module.scss'
 import shield from '../../../img/shield.png'
 import SVGIcon from '../../../SVGIcons'
 
-const Interface = () => {
-  return ( 
+
+const Interface = props => {
+
+  let title = props.groups.find(i => i.isSelected === true).name
+
+  return (
     <section className={style.interface}>
       <div className={style.header_mobile}>
         <SVGIcon className={style.icon_rectangles} name="rectangles" fill={'#FF8364'} />
@@ -15,7 +19,7 @@ const Interface = () => {
       </div>
 
       <div className={style.header}>
-        <h1>GitHub</h1>
+        <h1>{title}</h1>
 
         <button type="button" className={style.btn}>
           <SVGIcon className={style.icon_dots} name="dots" fill={'#5F6CAF'} />

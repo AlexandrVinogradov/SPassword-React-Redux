@@ -13,4 +13,4 @@ const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMid
 
 export default store
 
-// window.__store__ = store;
+window.__store__ = store;

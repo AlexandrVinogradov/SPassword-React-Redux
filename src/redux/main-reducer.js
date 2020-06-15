@@ -1,4 +1,5 @@
 const ADD_GROUP = 'spassword/main/ADD_GROUP'
+const SELECT_GROUP = 'spassword/main/SELECT_GROUP'
 
 const initialState = {
   groups: [
@@ -17,6 +18,15 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         groups: [...state.groups, { id: 6, name: action.name, login: null, password: null }],
       }
+    case SELECT_GROUP:
+      return {
+        ...state,
+        // groups.find(i => {
+
+        // })
+
+        // groups: true,
+      }
     default:
       return state
   }
@@ -25,4 +35,4 @@ const mainReducer = (state = initialState, action) => {
 export default mainReducer
 
 export const addGroup = name => ({ type: ADD_GROUP, name })
- 
+export const selectGroup = isSelected => ({ type: SELECT_GROUP, isSelected })
