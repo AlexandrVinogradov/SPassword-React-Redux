@@ -7,8 +7,9 @@ import store from './redux/store'
 import MainContainer from './components/Main/MainContainer'
 
 // Interface remove fill to scss
+// taking variable of path in navBar - worst?
 
-const App = () => {
+const App = props => {
   return (
     <div className={style.App}>
       <BrowserRouter>

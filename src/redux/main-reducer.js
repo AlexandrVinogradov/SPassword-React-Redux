@@ -3,12 +3,14 @@ const SELECT_GROUP = 'spassword/main/SELECT_GROUP'
 
 const initialState = {
   groups: [
-    { id: 1, name: 'Vk', login: null, password: null, isSelected: true },
-    { id: 2, name: 'Github', login: null, password: null, isSelected: false },
-    { id: 3, name: 'Facebook', login: null, password: null, isSelected: false },
-    { id: 4, name: 'Steam', login: null, password: null, isSelected: false },
-    { id: 5, name: 'La2 Accounts', login: null, password: null, isSelected: false },
+    { id: 0, name: 'Vk', login: null, password: null },
+    { id: 1, name: 'Github', login: null, password: null },
+    { id: 2, name: 'Facebook', login: null, password: null },
+    { id: 3, name: 'Steam', login: null, password: null },
+    { id: 4, name: 'La2 Accounts', login: null, password: null },
+    { id: 5, name: 'La2 Accounts123', login: null, password: null },
   ],
+  idOfSelectedGroup: 0,
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -21,11 +23,7 @@ const mainReducer = (state = initialState, action) => {
     case SELECT_GROUP:
       return {
         ...state,
-        // groups.find(i => {
-
-        // })
-
-        // groups: true,
+        idOfSelectedGroup: action.idOfSelectedGroup,
       }
     default:
       return state
@@ -35,4 +33,4 @@ const mainReducer = (state = initialState, action) => {
 export default mainReducer
 
 export const addGroup = name => ({ type: ADD_GROUP, name })
-export const selectGroup = isSelected => ({ type: SELECT_GROUP, isSelected })
+export const selectGroup = idOfSelectedGroup => ({ type: SELECT_GROUP, idOfSelectedGroup })

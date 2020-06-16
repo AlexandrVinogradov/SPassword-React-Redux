@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import style from './Main.module.scss'
 import shield from '../../img/shield.png'
 import NavListBar from './NavListBar/NavListBar'
@@ -28,12 +28,14 @@ class Main extends React.Component {
   onAddGroup = value => {
     const { addGroup } = this.props
     addGroup(value.customInput)
-    this.state.showModal = false 
+    this.state.showModal = false
   }
 
+
   render() {
+
     const { showModal } = this.state
-    const { groups, selectGroup} = this.props
+    const { groups, selectGroup, idOfSelectedGroup } = this.props
 
     // redux-form
     const groupElement = groups.map(g => <GroupElement id={g.id} key={g.id} groups={g.groups} />)
@@ -60,7 +62,7 @@ class Main extends React.Component {
             <SVGIcon className={style.circle_btn__icon} name="addGroup" />
           </button>
 
-          <NavListBar groups={groups} selectGroup={selectGroup} />
+          <NavListBar groups={groups} selectGroup={selectGroup} idOfSelectedGroup={idOfSelectedGroup} />
 
           <NavLink className={`${style.circle_btn} ${style.circle_btn__logout}`} to="/login">
             <p>Logout</p>
@@ -68,7 +70,7 @@ class Main extends React.Component {
           </NavLink>
         </section>
 
-        <Interface groups={groups} />
+        <Interface groups={groups} idOfSelectedGroup={idOfSelectedGroup} />
       </main>
     )
   }

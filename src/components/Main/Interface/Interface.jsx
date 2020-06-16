@@ -3,10 +3,13 @@ import style from './Interface.module.scss'
 import shield from '../../../img/shield.png'
 import SVGIcon from '../../../SVGIcons'
 
-
 const Interface = props => {
+  let title
 
-  let title = props.groups.find(i => i.isSelected === true).name
+  if (props.idOfSelectedGroup != undefined) {
+    title = props.groups[props.idOfSelectedGroup].name
+  }
+  
 
   return (
     <section className={style.interface}>
@@ -19,7 +22,7 @@ const Interface = props => {
       </div>
 
       <div className={style.header}>
-        <h1>{title}</h1>
+        <h1>{title ? title : null}</h1>
 
         <button type="button" className={style.btn}>
           <SVGIcon className={style.icon_dots} name="dots" fill={'#5F6CAF'} />
