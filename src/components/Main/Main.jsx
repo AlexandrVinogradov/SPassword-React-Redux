@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import style from './Main.module.scss'
 import shield from '../../img/shield.png'
 import NavListBar from './NavListBar/NavListBar'
@@ -31,14 +31,9 @@ class Main extends React.Component {
     this.state.showModal = false
   }
 
-
   render() {
-
     const { showModal } = this.state
     const { groups, selectGroup, idOfSelectedGroup } = this.props
-
-    // redux-form
-    const groupElement = groups.map(g => <GroupElement id={g.id} key={g.id} groups={g.groups} />)
 
     return (
       <main className={style.Main}>
@@ -77,12 +72,3 @@ class Main extends React.Component {
 }
 
 export default Main
-
-const GroupElement = props => {
-  const { groups } = props
-  return (
-    <div>
-      <li>{groups}</li>
-    </div>
-  )
-}

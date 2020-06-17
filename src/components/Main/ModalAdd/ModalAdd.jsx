@@ -13,7 +13,7 @@ const ModalAdd = props => {
       onKeyDown={handleClick} // resolve the question
       tabIndex={0}
       role="button"
-      id="modal" 
+      id="modal"
       onClick={handleCloseModal}
       className={style.addGroup__popup_container}
       isOpen={showModal}

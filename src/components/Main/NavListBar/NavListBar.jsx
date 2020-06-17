@@ -3,13 +3,12 @@ import { NavLink, useLocation } from 'react-router-dom'
 import style from './NavListBar.module.scss'
 
 const NavListBar = props => {
+  const { groups } = props
 
-  let location = useLocation()
-  let selectedGroup = props.groups.find(i => i.name === location.pathname.slice(6))
+  const location = useLocation()
+  const selectedGroup = groups.find(i => i.name === location.pathname.slice(6))
 
-
-  // selectedGroup ? selectedGroup : 0
-  let selectedGroupNew 
+  let selectedGroupNew
 
   if (selectedGroup) {
     selectedGroupNew = selectedGroup
@@ -17,14 +16,12 @@ const NavListBar = props => {
     selectedGroupNew = 0
   }
 
-
   const findSelectedGroup = () => {
     props.selectGroup(selectedGroupNew.id)
   }
   findSelectedGroup()
 
-
-  const groups = props.groups.map(g => (
+  const groupElement = groups.map(g => (
     <Group
       selectGroup={props.selectGroup}
       idOfSelectedGroup={props.idOfSelectedGroup}
@@ -37,21 +34,17 @@ const NavListBar = props => {
 
   return (
     <nav>
-      <ul className={style.NavListBar_ul}>{groups}</ul>
+      <ul className={style.NavListBar_ul}>{groupElement}</ul>
     </nav>
   )
 }
 
 const Group = props => {
-  // const selectNewGroup = () => {
-  //   props.selectGroup(true, props.id)
-  //   console.log(props)
-  // }
-
+  const { name } = props
   return (
     <li>
-      <NavLink to={'/main/' + props.name} activeClassName={style.active} className={style.a}>
-        {props.name}
+      <NavLink to={`/main/${name}`} activeClassName={style.active} className={style.a}>
+        {name}
       </NavLink>
     </li>
   )
