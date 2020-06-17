@@ -42,7 +42,7 @@
       font-weight: bold;
       font-size: 18px;
       line-height: 22px;
-      font-family: "Montserrat-bold";
+      font-family: $mainFontBold;
     }
     @include min-width(768px) {
       padding: get-vw1230(24px) 0px get-vw1230(64px);

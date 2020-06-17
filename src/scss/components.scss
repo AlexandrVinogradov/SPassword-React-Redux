@@ -1,6 +1,6 @@
 input {
   @include min-width(320px) {
-    font-family: "Montserrat-regular";
+    font-family: $mainFont;
     border: 1px solid #5f6caf;
     box-sizing: border-box;
     box-shadow: 0px 6px 10px rgba(123, 123, 123, 0.25);

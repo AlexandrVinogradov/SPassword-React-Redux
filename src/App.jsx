@@ -9,7 +9,7 @@ import MainContainer from './components/Main/MainContainer'
 // Interface remove fill to scss
 // taking variable of path in navBar - worst?
 
-const App = props => {
+const App = () => {
   return (
     <div className={style.App}>
       <BrowserRouter>

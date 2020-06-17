@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.module.scss';
 import Spassword from './App';
 import * as serviceWorker from './serviceWorker';
 

@@ -1,3 +1,12 @@
+// @import 'scss/utils/mixins';
+// @import 'scss/utils/variables';
+// @import 'scss/utils/fonts';
+// @import 'scss/utils/components';
+
+
+// @import 'scss/utils/components';
+// @import 'utils/reset';
+
 body {
   margin: 0;
   padding: 0;
@@ -27,3 +36,16 @@ ul, li, p {
 a {
     text-decoration: none;
 }
+
+
+// Modules
+
+// components
+// @import 'components/Login/Login.module.scss';
+
+
+// @import 'components/Main/Main.module.scss';
+
+// @import 'components/Main/Interface/Interface.module.scss';
+// @import 'components/Main/NavListBar/NavListBar.module.scss';
+// @import 'components/Main/ModalAdd/ModalAdd.module.scss';

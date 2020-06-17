@@ -1,3 +1,63 @@
+/* Vars:
+   ========================================================================== */
+
+// Font
+$mainFont                : 'Montserrat-regular', Helvetica, Arial, sans-serif;
+$mainFontBold            : 'Montserrat-bold', Helvetica, Arial, sans-serif;
+ 
+// Size
+$mainFontColor           : #333333;
+$mainFontSize            : 20px;
+$mainFontWeight          : 400;
+$mainLineHeight          : 1.4;
+
+$largeDesktopWidth       : 1600px;
+$desktopWidth            : 1280px;
+$smDesktopWidth          : 1024px;
+$tableWidth              : 768px;
+$smTableWidth            : 640px;
+$phoneWidth              : 480px; 
+$smPhoneWidth            : 320px; // why
+
+$mainContainer           : 1164px; // 1170
+
+/*
+ All colors taken from:
+ https://github.com/vedees/uimini
+*/
+
+// Main color
+$default-color           : #ffffff; 
+$default-color-dark      : #000000;
+// $success-color           : #DE8348;
+// $map-color               : #FFA66B;
+// $light-color             : #E7E7E7;
+// $lighter-color           : #E6E6E6;
+// $dark-color              : #333333;
+// $title-color             : #464646;
+// $dark-background         : #9D9D9D;
+
+// $primary-color           : #444ce0;
+// $danger-color            : #fc5c65;
+// $warning-color           : #fed330;
+// $purple-color            : #8854d0;
+
+// Neutral Color
+// $neutral-primary         : #CCCCCC;
+// $neutral-regular         : #606266;
+// $neutral-secondary       : #919191;
+// $neutral-placeholder     : #C0C4CC;
+
+// Border Color
+// $border-base             : #DEDEDE;
+// $border-light            : #999999;
+// $border-lighter          : #828282;
+// $border-lighter          : #F2F6FC;
+
+/*
+   px to vw convertor
+*/
+
 $vw-viewport19000: 1900;
 $vw-enable: true;
 @function get-vw($font) {
