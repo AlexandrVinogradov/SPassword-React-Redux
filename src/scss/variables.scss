@@ -11,29 +11,26 @@ $mainFontSize            : 20px;
 $mainFontWeight          : 400;
 $mainLineHeight          : 1.4;
 
-$largeDesktopWidth       : 1600px;
-$desktopWidth            : 1280px;
-$smDesktopWidth          : 1024px;
+// $largeDesktopWidth       : 1600px;
+// $desktopWidth            : 1280px;
+// $smDesktopWidth          : 1024px;
 $tableWidth              : 768px;
-$smTableWidth            : 640px;
-$phoneWidth              : 480px; 
-$smPhoneWidth            : 320px; // why
+// $smTableWidth            : 640px;
+// $phoneWidth              : 480px; 
+$smPhoneWidth            : 320px; 
 
-$mainContainer           : 1164px; // 1170
+// $mainContainer           : 1164px; 
 
-/*
- All colors taken from:
- https://github.com/vedees/uimini
-*/
 
 // Main color
 $default-color           : #ffffff; 
 $default-color-dark      : #000000;
-// $success-color           : #DE8348;
-// $map-color               : #FFA66B;
+$success-color           : #ff8364;
+$contrast-color          : #5f6caf;
 // $light-color             : #E7E7E7;
 // $lighter-color           : #E6E6E6;
-// $dark-color              : #333333;
+$dark-color              : #4e4e4e;
+$link-color              : #9ca6db;
 // $title-color             : #464646;
 // $dark-background         : #9D9D9D;
 
@@ -49,10 +46,10 @@ $default-color-dark      : #000000;
 // $neutral-placeholder     : #C0C4CC;
 
 // Border Color
-// $border-base             : #DEDEDE;
-// $border-light            : #999999;
-// $border-lighter          : #828282;
-// $border-lighter          : #F2F6FC;
+$border-base              : #d2d2d2;
+$border-light             : #eeeeee;
+$border-lighter           : #b8b8b8;
+$border-lighter-02        : #edf7fa;
 
 /*
    px to vw convertor

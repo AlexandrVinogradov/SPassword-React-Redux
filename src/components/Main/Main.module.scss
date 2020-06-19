@@ -5,24 +5,24 @@
 // @import "../../scss/components.scss";
 
 .Main {
-  @include min-width(320px) {
+  @include min-width($smPhoneWidth) {
     margin: 0 auto;
     padding: get-vw(60px) 16px;
     display: flex;
     width: 100%;
   }
-  @include min-width(768px) {
+  @include min-width($tableWidth) {
     max-width: get-vw(1150px);
     padding: get-vw(60px) 0px;
   }
 
   // section1
   .sidebar {
-    @include min-width(320px) {
+    @include min-width($smPhoneWidth) {
       display: none;
     }
-    @include min-width(768px) {
-      border-right: 2px solid #edf7fa;
+    @include min-width($tableWidth) {
+      border-right: 2px solid $border-lighter-02;
       margin-right: get-vw(64px);
       padding-right: get-vw(24px);
       display: flex;
@@ -34,7 +34,7 @@
     .header {
       display: flex;
       padding-bottom: get-vw(65px);
-      color: #b8b8b8;
+      color: $border-lighter;
       align-items: center;
 
       & > img {
@@ -53,7 +53,7 @@
       border: none;
       cursor: pointer;
       display: flex;
-      color: #ffb677;
+      color: $success-color;
       font-family: $mainFont;
       font-style: normal;
       font-weight: normal;
@@ -65,7 +65,7 @@
         padding-left: get-vw(16px);
 
         & path {
-          fill: #ffb677;
+          fill: $success-color;
         }
       }
     }

@@ -15,21 +15,21 @@
     line-height: get-vw(22px);
 
     & > .a {
-      color: #9ca6db;
+      color: $link-color;
       font-size: get-vw(18px);
       line-height: get-vw(22px);
       text-decoration: none;
       position: relative;
     }
     & > a.active {
-      color: #5f6caf;
+      color: $contrast-color;
 
       &:after {
         content: "";
         width: get-vw(10px);
         height: get-vw(10px);
         border-radius: 100px;
-        background: #5f6caf;
+        background: $contrast-color;
         line-height: get-vw(22px);
         position: absolute;
         right: get-vw(-33px);

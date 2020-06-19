@@ -4,15 +4,15 @@
 
 .interface {
   //section2
-  @include min-width(320px) {
+  @include min-width($smPhoneWidth) {
     width: 100%;
   }
-  @include min-width(768px) {
+  @include min-width($tableWidth) {
     width: auto;
   }
   
   .header_mobile {
-    @include min-width(768px) {
+    @include min-width($tableWidth) {
       display: none;
     }
     display: flex;
@@ -31,7 +31,7 @@
         font-size: 18px;
         line-height: 22px;
         font-family: $mainFontBold;
-        color: #b8b8b8;
+        color: $border-lighter;
       }
       & > img {
         width: 31px;
@@ -42,35 +42,35 @@
   }
 
   .header {
-    @include min-width(320px) {
+    @include min-width($smPhoneWidth) {
       display: flex;
       justify-content: space-between;
       padding-bottom: 8px;
     }
-    @include min-width(768px) {
+    @include min-width($tableWidth) {
       padding-bottom: get-vw(16px);
     }
 
     & > h1 {
-      @include min-width(320px) {
+      @include min-width($smPhoneWidth) {
         font-size: 24px;
         line-height: 29px;
         font-weight: 500;
         text-transform: none;
-        color: #4e4e4e;
+        color: $dark-color;
       }
-      @include min-width(768px) {
+      @include min-width($tableWidth) {
         font-size: get-vw(36px);
         line-height: get-vw(44px);
       }
     }
 
     .edit_btns {
-      @include min-width(320px) {
+      @include min-width($smPhoneWidth) {
         display: flex;
         display: none;
       }
-      @include min-width(768px) {
+      @include min-width($tableWidth) {
         display: block;
       }
     }
@@ -88,43 +88,43 @@
 
       .icon_pencil {
         width: get-vw(24px);
-        fill: red;
-        &:hover {
-          fill: red;
-        }
+        // fill: red;
+        // &:hover {
+        //   fill: red;
+        // }
       }
       .icon_bucket {
         width: get-vw(18px);
       }
     }
     .icon_dots {
-      @include min-width(320px) {
+      @include min-width($smPhoneWidth) {
         width: 32px;
         height: 32px;
       }
-      @include min-width(768px) {
+      @include min-width($tableWidth) {
         display: none;
       }
     }
   }
   .content {
-    @include min-width(320px) {
+    @include min-width($smPhoneWidth) {
       height: 451px;
       width: 100%;
-      color: #d2d2d2;
-      background-color: #eeeeee;
+      color: $border-base;
+      background-color: $border-light;
       text-align: center;
       font-weight: bold;
       font-size: get-vw(48px);
       position: relative;
     }
-    @include min-width(768px) {
+    @include min-width($tableWidth) {
       height: get-vw(712px);
       width: get-vw(834px);
     }
 
     & > p {
-      @include min-width(320px) {
+      @include min-width($smPhoneWidth) {
         font-size: 36px;
         line-height: 44px;
 
@@ -134,7 +134,7 @@
         margin-right: -50%;
         transform: translate(-50%, -50%);
       }
-      @include min-width(768px) {
+      @include min-width($tableWidth) {
         font-size: get-vw(48px);
         line-height: get-vw(59px);
       }

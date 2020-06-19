@@ -1,4 +1,5 @@
 @import "../../../scss/mixins.scss";
+@import "../../../scss/variables.scss";
 
 
 .addGroup__popup_container {
@@ -24,8 +25,8 @@
       width: 330px;
     }
     & > button {
-      @include min-width(768px) {
-        background: #5f6caf;
+      @include min-width($tableWidth) {
+        background: $contrast-color;
         border-radius: 0px 4px 4px 0px;
         width: get-vw1230(60px);
         height: get-vw1230(60px);
@@ -46,6 +47,6 @@
   height: 17.6px;
 
   & path {
-    fill: #FFFF;
+    fill: $default-color;
   }
 }

@@ -4,7 +4,7 @@
 @import "../../scss/components.scss";
 
 .Login {
-  @include min-width(320px) {
+  @include min-width($smPhoneWidth) {
     display: flex;
     flex-direction: column;
     max-width: 270px;
@@ -12,7 +12,7 @@
     padding-top: get-vw1230(100px);
     padding-top: 56px;
   }
-  @include min-width(768px) {
+  @include min-width($tableWidth) {
     padding-top: 200px;
     max-width: get-vw1230(390px);
   }
@@ -21,12 +21,12 @@
     padding-top: 100px;
   }
   .shield {
-    @include min-width(320px) {
+    @include min-width($smPhoneWidth) {
       width: 128px;
       height: 147.2px;
       margin: 0 auto;
     }
-    @include min-width(768px) {
+    @include min-width($tableWidth) {
       width: get-vw1230(200px);
       height: get-vw1230(230px);
     }
@@ -36,7 +36,7 @@
     }
   }
   .title {
-    @include min-width(320px) {
+    @include min-width($smPhoneWidth) {
       margin: 0 auto;
       padding: 16.8px 0px 46px;
       font-weight: bold;
@@ -44,7 +44,7 @@
       line-height: 22px;
       font-family: $mainFontBold;
     }
-    @include min-width(768px) {
+    @include min-width($tableWidth) {
       padding: get-vw1230(24px) 0px get-vw1230(64px);
       font-size: get-vw1230(24px);
       line-height: get-vw1230(29px);
@@ -56,25 +56,25 @@
     }
   }
   .input {
-    @include min-width(320px) {
+    @include min-width($smPhoneWidth) {
       margin-bottom: 20px;
     }
-    @include min-width(768px) {
+    @include min-width($tableWidth) {
       margin-bottom: get-vw1230(20px);
     }
     @include min-width(1230px) {
       margin-bottom: 20px;
     }
     &::placeholder {
-      color: #5f6caf;
+      color: $contrast-color;
     }
   }
   .btn_link {
-    @include min-width(320px) {
+    @include min-width($smPhoneWidth) {
       max-width: 190px;
       align-self: center;
     }
-    @include min-width(768px) {
+    @include min-width($tableWidth) {
       max-width: get-vw1230(190px);
       align-self: flex-end;
     }
@@ -83,12 +83,12 @@
     }
 
     .btn {
-      @include min-width(320px) {
-        background: #ff8364;
+      @include min-width($smPhoneWidth) {
+        background: $success-color;
         border-radius: 4px;
         font-weight: bold;
         text-transform: uppercase;
-        color: #ffffff;
+        color: $default-color;
         border: none;
         border-radius: 4px;
         align-self: center;
@@ -102,7 +102,7 @@
         max-width: 190px;
         padding: 11px 64px 17px;
       }
-      @include min-width(768px) {
+      @include min-width($tableWidth) {
         font-size: get-vw1230(18px);
         line-height: get-vw1230(22px);
         margin-top: get-vw1230(20px);
@@ -119,9 +119,9 @@
       }
 
       &:before {
-        @include min-width(320px) {
+        @include min-width($smPhoneWidth) {
           content: " ";
-          background: #ffb677;
+          background: $success-color;
           display: block;
           position: absolute;
           left: 0px;
@@ -132,9 +132,9 @@
           bottom: 5px;
           width: 185px;
         }
-        @include min-width(768px) {
+        @include min-width($tableWidth) {
           content: " ";
-          background: #ffb677;
+          background: $success-color;
           display: block;
           position: absolute;
           left: 0px;

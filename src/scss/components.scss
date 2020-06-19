@@ -1,11 +1,11 @@
 input {
-  @include min-width(320px) {
+  @include min-width($smPhoneWidth) {
     font-family: $mainFont;
-    border: 1px solid #5f6caf;
+    border: 1px solid $contrast-color;
     box-sizing: border-box;
     box-shadow: 0px 6px 10px rgba(123, 123, 123, 0.25);
     border-radius: 4px;
-    color: #5f6caf;
+    color: $contrast-color;
     height: 60px;
     font-size: 18px;
     line-height: 22px;
@@ -24,6 +24,6 @@ input {
     height: 60px;
   }
   &::placeholder {
-    color: #5f6caf;
+    color: $contrast-color;
   }
 }
