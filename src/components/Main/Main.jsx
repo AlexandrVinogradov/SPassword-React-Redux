@@ -33,7 +33,7 @@ class Main extends React.Component {
 
   render() {
     const { showModal } = this.state
-    const { groups, selectGroup, idOfSelectedGroup } = this.props
+    const { groups, selectGroup, idOfSelectedGroup, deleteGroup } = this.props
 
     return (
       <main className={style.Main}>
@@ -65,7 +65,7 @@ class Main extends React.Component {
           </NavLink>
         </section>
 
-        <Interface groups={groups} idOfSelectedGroup={idOfSelectedGroup} />
+        <Interface deleteGroup={deleteGroup} groups={groups} idOfSelectedGroup={idOfSelectedGroup} />
       </main>
     )
   }
