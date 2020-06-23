@@ -84,7 +84,7 @@
 
     .btn {
       @include min-width($smPhoneWidth) {
-        background: $success-color;
+        background: rgb(207, 173, 110);
         border-radius: 4px;
         font-weight: bold;
         text-transform: uppercase;

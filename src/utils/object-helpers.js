@@ -1,5 +1,7 @@
-const idNormalizer = (items, action) => {
-  items = items.filter(g => {return g.name !== action.name})
+export const idNormalizer = (groups, action) => {
+  const items = groups.filter(g => {
+    return g.name !== action.name
+  })
 
   let newId = -1
 
@@ -8,10 +10,10 @@ const idNormalizer = (items, action) => {
     u.id = newId
   })
 
-  console.log(123);
   return items
 }
 
-export default idNormalizer
-
-// groups: state.groups.filter(g => {return g.name !== action.name}),
+export const findNextId = groups => {
+  const biggestId = Math.max(...groups.map(i => i.id))
+  return biggestId + 1
+}

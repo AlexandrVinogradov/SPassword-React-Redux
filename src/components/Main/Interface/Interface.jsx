@@ -7,18 +7,23 @@ import SVGIcon from '../../../SVGIcons'
 const Interface = props => {
   const { idOfSelectedGroup } = props
   let title
-  
-console.log(props.groups[props.idOfSelectedGroup]);
+  let login
+  let password
 
   if (idOfSelectedGroup !== undefined && props.groups[props.idOfSelectedGroup]) {
-    title = props.groups[props.idOfSelectedGroup].name
+    const selectedGroup = props.groups[props.idOfSelectedGroup]
+
+    console.log(selectedGroup.login);
+
+    title = selectedGroup.name
+    login = selectedGroup.login
+    password = selectedGroup.password
   }
 
   const handleDeleteGroup = () => {
     props.deleteGroup(title)
-
   }
- 
+
   return (
     <section className={style.interface}>
       <div className={style.header_mobile}>
@@ -47,10 +52,18 @@ console.log(props.groups[props.idOfSelectedGroup]);
       </div>
 
       <div className={style.content}>
-        <p>MARKDOWN CONTENT</p>
+        <p>{title ? <GroupInfo login={login} password={password} /> : 'MARKDOWN CONTENT'}</p>
       </div>
     </section>
   )
 }
 
+const GroupInfo = props => {
+  return (
+    <div>
+      <p>{props.login}</p>
+      <p>{props.password}</p>
+    </div>
+  )
+}
 export default Interface
