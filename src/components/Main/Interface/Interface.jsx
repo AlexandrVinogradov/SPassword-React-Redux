@@ -1,68 +1,81 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './Interface.module.scss'
 import shield from '../../../img/shield.png'
 import SVGIcon from '../../../SVGIcons'
-// import { clearFields } from 'redux-form'
+import AcceptModal from '../AcceptModal/AcceptModal'
 
 const Interface = props => {
-  const { idOfSelectedGroup } = props
+  const { idOfSelectedGroup, groups, deleteGroup } = props
+
+  const [showAcceptModal, isShowAcceptModal] = useState(false)
+
   let title
   let login
   let password
 
-  if (idOfSelectedGroup !== undefined && props.groups[props.idOfSelectedGroup]) {
+  if (idOfSelectedGroup !== undefined && groups[idOfSelectedGroup]) {
     const selectedGroup = props.groups[props.idOfSelectedGroup]
-
-    console.log(selectedGroup.login);
 
     title = selectedGroup.name
     login = selectedGroup.login
     password = selectedGroup.password
   }
 
-  const handleDeleteGroup = () => {
-    props.deleteGroup(title)
+  const handleShowAcceptModal = () => {
+    if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
+      isShowAcceptModal(true)
+    } else {
+      alert('select a group my friend')
+    }
   }
 
   return (
-    <section className={style.interface}>
-      <div className={style.header_mobile}>
-        <SVGIcon className={style.icon_rectangles} name="rectangles" fill="#FF8364" />
-        <div className={style.header__mobile_logo}>
-          <p className={style.sidebar__header_name}>SPassword</p>
-          <img src={shield} alt="SPassword logo" />
+    <main>
+      {showAcceptModal ? (
+        <AcceptModal title={title} deleteGroup={deleteGroup} isShowAcceptModal={isShowAcceptModal} />
+      ) : null}
+
+      <section className={style.interface}>
+        <div className={style.header_mobile}>
+          <SVGIcon className={style.icon_rectangles} name='rectangles' fill='#FF8364' />
+          <div className={style.header__mobile_logo}>
+            <p className={style.sidebar__header_name}>SPassword</p>
+            <img src={shield} alt='SPassword logo' />
+          </div>
         </div>
-      </div>
 
-      <div className={style.header}>
-        <h1>{title}</h1>
+        <div className={style.header}>
+          <h1>{title}</h1>
 
-        <button type="button" className={style.btn}>
-          <SVGIcon className={style.icon_dots} name="dots" fill="#5F6CAF" />
-        </button>
-
-        <div className={style.edit_btns}>
-          <button type="button" className={style.btn}>
-            <SVGIcon className={style.icon_pencil} name="pencil" fill="#5F6CAF" />
+          <button type='button' className={style.btn}>
+            <SVGIcon className={style.icon_dots} name='dots' fill='#5F6CAF' />
           </button>
-          <button onClick={handleDeleteGroup} type="button" className={style.btn}>
-            <SVGIcon className={style.icon_bucket} name="bucket" fill="#FF8364" />
-          </button>
+
+          <div className={style.edit_btns}>
+            <button type='button' className={style.btn}>
+              <SVGIcon className={style.icon_pencil} name='pencil' fill='#5F6CAF' />
+            </button>
+            <button onClick={handleShowAcceptModal} type='button' className={style.btn}>
+              <SVGIcon className={style.icon_bucket} name='bucket' fill='#FF8364' />
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div className={style.content}>
-        <p>{title ? <GroupInfo login={login} password={password} /> : 'MARKDOWN CONTENT'}</p>
-      </div>
-    </section>
+        <div className={style.content}>
+          <p>{title ? <GroupInfo login={login} password={password} /> : 'MARKDOWN CONTENT'}</p>
+        </div>
+      </section>
+    </main>
   )
 }
 
 const GroupInfo = props => {
+  const { login, password } = props
+
   return (
     <div>
-      <p>{props.login}</p>
-      <p>{props.password}</p>
+      <p>{login}</p>
+      <p>{password}</p>
     </div>
   )
 }

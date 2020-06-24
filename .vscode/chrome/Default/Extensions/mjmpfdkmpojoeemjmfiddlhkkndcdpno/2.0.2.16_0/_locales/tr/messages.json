@@ -1,0 +1,26 @@
+{
+   "extDescription": {
+      "description": "Turkey",
+      "message": "Sorguları adres satırına girin ve Yandex'ten yanıtları alın"
+   },
+   "extName": {
+      "description": "Turkey",
+      "message": "Yandex arama"
+   },
+   "pictures": {
+      "description": "Turkey",
+      "message": "harita"
+   },
+   "searchLocale": {
+      "description": "Turkey",
+      "message": "com.tr"
+   },
+   "searchName": {
+      "description": "Turkey",
+      "message": "Yandex"
+   },
+   "srvName": {
+      "description": "Turkey",
+      "message": "Bulmak için  Yandex.Haritalar"
+   }
+}
