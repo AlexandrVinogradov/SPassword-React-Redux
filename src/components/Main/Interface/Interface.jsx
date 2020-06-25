@@ -3,11 +3,13 @@ import style from './Interface.module.scss'
 import shield from '../../../img/shield.png'
 import SVGIcon from '../../../SVGIcons'
 import AcceptModal from '../AcceptModal/AcceptModal'
+import EditMode from './EditMode/EditMode'
 
 const Interface = props => {
   const { idOfSelectedGroup, groups, deleteGroup } = props
 
   const [showAcceptModal, isShowAcceptModal] = useState(false)
+  const [editModeToggle, isEditMode] = useState(false)
 
   let title
   let login
@@ -24,6 +26,14 @@ const Interface = props => {
   const handleShowAcceptModal = () => {
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
       isShowAcceptModal(true)
+    } else {
+      alert('select a group my friend')
+    }
+  }
+
+  const handleEnterInEditMod = () => {
+    if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
+      isEditMode(!editModeToggle)
     } else {
       alert('select a group my friend')
     }
@@ -52,7 +62,7 @@ const Interface = props => {
           </button>
 
           <div className={style.edit_btns}>
-            <button type='button' className={style.btn}>
+            <button onClick={handleEnterInEditMod} type='button' className={style.btn}>
               <SVGIcon className={style.icon_pencil} name='pencil' fill='#5F6CAF' />
             </button>
             <button onClick={handleShowAcceptModal} type='button' className={style.btn}>
@@ -62,6 +72,7 @@ const Interface = props => {
         </div>
 
         <div className={style.content}>
+          {editModeToggle ? <EditMode /> : 'kek'}
           <p>{title ? <GroupInfo login={login} password={password} /> : 'MARKDOWN CONTENT'}</p>
         </div>
       </section>
