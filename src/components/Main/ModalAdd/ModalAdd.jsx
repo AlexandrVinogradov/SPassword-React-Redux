@@ -2,7 +2,6 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { Input } from '../../common/FormsControls/FormControls'
 import SVGIcon from '../../../SVGIcons'
-
 import style from './ModalAdd.module.scss'
 
 const ModalAdd = props => {
@@ -18,7 +17,8 @@ const ModalAdd = props => {
       className={style.addGroup__popup_container}
       isOpen={showModal}
     >
-      <GroupReduxForm onSubmit={onAddGroup} group={groups} />
+      {/* doesnt need groups */}
+      <GroupReduxForm onSubmit={onAddGroup} group={groups} /> 
     </div>
   )
 }
@@ -40,6 +40,6 @@ const GroupForm = props => {
   )
 }
 
-const GroupReduxForm = reduxForm({ form: 'my redux form' })(GroupForm)
+const GroupReduxForm = reduxForm({ form: 'my redux formm' })(GroupForm)
 
 export default ModalAdd

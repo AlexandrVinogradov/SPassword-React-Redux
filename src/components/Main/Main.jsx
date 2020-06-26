@@ -26,7 +26,7 @@ const Main = props => {
     toggleModal(false)
   }
 
-  const { groups, selectGroup, idOfSelectedGroup, deleteGroup } = props
+  const { groups, selectGroup, idOfSelectedGroup, deleteGroup, updateLogin } = props
 
   return (
     <main className={style.Main}>
@@ -53,7 +53,7 @@ const Main = props => {
         </NavLink>
       </section>
 
-      <Interface deleteGroup={deleteGroup} groups={groups} idOfSelectedGroup={idOfSelectedGroup} />
+      <Interface updateLogin={updateLogin} deleteGroup={deleteGroup} groups={groups} idOfSelectedGroup={idOfSelectedGroup} />
     </main>
   )
 }

@@ -1,8 +1,9 @@
-import { idNormalizer, findNextId } from '../utils/object-helpers'
+import { idNormalizer, findNextId, newLogin } from '../utils/object-helpers'
 
 const ADD_GROUP = 'spassword/main/ADD_GROUP'
 const DELETE_GROUP = 'spassword/main/DELETE_GROUP'
 const SELECT_GROUP = 'spassword/main/SELECT_GROUP'
+const UPDATE_LOGIN = 'spassword/main/UPDATE_LOGIN'
 
 const initialState = {
   groups: [
@@ -33,6 +34,13 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         idOfSelectedGroup: action.idOfSelectedGroup,
       }
+
+    case UPDATE_LOGIN:
+      return {
+        ...state.groups,
+        groups:  newLogin(state.groups, state.idOfSelectedGroup, action.login, action.password)
+      }
+
     default:
       return state
   }
@@ -43,3 +51,5 @@ export default mainReducer
 export const addGroup = name => ({ type: ADD_GROUP, name })
 export const deleteGroup = name => ({ type: DELETE_GROUP, name })
 export const selectGroup = idOfSelectedGroup => ({ type: SELECT_GROUP, idOfSelectedGroup })
+
+export const updateLogin = (login) => ({ type: UPDATE_LOGIN, login })
