@@ -1,0 +1,26 @@
+{
+   "extDescription": {
+      "description": "Ukraine",
+      "message": "Вводьте запити в адресний рядок і отримуйте відповіді від Яндекса"
+   },
+   "extName": {
+      "description": "Ukraine",
+      "message": "Пошук i стартова – Яндекс"
+   },
+   "searchLocale": {
+      "description": "Ukraine",
+      "message": "fr"
+   },
+   "searchName": {
+      "description": "Ukraine",
+      "message": "Яндекс"
+   },
+   "service": {
+      "description": "Ukraine",
+      "message": "music"
+   },
+   "srvName": {
+      "description": "Ukraine",
+      "message": "Знайти на Яндекс.Музиці"
+   }
+}

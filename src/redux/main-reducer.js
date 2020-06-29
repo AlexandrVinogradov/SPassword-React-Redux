@@ -11,7 +11,7 @@ const initialState = {
     { id: 1, name: 'Github', login: 'hello', password: 'qweasdzxc' },
     { id: 2, name: 'Facebook', login: '123123', password: '1997' },
     { id: 3, name: 'Steam', login: 'monkey', password: 'love my mom' },
-    { id: 4, name: 'La2 Accounts', login: 'password', password: 'password' },
+    { id: 4, name: 'La2 Accounts', login: 'password',  password: 'password' },
     { id: 5, name: 'La2 Accounts123', login: 'qazwsx', password: 'yo' },
   ],
   idOfSelectedGroup: 0,
@@ -37,7 +37,7 @@ const mainReducer = (state = initialState, action) => {
 
     case UPDATE_LOGIN:
       return {
-        ...state.groups,
+        // ...state.groups,
         groups:  newLogin(state.groups, state.idOfSelectedGroup, action.login, action.password)
       }
 

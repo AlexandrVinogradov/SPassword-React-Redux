@@ -22,9 +22,7 @@ export const findNextId = groups => {
 export const newLogin = (groups, idOfSelectedGroup, login) => {
 
   groups[idOfSelectedGroup].login = login.customLoginInput
-  // groups[idOfSelectedGroup].password = password
-
-  console.log(login.customLoginInput);
+  groups[idOfSelectedGroup].password = login.customPasswordInput
 
   return groups
 }

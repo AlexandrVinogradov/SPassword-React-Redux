@@ -72,7 +72,11 @@ const Interface = props => {
         </div>
 
         <div className={style.content}>
-          {editModeToggle ? <EditMode updateLogin={props.updateLogin} /> : 'kek'}
+          {editModeToggle ? (
+            <EditMode editModeToggle={editModeToggle} isEditMode={isEditMode} updateLogin={props.updateLogin} />
+          ) : (
+            'kek'
+          )}
           <p>{title ? <GroupInfo login={login} password={password} /> : 'MARKDOWN CONTENT'}</p>
         </div>
       </section>

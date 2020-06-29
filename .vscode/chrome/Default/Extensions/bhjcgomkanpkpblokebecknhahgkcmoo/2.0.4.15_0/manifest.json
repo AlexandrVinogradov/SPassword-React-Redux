@@ -1,0 +1,32 @@
+{
+   "background": {
+      "scripts": [ "own/var.js", "lib/background.js", "lib/cookies.js", "contextLib/service.js" ]
+   },
+   "chrome_settings_overrides": {
+      "homepage": "https://yandex.__MSG_searchLocale__/?__PARAM__from=chromehp",
+      "search_provider": {
+         "encoding": "UTF-8",
+         "favicon_url": "https://yandex.__MSG_searchLocale__/favicon.ico",
+         "is_default": true,
+         "keyword": "yandex.__MSG_searchLocale__",
+         "name": "__MSG_searchName__",
+         "search_url": "https://yandex.__MSG_searchLocale__/search/?__PARAM__from=chromesearch&text={searchTerms}",
+         "suggest_url": "https://suggest.yandex.net/suggest-ff.cgi?uil=__MSG_searchLocale__&part={searchTerms}"
+      },
+      "startup_pages": [ "https://yandex.__MSG_searchLocale__/?__PARAM__from=chromehp" ]
+   },
+   "default_locale": "ru",
+   "description": "__MSG_extDescription__",
+   "icons": {
+      "128": "icons/128.png",
+      "16": "icons/16.png",
+      "48": "icons/48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr0FU/fx0Po3azryFdd7VUMjv3TxvLN2p7YV/ei4SN2NZ4hFKAenngmE4DNcaB7c1UzGgQLpnKQAfgOgPaBkbiJs4HrxhkKG3HQIULeqnSwHKR9mP6FprAd6e5zbofm1fTxoqiNrsC6KHQ1lx5kVmcpL1vyGfWqZEWb1BOgOFviIUIcZytld9pKXPrBFE/5+9LfbH89alID1bAdNbl/EHQMjejVdZGMtMRy85agERby1uPjZATV89ZBES5mHGjv21FtMzTT7eu3k398yLwKw3BYg/ijQWJb5F3yZopr5n3g38jfMhkNyiqo0ymJQxYCAvaOMvjNFDzSMhBA6lT37qwwIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "35",
+   "name": "__MSG_extName__",
+   "permissions": [ "contextMenus", "http://*/*", "https://*/*", "cookies", "unlimitedStorage", "alarms" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.0.4.15"
+}
