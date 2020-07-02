@@ -11,11 +11,9 @@ const initialState = {
     { id: 1, name: 'Github', login: 'hello', password: 'qweasdzxc' },
     { id: 2, name: 'Facebook', login: '123123', password: '1997' },
     { id: 3, name: 'Steam', login: 'monkey', password: 'love my mom' },
-    { id: 4, name: 'La2 Accounts', login: 'password',  password: 'password' },
-    { id: 5, name: 'La2 Accounts123', login: 'qazwsx', password: 'yo' },
+    { id: 4, name: 'La2 Accounts', login: 'password', password: 'password' }
   ],
   idOfSelectedGroup: 0,
-  // initialName: 'asd'
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -29,6 +27,7 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         groups: idNormalizer(state.groups, action),
+        idOfSelectedGroup: 0,
       }
     case SELECT_GROUP:
       return {
@@ -39,7 +38,7 @@ const mainReducer = (state = initialState, action) => {
     case UPDATE_LOGIN:
       return {
         // ...state.groups,
-        groups:  newLogin(state.groups, state.idOfSelectedGroup, action.login, action.password)
+        groups: newLogin(state.groups, state.idOfSelectedGroup, action.login, action.password),
       }
 
     default:
@@ -52,5 +51,4 @@ export default mainReducer
 export const addGroup = name => ({ type: ADD_GROUP, name })
 export const deleteGroup = name => ({ type: DELETE_GROUP, name })
 export const selectGroup = idOfSelectedGroup => ({ type: SELECT_GROUP, idOfSelectedGroup })
-
-export const updateLogin = (login) => ({ type: UPDATE_LOGIN, login })
+export const updateLogin = login => ({ type: UPDATE_LOGIN, login })

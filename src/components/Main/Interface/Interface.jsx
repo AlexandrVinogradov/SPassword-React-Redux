@@ -3,7 +3,7 @@ import style from './Interface.module.scss'
 import shield from '../../../img/shield.png'
 import SVGIcon from '../../../SVGIcons'
 import AcceptModal from '../AcceptModal/AcceptModal'
-import EditMode  from './EditMode/EditMode'
+import EditMode from './EditMode/EditMode'
 
 const Interface = props => {
   const { idOfSelectedGroup, updateLogin, groups, deleteGroup } = props
@@ -73,10 +73,14 @@ const Interface = props => {
 
         <div className={style.content}>
           {editModeToggle ? (
-            <EditMode login={login} password={password} editModeToggle={editModeToggle} isEditMode={isEditMode} updateLogin={updateLogin} />
-          ) : (
-            null
-          )}
+            <EditMode
+              login={login}
+              password={password}
+              editModeToggle={editModeToggle}
+              isEditMode={isEditMode}
+              updateLogin={updateLogin}
+            />
+          ) : null}
           <p>{title ? <GroupInfo login={login} password={password} /> : 'MARKDOWN CONTENT'}</p>
         </div>
       </section>

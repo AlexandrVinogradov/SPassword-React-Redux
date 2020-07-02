@@ -17,18 +17,18 @@ const AcceptModal = props => {
     <div className={style.accept_modal__container}>
       <div className={style.accept_modal}>
         <div className={style.accept_modal__content}>
-          <p className=''>Are you sure that you want to delete {title} passwords</p>
+          <p>Are you sure that you want to delete <span>{title}</span> passwords</p>
           <div className={style.buttons_block}>
             <button onClick={handleDeleteGroup} type='button'>
-              yes
+              Yes
             </button>
             <button onClick={handleCloseAcceptModal} type='button'>
-              oh, no
+              Oh, no
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </div> 
   )
 }
 

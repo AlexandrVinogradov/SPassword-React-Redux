@@ -7,6 +7,9 @@ import SVGIcon from '../../SVGIcons'
 import Interface from './Interface/Interface'
 import ModalAdd from './ModalAdd/ModalAdd'
 
+// delet and select next
+
+
 const Main = props => {
   const [showModal, toggleModal] = useState(false)
 
@@ -31,7 +34,7 @@ const Main = props => {
   return (
     <main className={style.Main}>
       {showModal ? (
-        <ModalAdd showModal={showModal} handleCloseModal={handleCloseModal} onAddGroup={onAddGroup} groups={groups} />
+        <ModalAdd selectGroup={selectGroup} toggleModal={toggleModal} showModal={showModal} handleCloseModal={handleCloseModal} onAddGroup={onAddGroup} />
       ) : null}
 
       <section className={style.sidebar}>

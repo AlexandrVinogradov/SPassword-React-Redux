@@ -1,0 +1,32 @@
+@import "../../../scss/variables.scss";
+
+.formControl.error input,
+.formControl.error textarea {
+    border: solid 1px red;
+    transition: 1s ease;
+
+
+    animation-name: borderFade;
+    animation-duration: 1s;
+}
+
+@keyframes borderFade {
+    from {border: solid 1px $contrast-color;}
+    to {border: solid 1px red;}
+}
+
+.formControl.error span {
+    padding: 7px 0px 0px 5px;
+    color: red;
+    position: absolute;
+    transition: 1s ease;
+
+    opacity: 1; 
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
