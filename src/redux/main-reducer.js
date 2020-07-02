@@ -15,6 +15,7 @@ const initialState = {
     { id: 5, name: 'La2 Accounts123', login: 'qazwsx', password: 'yo' },
   ],
   idOfSelectedGroup: 0,
+  // initialName: 'asd'
 }
 
 const mainReducer = (state = initialState, action) => {

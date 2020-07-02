@@ -1,19 +1,26 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import style from './EditMode.module.scss'
 import { Input } from '../../../common/FormsControls/FormControls'
 
 const EditMode = props => {
-  const { updateLogin, editModeToggle, isEditMode } = props
+  const { updateLogin, editModeToggle, isEditMode, login, password } = props
 
-  // const handleExitEditMode = () => {
-  //   updateLogin('yuyu')
-  //   props.isEditMode(!props.editModeToggle)
-  // }
+  const handleExitEditMode = values => {
+    updateLogin(values)
+    props.isEditMode(!props.editModeToggle)
+  }
 
   return (
     <div className={style.edit_mode}>
-      <EditModeReduxForm editModeToggle={editModeToggle} isEditMode={isEditMode} onSubmit={updateLogin} />
+      <EditModeReduxForm
+        login={login}
+        password={password}
+        editModeToggle={editModeToggle}
+        isEditMode={isEditMode}
+        onSubmit={handleExitEditMode}
+      />
     </div>
   )
 }
@@ -30,6 +37,15 @@ const EditModeForm = props => {
   )
 }
 
-const EditModeReduxForm = reduxForm({ form: 'my redux form' })(EditModeForm)
+const mapStateToProps = (state, props) => ({
+  initialValues: {
+    customLoginInput: props.login,
+    customPasswordInput: props.password,
+  },
+  enableReinitialize: true,
+})
+const EditModeReduxForm = connect(mapStateToProps)(
+  reduxForm({ form: 'my redux form', enableReinitialize: true })(EditModeForm)
+)
 
 export default EditMode

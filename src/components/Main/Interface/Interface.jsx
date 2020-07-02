@@ -3,10 +3,10 @@ import style from './Interface.module.scss'
 import shield from '../../../img/shield.png'
 import SVGIcon from '../../../SVGIcons'
 import AcceptModal from '../AcceptModal/AcceptModal'
-import EditMode from './EditMode/EditMode'
+import EditMode  from './EditMode/EditMode'
 
 const Interface = props => {
-  const { idOfSelectedGroup, groups, deleteGroup } = props
+  const { idOfSelectedGroup, updateLogin, groups, deleteGroup } = props
 
   const [showAcceptModal, isShowAcceptModal] = useState(false)
   const [editModeToggle, isEditMode] = useState(false)
@@ -73,7 +73,7 @@ const Interface = props => {
 
         <div className={style.content}>
           {editModeToggle ? (
-            <EditMode editModeToggle={editModeToggle} isEditMode={isEditMode} updateLogin={props.updateLogin} />
+            <EditMode login={login} password={password} editModeToggle={editModeToggle} isEditMode={isEditMode} updateLogin={updateLogin} />
           ) : (
             'kek'
           )}
