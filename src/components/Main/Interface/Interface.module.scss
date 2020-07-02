@@ -46,9 +46,12 @@
       display: flex;
       justify-content: space-between;
       padding-bottom: 8px;
+
     }
     @include min-width($tableWidth) {
-      padding-bottom: get-vw(16px);
+      padding-bottom: 0px;
+      max-height: 60.16px;
+      height: 61px;
     }
 
     & > h1 {

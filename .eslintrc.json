@@ -9,7 +9,8 @@
         "extensions": [".js", ".jsx"]
       }
     ], 
-    "react/prop-types": 0 
+    "react/prop-types": 0,
+    "react/jsx-props-no-spreading": "off"
   },
   "globals": {
     "window": true,

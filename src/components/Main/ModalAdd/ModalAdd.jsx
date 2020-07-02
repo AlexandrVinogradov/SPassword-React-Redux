@@ -17,7 +17,7 @@ const ModalAdd = props => {
       className={style.addGroup__popup_container}
       isOpen={showModal}
     >
-      {/* doesnt need groups */}
+      {/* doesn`t need groups */}
       <GroupReduxForm onSubmit={onAddGroup} group={groups} /> 
     </div>
   )
@@ -29,7 +29,7 @@ const GroupForm = props => {
     <form onSubmit={handleSubmit}>
       <div>
         <div id="popup" className={style.content}>
-          <Field component={Input} name="customInput" />
+          <Field placeholder='Enter name of group' component={Input} name="customInput" />
 
           <button type="submit">
             <SVGIcon className={style.checkMark_btn__icon} name="checkMark" />
@@ -40,6 +40,6 @@ const GroupForm = props => {
   )
 }
 
-const GroupReduxForm = reduxForm({ form: 'my redux formm' })(GroupForm)
+const GroupReduxForm = reduxForm({ form: 'my redux form' })(GroupForm)
 
 export default ModalAdd

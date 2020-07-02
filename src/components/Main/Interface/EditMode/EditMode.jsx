@@ -7,6 +7,13 @@ import { Input } from '../../../common/FormsControls/FormControls'
 const EditMode = props => {
   const { updateLogin, editModeToggle, isEditMode, login, password } = props
 
+  const getInitialValues = () => {
+    return {
+      customLoginInput: login,
+      customPasswordInput: password,
+    }
+  }
+
   const handleExitEditMode = values => {
     updateLogin(values)
     props.isEditMode(!props.editModeToggle)
@@ -15,8 +22,7 @@ const EditMode = props => {
   return (
     <div className={style.edit_mode}>
       <EditModeReduxForm
-        login={login}
-        password={password}
+        getInitialValues={getInitialValues}
         editModeToggle={editModeToggle}
         isEditMode={isEditMode}
         onSubmit={handleExitEditMode}
@@ -30,18 +36,15 @@ const EditModeForm = props => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Field component={Input} name='customLoginInput' />
-      <Field component={Input} name='customPasswordInput' />
+      <Field placeholder='Enter login' component={Input} name='customLoginInput' />
+      <Field placeholder='Enter password' component={Input} name='customPasswordInput' />
       <button type='submit'>Edit</button>
     </form>
   )
 }
 
 const mapStateToProps = (state, props) => ({
-  initialValues: {
-    customLoginInput: props.login,
-    customPasswordInput: props.password,
-  },
+  initialValues: props.getInitialValues(),
   enableReinitialize: true,
 })
 const EditModeReduxForm = connect(mapStateToProps)(
