@@ -7,7 +7,7 @@ import SVGIcon from '../../SVGIcons'
 import Interface from './Interface/Interface'
 import ModalAdd from './ModalAdd/ModalAdd'
 
-// delet and select next
+// delete and select next
 
 
 const Main = props => {

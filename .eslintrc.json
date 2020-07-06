@@ -10,7 +10,8 @@
       }
     ], 
     "react/prop-types": 0,
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/no-autofocus": "off"
   },
   "globals": {
     "window": true,

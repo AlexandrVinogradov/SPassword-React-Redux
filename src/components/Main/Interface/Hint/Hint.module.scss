@@ -1,0 +1,20 @@
+@import "../../../../scss/variables.scss";
+
+.Hint {
+  position: absolute;
+  top: 0;
+  background: rgb(74, 230, 74);
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  // opacity: 0;
+
+  & > p {
+    display: flex;
+    justify-content: center;
+    padding: 1px 0px;
+    color: $dark-color;
+    font-size: 16px;
+  }
+}
+

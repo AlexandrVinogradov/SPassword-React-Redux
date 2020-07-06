@@ -25,7 +25,7 @@ const ModalAdd = props => {
 
   return (
     <div
-      onKeyDown={closeModalOnEsc} 
+      onKeyDown={closeModalOnEsc}
       tabIndex={0}
       role='button'
       id='modal'
