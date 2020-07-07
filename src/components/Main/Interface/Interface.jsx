@@ -5,16 +5,14 @@ import SVGIcon from '../../../SVGIcons'
 import AcceptModal from '../AcceptModal/AcceptModal'
 import EditMode from './EditMode/EditMode'
 import Hint from './Hint/Hint'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-// delet lib Trans
-// const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+import './animation.css'
 
 const Interface = props => {
   const { idOfSelectedGroup, updateLogin, groups, deleteGroup } = props
 
   const [showAcceptModal, isShowAcceptModal] = useState(false)
   const [editModeToggle, isEditMode] = useState(false)
-  const [hintToggle, isHint] = useState(true)
+  const [showHint, isHint] = useState(false)
 
   let title
   let login
@@ -28,11 +26,20 @@ const Interface = props => {
     password = selectedGroup.password
   }
 
+  const hintAnimation = () => {
+    if (!showHint) {
+      isHint(true)
+      setTimeout(() => {
+        isHint(false)
+      }, 2000)
+    }
+  }
+
   const handleShowAcceptModal = () => {
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
       isShowAcceptModal(true)
     } else {
-      alert('select a group my friend')
+      hintAnimation()
     }
   }
 
@@ -40,7 +47,7 @@ const Interface = props => {
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
       isEditMode(!editModeToggle)
     } else {
-      alert('select a group my friend')
+      hintAnimation()
     }
   }
 
@@ -50,23 +57,7 @@ const Interface = props => {
         <AcceptModal title={title} deleteGroup={deleteGroup} isShowAcceptModal={isShowAcceptModal} />
       ) : null}
 
-      {/* {isHint ? ( */}
-      <ReactCSSTransitionGroup
-        transitionName={{
-          enter: style.enter,
-          enterActive: style.enterActive,
-          leave: style.leave,
-          leaveActive: style.leaveActive,
-        }}
-        transitionAppear={true}
-        transitionAppearTimeout={5000}
-        transitionEnter={false}
-        transitionLeave={false}
-      >
-        <h2 className={style.anim}>{'TutsPlus - Welcome to React Animations'}</h2>
-        <Hint />
-      </ReactCSSTransitionGroup>
-      {/* ) : null} */}
+      {showHint ? <Hint /> : null}
 
       <section className={style.interface}>
         <div className={style.header_mobile}>

@@ -1,0 +1,28 @@
+.anim {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+
+}
+.anim-appear {
+  opacity: 0;
+}
+ 
+.anim-appear.anim-appear-active{
+  opacity: 2;
+  transition: opacity 0.3s ease-in;
+}
+
+
+.enter {
+  transition: all 250ms;
+  /* ... */
+}
+.enterActive { 
+ }
+.leave { 
+
+ }
+.leaveActive {  
+
+
+  }
