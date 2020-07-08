@@ -35,10 +35,10 @@ const EditModeForm = props => {
   const { handleSubmit } = props
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={style.form} onSubmit={handleSubmit}>
       <Field placeholder='Enter login' component={Input} name='customLoginInput' />
       <Field placeholder='Enter password' component={Input} name='customPasswordInput' />
-      <button type='submit'>Edit</button>
+      <button className={style.edit_button} type='submit'>Edit</button>
     </form>
   )
 }

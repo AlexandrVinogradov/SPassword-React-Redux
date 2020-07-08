@@ -38,6 +38,7 @@ const Interface = props => {
   const handleShowAcceptModal = () => {
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
       isShowAcceptModal(true)
+      isEditMode(false)
     } else {
       hintAnimation()
     }
@@ -52,7 +53,7 @@ const Interface = props => {
   }
 
   return (
-    <main>
+    <main className={style.interface__wrapper}>
       {showAcceptModal ? (
         <AcceptModal title={title} deleteGroup={deleteGroup} isShowAcceptModal={isShowAcceptModal} />
       ) : null}

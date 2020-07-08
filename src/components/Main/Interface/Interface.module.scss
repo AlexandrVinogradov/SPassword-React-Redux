@@ -1,150 +1,154 @@
-@import "../../../scss/fonts.scss"; 
+// @import "../../../scss/fonts.scss"; 
 @import "../../../scss/variables.scss";
 @import "../../../scss/mixins.scss";
 
-.interface {
-  //section2
-  @include min-width($smPhoneWidth) {
-    width: 100%;
-  }
-  @include min-width($tableWidth) {
-    width: auto;
-  }
+.interface__wrapper {
+  width: 100%;
   
-  .header_mobile {
+  .interface {
+    //section2
+    @include min-width($smPhoneWidth) {
+      width: 100%;
+
+    }
     @include min-width($tableWidth) {
-      display: none;
+      width: auto;
     }
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    .icon_rectangles {
-      width: 24px;
-      height: 24px;
-    }
-    .header__mobile_logo {
+    
+    .header_mobile {
+      @include min-width($tableWidth) {
+        display: none;
+      }
       display: flex;
       align-items: center;
-
-      .sidebar__header_name {
-        font-size: 18px;
-        line-height: 22px;
-        font-family: $mainFontBold;
-        color: $border-lighter;
-      }
-      & > img {
-        width: 31px;
-        height: 36px;
-        padding-left: 16px;
-      }
-    }
-  }
-
-  .header {
-    @include min-width($smPhoneWidth) {
-      display: flex;
       justify-content: space-between;
-      padding-bottom: 8px;
-
-    }
-    @include min-width($tableWidth) {
-      padding-bottom: 0px;
-      max-height: 60.16px;
-      height: 61px;
-    }
-
-    & > h1 {
-      @include min-width($smPhoneWidth) {
-        font-size: 24px;
-        line-height: 29px;
-        font-weight: 500;
-        text-transform: none;
-        color: $dark-color;
+      margin-bottom: 12px;
+      .icon_rectangles {
+        width: 24px;
+        height: 24px;
       }
-      @include min-width($tableWidth) {
-        font-size: get-vw(36px);
-        line-height: get-vw(44px);
+      .header__mobile_logo {
+        display: flex;
+        align-items: center;
+
+        .sidebar__header_name {
+          font-size: 18px;
+          line-height: 22px;
+          font-family: $mainFontBold;
+          color: $border-lighter;
+        }
+        & > img {
+          width: 31px;
+          height: 36px;
+          padding-left: 16px;
+        }
       }
     }
 
-    .edit_btns {
+    .header {
       @include min-width($smPhoneWidth) {
         display: flex;
-        display: none;
+        justify-content: space-between;
+        padding-bottom: 8px;
+
       }
       @include min-width($tableWidth) {
-        display: block;
-      }
-    }
-    .btn {
-      padding: 0;
-      margin: 0;
-      border: none;
-      display: inline-flex;
-      background-color: inherit;
-      cursor: pointer;
+        padding-bottom: 0px;
+        max-height: 60.16px;
+        height: 61px;
+        max-width: get-vw(834px);
 
-      &:first-child {
-        margin-right: get-vw(45px);
       }
 
-      .icon_pencil {
-        width: get-vw(24px);
-        // fill: red;
-        // &:hover {
-        //   fill: red;
-        // }
+      & > h1 {
+        @include min-width($smPhoneWidth) {
+          font-size: 24px;
+          line-height: 29px;
+          font-weight: 500;
+          text-transform: none;
+          color: $dark-color;
+        }
+        @include min-width($tableWidth) {
+          font-size: get-vw(36px);
+          line-height: get-vw(44px);
+        }
       }
-      .icon_bucket {
-        width: get-vw(18px);
+
+      .edit_btns {
+        @include min-width($smPhoneWidth) {
+          display: flex;
+          display: none;
+        }
+        @include min-width($tableWidth) {
+          display: block;
+        }
+      }
+      .btn {
+        padding: 0;
+        margin: 0;
+        border: none;
+        display: inline-flex;
+        background-color: inherit;
+        cursor: pointer;
+
+        &:first-child {
+          margin-right: get-vw(45px);
+        }
+
+        .icon_pencil {
+          width: get-vw(24px);
+          // fill: red;
+          // &:hover {
+          //   fill: red;
+          // }
+        }
+        .icon_bucket {
+          width: get-vw(18px);
+        }
+      }
+      .icon_dots {
+        @include min-width($smPhoneWidth) {
+          width: 32px;
+          height: 32px;
+        }
+        @include min-width($tableWidth) {
+          display: none;
+        }
       }
     }
-    .icon_dots {
+    .content {
       @include min-width($smPhoneWidth) {
-        width: 32px;
-        height: 32px;
-      }
-      @include min-width($tableWidth) {
-        display: none;
-      }
-    }
-  }
-  .content {
-    @include min-width($smPhoneWidth) {
-      height: 451px;
-      width: 100%;
-      color: $border-base;
-      background-color: $border-light;
-      text-align: center;
-      font-weight: bold;
-      font-size: get-vw(48px);
-      position: relative;
-    }
-    @include min-width($tableWidth) {
-      height: get-vw(712px);
-      width: get-vw(834px);
-    }
-
-    & > p {
-      @include min-width($smPhoneWidth) {
-        font-size: 36px;
-        line-height: 44px;
-
-        position: absolute;
-        top: 45%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%);
-      }
-      @include min-width($tableWidth) {
+        height: 451px;
+        width: 100%;
+        color: $border-base;
+        background-color: $border-light;
+        text-align: center;
+        font-weight: bold;
         font-size: get-vw(48px);
-        line-height: get-vw(59px);
+        position: relative;
+      }
+      @include min-width($tableWidth) {
+        height: get-vw(712px);
+        width: get-vw(834px);
+      }
+
+      & > p {
+        @include min-width($smPhoneWidth) {
+          font-size: 36px;
+          line-height: 44px;
+          max-width: 300px;
+          position: absolute;
+          top: 45%;
+          left: 50%;
+          margin-right: -50%;
+          transform: translate(-50%, -50%);
+        }
+        @include min-width($tableWidth) {
+          font-size: get-vw(48px);
+          line-height: get-vw(59px);
+          max-width: none;
+        }
       }
     }
   }
 }
-
-
-
-
