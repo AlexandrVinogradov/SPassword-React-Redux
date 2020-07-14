@@ -8,13 +8,10 @@ import { required, maxLengthCreator } from '../../../utils/validators'
 const maxLength = maxLengthCreator(20)
 
 const ModalAdd = props => {
-  const { handleCloseModal, showModal, onAddGroup, selectGroup, toggleModal } = props
-
-  // const l = 2
+  const { handleCloseModal, showModal, onAddGroup, toggleModal } = props
 
   const addAndSelectGroup = value => {
     onAddGroup(value)
-    // selectGroup(l)
   }
 
   const closeModalOnEsc = event => {

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import style from './Login.module.scss'
 import shield from '../../img/shield.png'
 
-const Login = () => {
+const Login:React.FC = () => {
   return (
     <div className={style.Login}>
       <img className={style.shield} src={shield} alt="shield" />

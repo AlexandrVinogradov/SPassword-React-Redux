@@ -6,7 +6,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".js", ".jsx", "ts"]
+        "extensions": [".js", ".jsx", "ts", "tsx"]
       }
     ], 
     "react/prop-types": 0,
