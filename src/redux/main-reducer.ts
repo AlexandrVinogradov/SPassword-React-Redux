@@ -1,23 +1,18 @@
 import { idNormalizer, findNextId, newLogin } from '../utils/object-helpers'
+import {
+  InitialStateType,
+  addGroupActionType,
+  deleteGroupActionType,
+  selectGroupActionType,
+  updateLoginActionType,
+} from '../types/types'
 
-const ADD_GROUP = 'spassword/main/ADD_GROUP'
-const DELETE_GROUP = 'spassword/main/DELETE_GROUP'
-const SELECT_GROUP = 'spassword/main/SELECT_GROUP'
-const UPDATE_LOGIN = 'spassword/main/UPDATE_LOGIN'
+export const ADD_GROUP = 'spassword/main/ADD_GROUP'
+export const DELETE_GROUP = 'spassword/main/DELETE_GROUP'
+export const SELECT_GROUP = 'spassword/main/SELECT_GROUP'
+export const UPDATE_LOGIN = 'spassword/main/UPDATE_LOGIN'
 
-// export type GroupsType = {
-//   id: number,
-//   name: string | null,
-//   login: string,
-//   password: string,
-// }
-
-// export type InitialStateType = {
-//   groups: GroupsType,
-//   idOfSelectedGroup: number,
-// }
-
-const initialState = {
+const initialState: InitialStateType = {
   groups: [
     { id: 0, name: 'Vk', login: 'admin', password: '12345' },
     { id: 1, name: 'Github', login: 'hello', password: 'qweasdzxc' },
@@ -28,9 +23,7 @@ const initialState = {
   idOfSelectedGroup: 0,
 }
 
-// export type InitialStateType = typeof initialState
-
-const mainReducer = (state = initialState, action: any) => {
+const mainReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case ADD_GROUP:
       return {
@@ -59,10 +52,12 @@ const mainReducer = (state = initialState, action: any) => {
       return state
   }
 }
-
 export default mainReducer
 
-export const addGroup = (name: any) => ({ type: ADD_GROUP, name })
-export const deleteGroup = (name: any) => ({ type: DELETE_GROUP, name })
-export const selectGroup = (idOfSelectedGroup: any) => ({ type: SELECT_GROUP, idOfSelectedGroup })
-export const updateLogin = (login: any) => ({ type: UPDATE_LOGIN, login })
+export const addGroup = (name: string): addGroupActionType => ({ type: ADD_GROUP, name })
+export const deleteGroup = (name: string): deleteGroupActionType => ({ type: DELETE_GROUP, name })
+export const selectGroup = (idOfSelectedGroup: number): selectGroupActionType => ({
+  type: SELECT_GROUP,
+  idOfSelectedGroup,
+})
+export const updateLogin = (login: string): updateLoginActionType => ({ type: UPDATE_LOGIN, login })

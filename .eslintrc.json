@@ -6,12 +6,34 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".js", ".jsx"]
+        "extensions": [".js", ".jsx", "ts"]
       }
     ], 
     "react/prop-types": 0,
     "react/jsx-props-no-spreading": "off",
-    "jsx-a11y/no-autofocus": "off"
+    "jsx-a11y/no-autofocus": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "mjs": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts"
+        ]
+      }
+    }
   },
   "globals": {
     "window": true,
