@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
 import { Input } from '../../common/FormsControls/FormControls'
 import SVGIcon from '../../../SVGIcons'
@@ -12,6 +13,7 @@ const ModalAdd = props => {
 
   const addAndSelectGroup = value => {
     onAddGroup(value)
+    console.log(112321312) /////////////////
   }
 
   const closeModalOnEsc = event => {
@@ -36,7 +38,8 @@ const ModalAdd = props => {
 }
 
 const GroupForm = props => {
-  const { handleSubmit } = props
+  const { handleSubmit , value} = props
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -51,7 +54,9 @@ const GroupForm = props => {
           />
 
           <button type='submit'>
-            <SVGIcon className={style.checkMark_btn__icon} name='checkMark' />
+            {/* <NavLink to={`/main/${value}`} activeClassName={style.active} className={style.a}> */}
+              <SVGIcon className={style.checkMark_btn__icon} name='checkMark' />
+            {/* </NavLink> */}
           </button>
         </div>
       </div>
