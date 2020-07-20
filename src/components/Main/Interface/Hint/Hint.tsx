@@ -3,7 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import style from './Hint.module.scss'
 import '../animation.css'
 
-const Hint = () => {
+const Hint:React.FC = () => {
   return (
     <ReactCSSTransitionGroup
       transitionName='anim'
