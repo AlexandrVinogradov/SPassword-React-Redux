@@ -8,15 +8,26 @@ import { required, maxLengthCreator } from '../../../utils/validators'
 
 const maxLength = maxLengthCreator(20)
 
-const ModalAdd = props => {
+type ModalAddPropsTypes = {
+  handleCloseModal: (isShowAcceptModal: any) => void,
+  showModal: boolean,
+  onAddGroup: (group: string) => void,
+  toggleModal: (toggle: boolean) => void, 
+}
+
+type one = {
+
+}
+
+const ModalAdd = (props: any) => {
   const { handleCloseModal, showModal, onAddGroup, toggleModal } = props
 
-  const addAndSelectGroup = value => {
+  const addAndSelectGroup = (value: any) => {
     onAddGroup(value)
     console.log(112321312) /////////////////
   }
 
-  const closeModalOnEsc = event => {
+  const closeModalOnEsc = (event: any) => {
     if (event.keyCode === 27) {
       toggleModal(false)
     }
@@ -30,16 +41,15 @@ const ModalAdd = props => {
       id='modal'
       onClick={handleCloseModal}
       className={style.addGroup__popup_container}
-      isOpen={showModal}
+      // isOpen={showModal}
     >
       <GroupReduxForm onSubmit={addAndSelectGroup} />
     </div>
   )
 }
 
-const GroupForm = props => {
-  const { handleSubmit , value} = props
-
+const GroupForm = (props: any) => {
+  const { handleSubmit } = props
 
   return (
     <form onSubmit={handleSubmit}>
@@ -50,7 +60,7 @@ const GroupForm = props => {
             placeholder='Enter name of group'
             component={Input}
             name='customInput'
-            autoFocus='true'
+            autoFocus='true'  
           />
 
           <button type='submit'>

@@ -50,7 +50,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
     <main className={style.Main}>
       {showModal ? (
         <ModalAdd
-          selectGroup={selectGroup}
+          // selectGroup={selectGroup}
           toggleModal={toggleModal}
           showModal={showModal}
           handleCloseModal={handleCloseModal}
