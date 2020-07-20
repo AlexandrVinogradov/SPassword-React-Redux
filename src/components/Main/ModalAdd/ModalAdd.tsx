@@ -10,13 +10,10 @@ const maxLength = maxLengthCreator(20)
 
 type ModalAddPropsTypes = {
   handleCloseModal: (isShowAcceptModal: any) => void,
-  showModal: boolean,
+  showModal: string,
   onAddGroup: (group: string) => void,
-  toggleModal: (toggle: boolean) => void, 
-}
-
-type one = {
-
+  toggleModal: (toggle: boolean) => void,
+  isOpen: boolean,
 }
 
 const ModalAdd = (props: any) => {
@@ -24,9 +21,8 @@ const ModalAdd = (props: any) => {
 
   const addAndSelectGroup = (value: any) => {
     onAddGroup(value)
-    console.log(112321312) /////////////////
+    console.log(112321312)
   }
-
   const closeModalOnEsc = (event: any) => {
     if (event.keyCode === 27) {
       toggleModal(false)
@@ -60,12 +56,12 @@ const GroupForm = (props: any) => {
             placeholder='Enter name of group'
             component={Input}
             name='customInput'
-            autoFocus='true'  
+            autoFocus='true'
           />
 
           <button type='submit'>
             {/* <NavLink to={`/main/${value}`} activeClassName={style.active} className={style.a}> */}
-              <SVGIcon className={style.checkMark_btn__icon} name='checkMark' />
+            <SVGIcon className={style.checkMark_btn__icon} name='checkMark' />
             {/* </NavLink> */}
           </button>
         </div>
