@@ -6,17 +6,26 @@ import AcceptModal from '../AcceptModal/AcceptModal'
 import EditMode from './EditMode/EditMode'
 import Hint from './Hint/Hint'
 import './animation.css'
+import { GroupsType } from '../../../types/types'
 
-const Interface = props => {
-  const { idOfSelectedGroup, updateLogin, groups, deleteGroup } = props
+type InterfacePropsTypes = {
+  idOfSelectedGroup: number,
+  updateLogin: () => void,
+  groups: GroupsType[],
+  deleteGroup: () => void,
+  isEditMode: (toggle: boolean) => void,
+  editModeToggle: boolean,
+}
+
+const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) => {
+  const { idOfSelectedGroup, updateLogin, groups, deleteGroup, isEditMode, editModeToggle } = props
 
   const [showAcceptModal, isShowAcceptModal] = useState(false)
-  const [editModeToggle, isEditMode] = useState(false)
   const [showHint, isHint] = useState(false)
 
-  let title
-  let login
-  let password
+  let title: string 
+  let login: string | null
+  let password: string | null
 
   if (idOfSelectedGroup !== undefined && groups[idOfSelectedGroup]) {
     const selectedGroup = props.groups[props.idOfSelectedGroup]
@@ -96,14 +105,21 @@ const Interface = props => {
               updateLogin={updateLogin}
             />
           ) : null}
-          <p>{title ? <GroupInfo login={login} password={password} /> : 'MARKDOWN CONTENT'}</p>
+          <div className={style.groupInfo}>
+            {title ? <GroupInfo login={login} password={password} /> : 'MARKDOWN CONTENT'}
+          </div>
         </div>
       </section>
     </main>
   )
 }
 
-const GroupInfo = props => {
+type GroupInfoPropsTypes = {
+  login: string | null,
+  password: string | null
+}
+
+const GroupInfo: React.FC<GroupInfoPropsTypes> = (props: GroupInfoPropsTypes) => {
   const { login, password } = props
 
   return (

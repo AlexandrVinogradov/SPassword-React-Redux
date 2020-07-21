@@ -1,13 +1,13 @@
 import React from 'react'
 import style from './AcceptModal.module.scss'
 
-type PropsType = {
+type AcceptModalPropsType = {
   title: string,
   isShowAcceptModal: (toggle: boolean) => void,
   deleteGroup: (title: string) => void
 }
 
-const AcceptModal: React.FC<PropsType> = props => {
+const AcceptModal: React.FC<AcceptModalPropsType> = (props: AcceptModalPropsType) => {
   const { title, isShowAcceptModal, deleteGroup } = props
 
   const handleCloseAcceptModal = () => {

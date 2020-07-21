@@ -132,7 +132,7 @@
         width: get-vw(834px);
       }
 
-      & > p {
+      .groupInfo {
         @include min-width($smPhoneWidth) {
           font-size: 36px;
           line-height: 44px;

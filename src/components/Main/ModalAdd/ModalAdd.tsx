@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
 import { Input } from '../../common/FormsControls/FormControls'
 import SVGIcon from '../../../SVGIcons'
@@ -21,10 +20,9 @@ const ModalAdd = (props: any) => {
 
   const addAndSelectGroup = (value: any) => {
     onAddGroup(value)
-    console.log(112321312)
   }
-  const closeModalOnEsc = (event: any) => {
-    if (event.keyCode === 27) {
+  const closeModalOnEsc = (e: any) => {
+    if (e.keyCode === 27) {
       toggleModal(false)
     }
   }
@@ -44,11 +42,24 @@ const ModalAdd = (props: any) => {
   )
 }
 
-const GroupForm = (props: any) => {
+const GroupForm = (props: any, e: any) => {
   const { handleSubmit } = props
 
+
+  
+  // LOST E
+  const submitOnEnter = (event: any) => {
+    console.log(e);
+    if (event.which === 13 || event.keyCode === 13) {
+      console.log('DONE')
+    }
+    handleSubmit()
+  }
+  // LOST E
+
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(submitOnEnter)}>
       <div>
         <div id='popup' className={style.content}>
           <Field
@@ -59,11 +70,12 @@ const GroupForm = (props: any) => {
             autoFocus='true'
           />
 
-          <button type='submit'>
-            {/* <NavLink to={`/main/${value}`} activeClassName={style.active} className={style.a}> */}
+          <button 
+          onClick={handleSubmit(submitOnEnter)}
+          type='submit'>
             <SVGIcon className={style.checkMark_btn__icon} name='checkMark' />
-            {/* </NavLink> */}
           </button>
+          {/* <button type="button">Do Something Else</button> */}
         </div>
       </div>
     </form>

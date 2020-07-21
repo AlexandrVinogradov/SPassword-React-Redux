@@ -30,6 +30,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
   const { groups, selectGroup, idOfSelectedGroup, deleteGroup, updateLogin, addGroup } = props
 
   const [showModal, toggleModal] = useState(false)
+  const [editModeToggle, isEditMode] = useState(false)
 
   const handleOpenModal = () => {
     toggleModal(true)
@@ -69,7 +70,12 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
           <SVGIcon className={style.circle_btn__icon} name='addGroup' />
         </button>
 
-        <NavListBar groups={groups} selectGroup={selectGroup} idOfSelectedGroup={idOfSelectedGroup} />
+        <NavListBar
+          isEditMode={isEditMode}
+          groups={groups}
+          selectGroup={selectGroup}
+          // idOfSelectedGroup={idOfSelectedGroup}
+        />
 
         <NavLink className={`${style.circle_btn} ${style.circle_btn__logout}`} to='/login'>
           <p>Logout</p>
@@ -82,6 +88,8 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
         deleteGroup={deleteGroup}
         groups={groups}
         idOfSelectedGroup={idOfSelectedGroup}
+        editModeToggle={editModeToggle}
+        isEditMode={isEditMode}
       />
     </main>
   )
