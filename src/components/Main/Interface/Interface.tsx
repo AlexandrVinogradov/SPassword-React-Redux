@@ -5,14 +5,14 @@ import SVGIcon from '../../../SVGIcons'
 import AcceptModal from '../AcceptModal/AcceptModal'
 import EditMode from './EditMode/EditMode'
 import Hint from './Hint/Hint'
-import './animation.css'
+import './animation.scss'
 import { GroupsType } from '../../../types/types'
 
 type InterfacePropsTypes = {
   idOfSelectedGroup: number,
-  updateLogin: () => void,
+  updateLogin: (login: string) => void,
   groups: GroupsType[],
-  deleteGroup: () => void,
+  deleteGroup: (login: string) => void,
   isEditMode: (toggle: boolean) => void,
   editModeToggle: boolean,
 }
@@ -23,9 +23,9 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
   const [showAcceptModal, isShowAcceptModal] = useState(false)
   const [showHint, isHint] = useState(false)
 
-  let title: string 
-  let login: string | null
-  let password: string | null
+  let title: string = ''
+  let login: string | null = null
+  let password: string | null = null
 
   if (idOfSelectedGroup !== undefined && groups[idOfSelectedGroup]) {
     const selectedGroup = props.groups[props.idOfSelectedGroup]
@@ -35,7 +35,7 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
     password = selectedGroup.password
   }
 
-  const hintAnimation = () => {
+  const hintAnimation = () => { // need types???// need types???// need types???
     if (!showHint) {
       isHint(true)
       setTimeout(() => {
@@ -44,7 +44,7 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
     }
   }
 
-  const handleShowAcceptModal = () => {
+  const handleShowAcceptModal = () => { // need types???// need types???// need types???
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
       isShowAcceptModal(true)
       isEditMode(false)
@@ -53,7 +53,7 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
     }
   }
 
-  const handleEnterInEditMod = () => {
+  const handleEnterInEditMod = () => { // need types???// need types???// need types???
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
       isEditMode(!editModeToggle)
     } else {
@@ -71,7 +71,7 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
 
       <section className={style.interface}>
         <div className={style.header_mobile}>
-          <SVGIcon className={style.icon_rectangles} name='rectangles' fill='#FF8364' />
+          <SVGIcon className={style.icon_rectangles} name='rectangles'  />
           <div className={style.header__mobile_logo}>
             <p className={style.sidebar__header_name}>SPassword</p>
             <img src={shield} alt='SPassword logo' />
@@ -82,15 +82,15 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
           <h1>{title}</h1>
 
           <button type='button' className={style.btn}>
-            <SVGIcon className={style.icon_dots} name='dots' fill='#5F6CAF' />
+            <SVGIcon className={style.icon_dots} name='dots' />
           </button>
 
           <div className={style.edit_btns}>
-            <button onClick={handleEnterInEditMod} type='button' className={style.btn}>
-              <SVGIcon className={style.icon_pencil} name='pencil' fill='#5F6CAF' />
+            <button onClick={handleEnterInEditMod} type='button' className={style.btn}> 
+              <SVGIcon className={style.icon_pencil} name='pencil' />
             </button>
             <button onClick={handleShowAcceptModal} type='button' className={style.btn}>
-              <SVGIcon className={style.icon_bucket} name='bucket' fill='#FF8364' />
+              <SVGIcon className={style.icon_bucket} name='bucket' />
             </button>
           </div>
         </div>

@@ -1,20 +1,19 @@
-// @import "../../../scss/fonts.scss"; 
+// @import "../../../scss/fonts.scss";
 @import "../../../scss/variables.scss";
 @import "../../../scss/mixins.scss";
 
 .interface__wrapper {
   width: 100%;
-  
+
   .interface {
     //section2
     @include min-width($smPhoneWidth) {
       width: 100%;
-
     }
     @include min-width($tableWidth) {
       width: auto;
     }
-    
+
     .header_mobile {
       @include min-width($tableWidth) {
         display: none;
@@ -26,6 +25,7 @@
       .icon_rectangles {
         width: 24px;
         height: 24px;
+        fill: $success-color-dark;
       }
       .header__mobile_logo {
         display: flex;
@@ -50,14 +50,12 @@
         display: flex;
         justify-content: space-between;
         padding-bottom: 8px;
-
       }
       @include min-width($tableWidth) {
         padding-bottom: 0px;
         max-height: 60.16px;
         height: 61px;
         max-width: get-vw(834px);
-
       }
 
       & > h1 {
@@ -97,19 +95,18 @@
 
         .icon_pencil {
           width: get-vw(24px);
-          // fill: red;
-          // &:hover {
-          //   fill: red;
-          // }
+          fill: $contrast-color;
         }
         .icon_bucket {
           width: get-vw(18px);
+          fill: $success-color-dark;
         }
       }
       .icon_dots {
         @include min-width($smPhoneWidth) {
           width: 32px;
           height: 32px;
+          fill: $contrast-color;
         }
         @include min-width($tableWidth) {
           display: none;
@@ -149,6 +146,19 @@
           max-width: none;
         }
       }
+    }
+  }
+  .icon_pencil,
+  .icon_rectangles,
+  .icon_bucket,
+  .icon_dots {
+    opacity: 0.8;
+    transition: 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.1)
     }
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import style from './Hint.module.scss'
-import '../animation.css'
+import '../animation.scss'
 
 const Hint:React.FC = () => {
   return (

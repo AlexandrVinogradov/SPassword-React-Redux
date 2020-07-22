@@ -4,13 +4,14 @@ import { Field, reduxForm } from 'redux-form'
 import style from './EditMode.module.scss'
 import { Input } from '../../../common/FormsControls/FormControls'
 import { AppStateType } from '../../../../redux/store'
+import { spaceDetect } from '../../../../utils/validators'
 
 type EditModePropsTypes = {
   updateLogin: (values: string) => void,
   editModeToggle: boolean,
   isEditMode: (toggle: boolean) => void,
-  login: string,
-  password: string,
+  login: string | null,
+  password: string | null,
 }
 type EditModeFormProps = {
   handleSubmit: (value: any) => void,
@@ -48,8 +49,8 @@ const EditModeForm = (props: EditModeFormProps) => {
 
   return (
     <form className={style.form} onSubmit={handleSubmit}>
-      <Field placeholder='Enter login' component={Input} name='customLoginInput' />
-      <Field placeholder='Enter password' component={Input} name='customPasswordInput' />
+      <Field placeholder='Enter login' component={Input} validate={[spaceDetect]} name='customLoginInput' />
+      <Field placeholder='Enter password' component={Input} validate={[spaceDetect]} name='customPasswordInput' />
       <button className={style.edit_button} type='submit'>
         Edit
       </button>
@@ -57,7 +58,7 @@ const EditModeForm = (props: EditModeFormProps) => {
   )
 }
 
-console.log('MAKE BEAUTY');
+console.log('MAKE BEAUTY')
 
 type MapStatePropsTypes = {
   initialValues: () => void,

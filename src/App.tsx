@@ -6,8 +6,14 @@ import Login from './components/Login/Login'
 import store from './redux/store'
 import MainContainer from './components/Main/MainContainer'
 
-// Interface remove fill to scss
-// taking variable of path in navBar - worst?
+
+// redux-form types ModalAdd
+// hooks names
+// rewrite all any
+// add copy button
+// add languages 
+// editMode span importants..
+
 
 const App:React.FC = () => {
   return (
@@ -22,7 +28,7 @@ const App:React.FC = () => {
   )
 }
 
-const Spassword = () => {
+const Spassword:React.FC = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>

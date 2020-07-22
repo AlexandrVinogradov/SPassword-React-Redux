@@ -13,6 +13,11 @@
   & > li {
     padding-top: get-vw(10px);
     line-height: get-vw(22px);
+    transition: 0.4s ease;
+
+    &:hover {
+      transform: scale(1.04);
+    }
 
     & > .a {
       color: $link-color;
@@ -20,6 +25,12 @@
       line-height: get-vw(22px);
       text-decoration: none;
       position: relative;
+      transition: 0.3s ease;
+
+      &:hover {
+        transform: scale(1.04);
+        color: $contrast-color;
+      }
     }
     & > a.active {
       color: $contrast-color;

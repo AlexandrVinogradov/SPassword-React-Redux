@@ -42,6 +42,7 @@ const ModalAdd = (props: any) => {
   )
 }
 
+
 const GroupForm = (props: any, e: any) => {
   const { handleSubmit } = props
 

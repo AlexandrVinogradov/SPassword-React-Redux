@@ -59,14 +59,22 @@
       font-weight: normal;
       font-size: get-vw(18px);
       justify-content: flex-end;
+      transition: 0.4s ease;
+
+      &:hover {
+        opacity: 0.7;
+        transform: scale(1.04);
+        color: $success-color-dark;
+        svg {
+          fill: $success-color-dark;
+        }
+      }
 
       .circle_btn__icon {
         width: get-vw(24px);
         padding-left: get-vw(16px);
-
-        & path {
-          fill: $success-color;
-        }
+        fill: $success-color;
+        transition: 0.3s ease;
       }
     }
     .circle_btn__logout {

@@ -10,7 +10,7 @@ import ModalAdd from './ModalAdd/ModalAdd'
 import { GroupsType } from '../../types/types'
 
 // delete and select next
-// duplicate with container component
+// duplicate with container component (types)
 
 type MapStatePropsTypes = {
   groups: GroupsType[],
@@ -34,6 +34,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
 
   const handleOpenModal = () => {
     toggleModal(true)
+    isEditMode(false)
   }
 
   const handleCloseModal = (event: any) => {

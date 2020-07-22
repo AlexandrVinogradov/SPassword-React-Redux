@@ -81,7 +81,7 @@ const getPath = (name, props) => {
 const SVGIcon = ({
   name = '',
   style = {},
-  fill = '#000',
+  fill = '',
   viewBox = '',
   width = '100%',
   className = '',
