@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, BaseSyntheticEvent } from 'react'
 import { NavLink } from 'react-router-dom'
 import style from './Main.module.scss'
 import shield from '../../img/shield.png'
@@ -30,20 +30,25 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
   const { groups, selectGroup, idOfSelectedGroup, deleteGroup, updateLogin, addGroup } = props
 
   const [showModal, toggleModal] = useState(false)
-  const [editModeToggle, isEditMode] = useState(false)
+  const [isEditMode, editModeToggle] = useState(false)
 
   const handleOpenModal = () => {
     toggleModal(true)
-    isEditMode(false)
+    editModeToggle(false)
   }
 
-  const handleCloseModal = (event: any) => {
+  const handleCloseModal = (event: BaseSyntheticEvent) => {
     if (event.target.id === 'modal') {
       toggleModal(false)
     }
   }
 
+  // type onAddGroupPropsTypes = {
+  //   customInput: string
+  // }
+
   const onAddGroup = (value: any) => {
+    console.log(value);
     addGroup(value.customInput)
     toggleModal(false)
   }
@@ -54,7 +59,6 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
         <ModalAdd
           // selectGroup={selectGroup}
           toggleModal={toggleModal}
-          showModal={showModal}
           handleCloseModal={handleCloseModal}
           onAddGroup={onAddGroup}
         />
@@ -72,7 +76,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
         </button>
 
         <NavListBar
-          isEditMode={isEditMode}
+          editModeToggle={editModeToggle}
           groups={groups}
           selectGroup={selectGroup}
           // idOfSelectedGroup={idOfSelectedGroup}

@@ -6,6 +6,7 @@ import {
   selectGroupActionType,
   updateLoginActionType,
 } from '../types/types'
+import { InfernActionsTypes } from './store'
 
 export const ADD_GROUP = 'spassword/main/ADD_GROUP'
 export const DELETE_GROUP = 'spassword/main/DELETE_GROUP'
@@ -23,7 +24,7 @@ const initialState: InitialStateType = {
   idOfSelectedGroup: 0,
 }
 
-const mainReducer = (state = initialState, action: any): InitialStateType => {
+const mainReducer = (state = initialState, action: ActionTypes): InitialStateType => {
   switch (action.type) {
     case ADD_GROUP:
       return {
@@ -54,10 +55,15 @@ const mainReducer = (state = initialState, action: any): InitialStateType => {
 }
 export default mainReducer
 
-export const addGroup = (name: string): addGroupActionType => ({ type: ADD_GROUP, name })
-export const deleteGroup = (name: string): deleteGroupActionType => ({ type: DELETE_GROUP, name })
-export const selectGroup = (idOfSelectedGroup: number): selectGroupActionType => ({
-  type: SELECT_GROUP,
-  idOfSelectedGroup,
-})
-export const updateLogin = (login: string): updateLoginActionType => ({ type: UPDATE_LOGIN, login })
+type ActionTypes = InfernActionsTypes<typeof actions>
+
+export const  actions = {
+  addGroup : (name: string): addGroupActionType => ({ type: ADD_GROUP, name } as const),
+  deleteGroup : (name: string): deleteGroupActionType => ({ type: DELETE_GROUP, name } as const),
+  selectGroup : (idOfSelectedGroup: number): selectGroupActionType => ({
+    type: SELECT_GROUP,
+    idOfSelectedGroup,
+  } as const),
+  updateLogin : (login: string): updateLoginActionType => ({ type: UPDATE_LOGIN, login } as const)
+  
+}

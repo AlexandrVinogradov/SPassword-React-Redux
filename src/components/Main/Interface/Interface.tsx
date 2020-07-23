@@ -13,8 +13,8 @@ type InterfacePropsTypes = {
   updateLogin: (login: string) => void,
   groups: GroupsType[],
   deleteGroup: (login: string) => void,
-  isEditMode: (toggle: boolean) => void,
-  editModeToggle: boolean,
+  editModeToggle: (toggle: boolean) => void,
+  isEditMode: boolean,
 }
 
 const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) => {
@@ -35,7 +35,8 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
     password = selectedGroup.password
   }
 
-  const hintAnimation = () => { // need types???// need types???// need types???
+  const hintAnimation = () => {
+    // need types???// need types???// need types???
     if (!showHint) {
       isHint(true)
       setTimeout(() => {
@@ -44,18 +45,20 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
     }
   }
 
-  const handleShowAcceptModal = () => { // need types???// need types???// need types???
+  const handleShowAcceptModal = () => {
+    // need types???// need types???// need types???
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
       isShowAcceptModal(true)
-      isEditMode(false)
+      editModeToggle(false)
     } else {
       hintAnimation()
     }
   }
 
-  const handleEnterInEditMod = () => { // need types???// need types???// need types???
+  const handleEnterInEditMod = () => {
+    // need types???// need types???// need types???
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
-      isEditMode(!editModeToggle)
+      editModeToggle(!isEditMode)
     } else {
       hintAnimation()
     }
@@ -71,7 +74,7 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
 
       <section className={style.interface}>
         <div className={style.header_mobile}>
-          <SVGIcon className={style.icon_rectangles} name='rectangles'  />
+          <SVGIcon className={style.icon_rectangles} name='rectangles' />
           <div className={style.header__mobile_logo}>
             <p className={style.sidebar__header_name}>SPassword</p>
             <img src={shield} alt='SPassword logo' />
@@ -86,7 +89,7 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
           </button>
 
           <div className={style.edit_btns}>
-            <button onClick={handleEnterInEditMod} type='button' className={style.btn}> 
+            <button onClick={handleEnterInEditMod} type='button' className={style.btn}>
               <SVGIcon className={style.icon_pencil} name='pencil' />
             </button>
             <button onClick={handleShowAcceptModal} type='button' className={style.btn}>
@@ -96,7 +99,7 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
         </div>
 
         <div className={style.content}>
-          {editModeToggle ? (
+          {isEditMode ? (
             <EditMode
               login={login}
               password={password}
@@ -115,17 +118,37 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
 }
 
 type GroupInfoPropsTypes = {
-  login: string | null,
-  password: string | null
+  login: any,
+  // string | null,
+  password: any
+  // string | null,
 }
 
 const GroupInfo: React.FC<GroupInfoPropsTypes> = (props: GroupInfoPropsTypes) => {
   const { login, password } = props
+  const loginText = React.createRef()
+
+
+  const copyOnButton = () => {
+    console.log(login)
+    // select('asd')
+    document.execCommand('copy')
+  }
 
   return (
-    <div>
-      <p>{login}</p>
-      <p>{password}</p>
+    <div className={style.groupInfo}>
+      <div className={style.login}>
+        <p ref={loginText}>{login}</p>
+        <button onClick={copyOnButton} type='button'>
+          <SVGIcon className={style.icon_copy} name='copyButton' />
+        </button>
+      </div>
+      <div className={style.password}>
+        <p>{password}</p>
+        <button onClick={copyOnButton} type='button'>
+          <SVGIcon className={style.icon_copy} name='copyButton' />
+        </button>
+      </div>
     </div>
   )
 }

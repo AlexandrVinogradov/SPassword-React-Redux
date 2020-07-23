@@ -9,14 +9,12 @@ const maxLength = maxLengthCreator(20)
 
 type ModalAddPropsTypes = {
   handleCloseModal: (isShowAcceptModal: any) => void,
-  showModal: string,
   onAddGroup: (group: string) => void,
   toggleModal: (toggle: boolean) => void,
-  isOpen: boolean,
 }
 
-const ModalAdd = (props: any) => {
-  const { handleCloseModal, showModal, onAddGroup, toggleModal } = props
+const ModalAdd: React.FC<ModalAddPropsTypes> = (props: ModalAddPropsTypes) => {
+  const { handleCloseModal, onAddGroup, toggleModal } = props
 
   const addAndSelectGroup = (value: any) => {
     onAddGroup(value)
@@ -35,32 +33,23 @@ const ModalAdd = (props: any) => {
       id='modal'
       onClick={handleCloseModal}
       className={style.addGroup__popup_container}
-      // isOpen={showModal}
     >
       <GroupReduxForm onSubmit={addAndSelectGroup} />
     </div>
   )
 }
 
-
-const GroupForm = (props: any, e: any) => {
+const GroupForm = (props: any) => {
   const { handleSubmit } = props
 
-
-  
-  // LOST E
   const submitOnEnter = (event: any) => {
-    console.log(e);
     if (event.which === 13 || event.keyCode === 13) {
-      console.log('DONE')
+      handleSubmit()
     }
-    handleSubmit()
   }
-  // LOST E
-
 
   return (
-    <form onSubmit={handleSubmit(submitOnEnter)}>
+    <form onKeyPress={submitOnEnter} onSubmit={handleSubmit}>
       <div>
         <div id='popup' className={style.content}>
           <Field
@@ -68,15 +57,12 @@ const GroupForm = (props: any, e: any) => {
             placeholder='Enter name of group'
             component={Input}
             name='customInput'
-            autoFocus='true'
+            autoFocus='true'            
           />
 
-          <button 
-          onClick={handleSubmit(submitOnEnter)}
-          type='submit'>
+          <button onClick={handleSubmit} type='submit'>
             <SVGIcon className={style.checkMark_btn__icon} name='checkMark' />
           </button>
-          {/* <button type="button">Do Something Else</button> */}
         </div>
       </div>
     </form>

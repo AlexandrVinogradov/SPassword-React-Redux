@@ -8,8 +8,8 @@ import { spaceDetect } from '../../../../utils/validators'
 
 type EditModePropsTypes = {
   updateLogin: (values: string) => void,
-  editModeToggle: boolean,
-  isEditMode: (toggle: boolean) => void,
+  isEditMode: boolean,
+  editModeToggle: (toggle: boolean) => void,
   login: string | null,
   password: string | null,
 }
@@ -29,7 +29,7 @@ const EditMode: React.FC<EditModePropsTypes> = props => {
 
   const handleExitEditMode = (values: any) => {
     updateLogin(values)
-    props.isEditMode(!props.editModeToggle)
+    editModeToggle(!isEditMode)
   }
 
   return (

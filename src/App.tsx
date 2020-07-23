@@ -8,7 +8,6 @@ import MainContainer from './components/Main/MainContainer'
 
 
 // redux-form types ModalAdd
-// hooks names
 // rewrite all any
 // add copy button
 // add languages 
