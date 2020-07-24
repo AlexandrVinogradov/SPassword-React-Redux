@@ -3,7 +3,14 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import style from './Hint.module.scss'
 import '../animation.scss'
 
-const Hint:React.FC = () => {
+type HintPropsTypes = {
+  hintMessage: string,
+  hintStatus: string
+}
+
+const Hint: React.FC<HintPropsTypes> = (props: HintPropsTypes) => {
+  const { hintMessage, hintStatus } = props
+
   return (
     <ReactCSSTransitionGroup
       transitionName='anim'
@@ -12,8 +19,8 @@ const Hint:React.FC = () => {
       transitionEnter={false}
       transitionLeave={false}
     >
-      <div className={`${style.Hint} anim`}>
-        <p>Select a group, my friend</p>
+      <div className={`${style.Hint} anim ${style.Hint} ${style[hintStatus]}` }>
+        <p>{hintMessage}</p>
       </div>
     </ReactCSSTransitionGroup>
   )

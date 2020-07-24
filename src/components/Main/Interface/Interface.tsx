@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import style from './Interface.module.scss'
+import styleGroupInfo from './GroupInfo/GroupInfo.module.scss'
 import shield from '../../../img/shield.png'
 import SVGIcon from '../../../SVGIcons'
 import AcceptModal from '../AcceptModal/AcceptModal'
@@ -7,6 +8,7 @@ import EditMode from './EditMode/EditMode'
 import Hint from './Hint/Hint'
 import './animation.scss'
 import { GroupsType } from '../../../types/types'
+import GroupInfo from './GroupInfo/GroupInfo'
 
 type InterfacePropsTypes = {
   idOfSelectedGroup: number,
@@ -22,6 +24,8 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
 
   const [showAcceptModal, isShowAcceptModal] = useState(false)
   const [showHint, isHint] = useState(false)
+  const [hintMessage, setHintMessage] = useState('null')
+  const [hintStatus, setHintStatusStyle] = useState('null')
 
   let title: string = ''
   let login: string | null = null
@@ -35,32 +39,33 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
     password = selectedGroup.password
   }
 
-  const hintAnimation = () => {
-    // need types???// need types???// need types???
+  const hintAnimation = (message: any, hintStatusOOO: any) => {
     if (!showHint) {
+
+      setHintMessage(message)
+      setHintStatusStyle(hintStatusOOO)
       isHint(true)
+
       setTimeout(() => {
         isHint(false)
-      }, 2000)
+      }, 1500)
     }
   }
 
   const handleShowAcceptModal = () => {
-    // need types???// need types???// need types???
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
       isShowAcceptModal(true)
       editModeToggle(false)
     } else {
-      hintAnimation()
+      hintAnimation('select a group, my friend', 'danger')
     }
   }
 
   const handleEnterInEditMod = () => {
-    // need types???// need types???// need types???
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
       editModeToggle(!isEditMode)
     } else {
-      hintAnimation()
+      hintAnimation('select a group, my friend', 'danger')
     }
   }
 
@@ -70,7 +75,7 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
         <AcceptModal title={title} deleteGroup={deleteGroup} isShowAcceptModal={isShowAcceptModal} />
       ) : null}
 
-      {showHint ? <Hint /> : null}
+      {showHint ? <Hint hintStatus={hintStatus} hintMessage={hintMessage} /> : null}
 
       <section className={style.interface}>
         <div className={style.header_mobile}>
@@ -108,8 +113,17 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
               updateLogin={updateLogin}
             />
           ) : null}
-          <div className={style.groupInfo}>
-            {title ? <GroupInfo login={login} password={password} /> : 'MARKDOWN CONTENT'}
+          <div className={styleGroupInfo.groupInfo}>
+            {title ? (
+              <GroupInfo
+                title={title}
+                hintAnimation={hintAnimation}
+                login={login}
+                password={password}
+              />
+            ) : (
+              'MARKDOWN CONTENT'
+            )}
           </div>
         </div>
       </section>
@@ -117,49 +131,4 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
   )
 }
 
-type GroupInfoPropsTypes = {
-  login: string | null,
-  password: string | null,
-}
-
-const GroupInfo: React.FC<GroupInfoPropsTypes> = (props: GroupInfoPropsTypes) => {
-  const { login, password } = props
-
-  const loginElement: any = React.createRef()
-  const passwordElement: any = React.createRef()
-
-  const copyLoginButton = () => {
-    const loginValue = loginElement.current
-    loginValue.contentEditable = true
-    loginValue.focus()
-    document.execCommand('selectAll')
-    document.execCommand('copy')
-    loginValue.contentEditable = false
-  }
-  const copyPasswordButton = () => {
-    const passwordValue = passwordElement.current
-    passwordValue.contentEditable = true
-    passwordValue.focus()
-    document.execCommand('selectAll')
-    document.execCommand('copy')
-    passwordValue.contentEditable = false
-  }
-
-  return (
-    <div className={style.groupInfo}>
-      <div className={style.login}>
-        <p ref={loginElement}>{login}</p>
-        <button onClick={copyLoginButton} type='button'>
-          <SVGIcon className={style.icon_copy} name='copyButton' />
-        </button>
-      </div>
-      <div className={style.password}>
-        <p  ref={passwordElement}>{password}</p>
-        <button onClick={copyPasswordButton} type='button'>
-          <SVGIcon className={style.icon_copy} name='copyButton' />
-        </button>
-      </div>
-    </div>
-  )
-}
 export default Interface

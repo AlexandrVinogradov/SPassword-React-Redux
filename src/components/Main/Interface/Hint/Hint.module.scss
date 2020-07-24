@@ -3,7 +3,7 @@
 .Hint {
   position: absolute;
   top: 0;
-  background: rgb(74, 230, 74);
+  background: transparent;
   width: 100%;
   left: 50%;
   transform: translate(-50%, 0%);
@@ -17,4 +17,9 @@
     font-size: 16px;
   }
 }
-
+.danger {
+  background: rgb(255, 106, 106);
+}
+.success {
+  background: rgb(74, 230, 74);
+}

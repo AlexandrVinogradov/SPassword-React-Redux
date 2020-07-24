@@ -1,0 +1,46 @@
+@import "../../../../scss/variables.scss";
+@import "../../../../scss/mixins.scss";
+
+.groupInfo {
+  @include min-width($smPhoneWidth) {
+    font-size: 36px;
+    line-height: 44px;
+    max-width: 300px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
+  @include min-width($tableWidth) {
+    font-size: get-vw(48px);
+    line-height: get-vw(59px);
+    max-width: none;
+  }
+
+  .login,
+  .password {
+    display: flex;
+    align-items: center;
+  }
+  button {
+    border: none;
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 6px;
+    transition: 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .icon_copy {
+      fill: $mainFontColor;
+      z-index: 999;
+      position: relative;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
