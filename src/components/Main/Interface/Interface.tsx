@@ -39,11 +39,10 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
     password = selectedGroup.password
   }
 
-  const hintAnimation = (message: any, hintStatusOOO: any) => {
+  const hintAnimation = (message: string, hintStatusStyle: string) => {
     if (!showHint) {
-
       setHintMessage(message)
-      setHintStatusStyle(hintStatusOOO)
+      setHintStatusStyle(hintStatusStyle)
       isHint(true)
 
       setTimeout(() => {
@@ -113,14 +112,10 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
               updateLogin={updateLogin}
             />
           ) : null}
+
           <div className={styleGroupInfo.groupInfo}>
             {title ? (
-              <GroupInfo
-                title={title}
-                hintAnimation={hintAnimation}
-                login={login}
-                password={password}
-              />
+              <GroupInfo title={title} hintAnimation={hintAnimation} login={login} password={password} />
             ) : (
               'MARKDOWN CONTENT'
             )}

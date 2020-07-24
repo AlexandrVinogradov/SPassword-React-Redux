@@ -9,7 +9,6 @@ import MainContainer from './components/Main/MainContainer'
 
 // redux-form types ModalAdd
 // rewrite all any
-// add copy button
 // add languages 
 // editMode span importants..
 
