@@ -118,34 +118,44 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
 }
 
 type GroupInfoPropsTypes = {
-  login: any,
-  // string | null,
-  password: any
-  // string | null,
+  login: string | null,
+  password: string | null,
 }
 
 const GroupInfo: React.FC<GroupInfoPropsTypes> = (props: GroupInfoPropsTypes) => {
   const { login, password } = props
-  const loginText = React.createRef()
 
+  const loginElement: any = React.createRef()
+  const passwordElement: any = React.createRef()
 
-  const copyOnButton = () => {
-    console.log(login)
-    // select('asd')
+  const copyLoginButton = () => {
+    const loginValue = loginElement.current
+    loginValue.contentEditable = true
+    loginValue.focus()
+    document.execCommand('selectAll')
     document.execCommand('copy')
+    loginValue.contentEditable = false
+  }
+  const copyPasswordButton = () => {
+    const passwordValue = passwordElement.current
+    passwordValue.contentEditable = true
+    passwordValue.focus()
+    document.execCommand('selectAll')
+    document.execCommand('copy')
+    passwordValue.contentEditable = false
   }
 
   return (
     <div className={style.groupInfo}>
       <div className={style.login}>
-        <p ref={loginText}>{login}</p>
-        <button onClick={copyOnButton} type='button'>
+        <p ref={loginElement}>{login}</p>
+        <button onClick={copyLoginButton} type='button'>
           <SVGIcon className={style.icon_copy} name='copyButton' />
         </button>
       </div>
       <div className={style.password}>
-        <p>{password}</p>
-        <button onClick={copyOnButton} type='button'>
+        <p  ref={passwordElement}>{password}</p>
+        <button onClick={copyPasswordButton} type='button'>
           <SVGIcon className={style.icon_copy} name='copyButton' />
         </button>
       </div>
