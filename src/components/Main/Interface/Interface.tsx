@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import style from './Interface.module.scss'
 import styleGroupInfo from './GroupInfo/GroupInfo.module.scss'
 import shield from '../../../img/shield.png'
@@ -26,6 +27,8 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
   const [showHint, isHint] = useState(false)
   const [hintMessage, setHintMessage] = useState('null')
   const [hintStatus, setHintStatusStyle] = useState('null')
+  const { t } = useTranslation()
+
 
   let title: string = ''
   let login: string | null = null
@@ -56,7 +59,7 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
       isShowAcceptModal(true)
       editModeToggle(false)
     } else {
-      hintAnimation('select a group, my friend', 'danger')
+      hintAnimation(t('must select a group'), 'danger')
     }
   }
 
@@ -64,7 +67,7 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
       editModeToggle(!isEditMode)
     } else {
-      hintAnimation('select a group, my friend', 'danger')
+      hintAnimation(t('must select a group'), 'danger')
     }
   }
 
@@ -117,7 +120,7 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
             {title ? (
               <GroupInfo title={title} hintAnimation={hintAnimation} login={login} password={password} />
             ) : (
-              'MARKDOWN CONTENT'
+              t('content')
             )}
           </div>
         </div>

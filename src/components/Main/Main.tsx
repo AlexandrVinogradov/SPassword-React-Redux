@@ -1,4 +1,5 @@
 import React, { useState, BaseSyntheticEvent } from 'react'
+import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
 import style from './Main.module.scss'
 import shield from '../../img/shield.png'
@@ -12,6 +13,7 @@ import { GroupsType } from '../../types/types'
 // delete and select next
 // duplicate with container component (types)
 
+// TYPES --
 type MapStatePropsTypes = {
   groups: GroupsType[],
   idOfSelectedGroup: number,
@@ -23,14 +25,15 @@ type MapDispatchPropsTypes = {
   selectGroup: (idOfSelectedGroup: number) => void,
 }
 type OwnPropsTypes = {}
-
 type MainPropsTypes = MapStatePropsTypes & MapDispatchPropsTypes & OwnPropsTypes
+// TYPES --
 
 const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
   const { groups, selectGroup, idOfSelectedGroup, deleteGroup, updateLogin, addGroup } = props
 
   const [showModal, toggleModal] = useState(false)
   const [isEditMode, editModeToggle] = useState(false)
+  const { t } = useTranslation()
 
   const handleOpenModal = () => {
     toggleModal(true)
@@ -48,7 +51,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
   // }
 
   const onAddGroup = (value: any) => {
-    console.log(value);
+    console.log(value)
     addGroup(value.customInput)
     toggleModal(false)
   }
@@ -71,7 +74,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
         </div>
 
         <button type='button' onClick={handleOpenModal} className={style.circle_btn}>
-          <p>Add group</p>
+          <p>{t('Add group')}</p>
           <SVGIcon className={style.circle_btn__icon} name='addGroup' />
         </button>
 
@@ -83,7 +86,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
         />
 
         <NavLink className={`${style.circle_btn} ${style.circle_btn__logout}`} to='/login'>
-          <p>Logout</p>
+          <p>{t('Logout')}</p>
           <SVGIcon className={style.circle_btn__icon} name='logout' />
         </NavLink>
       </section>

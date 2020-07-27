@@ -1,14 +1,16 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import style from './AcceptModal.module.scss'
 
 type AcceptModalPropsType = {
   title: string,
   isShowAcceptModal: (toggle: boolean) => void,
-  deleteGroup: (title: string) => void
+  deleteGroup: (title: string) => void,
 }
 
 const AcceptModal: React.FC<AcceptModalPropsType> = (props: AcceptModalPropsType) => {
   const { title, isShowAcceptModal, deleteGroup } = props
+  const { t } = useTranslation()
 
   const handleCloseAcceptModal = () => {
     isShowAcceptModal(false)
@@ -24,14 +26,16 @@ const AcceptModal: React.FC<AcceptModalPropsType> = (props: AcceptModalPropsType
       <div className={style.accept_modal}>
         <div className={style.accept_modal__content}>
           <p>
-            Are you sure that you want to delete <span>{title}</span> passwords
+            {t('are you sure--start')}
+            <span>{title}</span>
+            {t('are you sure--end')}
           </p>
           <div className={style.buttons_block}>
             <button onClick={handleDeleteGroup} type='button'>
-              Yes
+              {t('yes')}
             </button>
             <button onClick={handleCloseAcceptModal} type='button'>
-              Oh, no
+              {t('no')}
             </button>
           </div>
         </div>

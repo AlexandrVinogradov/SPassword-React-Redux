@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Field, reduxForm } from 'redux-form'
 import { Input } from '../../common/FormsControls/FormControls'
 import SVGIcon from '../../../SVGIcons'
@@ -42,6 +43,8 @@ const ModalAdd: React.FC<ModalAddPropsTypes> = (props: ModalAddPropsTypes) => {
 const GroupForm = (props: any) => {
   const { handleSubmit } = props
 
+  const { t } = useTranslation()
+
   const submitOnEnter = (event: any) => {
     if (event.which === 13 || event.keyCode === 13) {
       handleSubmit()
@@ -54,7 +57,7 @@ const GroupForm = (props: any) => {
         <div id='popup' className={style.content}>
           <Field
             validate={[required, maxLength]}
-            placeholder='Enter name of group'
+            placeholder={t('Enter name')}
             component={Input}
             name='customInput'
             autoFocus='true'            

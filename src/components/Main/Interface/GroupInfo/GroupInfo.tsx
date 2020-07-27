@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import SVGIcon from '../../../../SVGIcons'
 import style from './GroupInfo.module.scss'
 
@@ -11,6 +12,7 @@ type GroupInfoPropsTypes = {
 
 const GroupInfo: React.FC<GroupInfoPropsTypes> = (props: GroupInfoPropsTypes) => {
   const { title, hintAnimation, login, password } = props
+  const { t } = useTranslation()
 
   const loginElement: any = React.createRef()
   const passwordElement: any = React.createRef()
@@ -23,7 +25,8 @@ const GroupInfo: React.FC<GroupInfoPropsTypes> = (props: GroupInfoPropsTypes) =>
     document.execCommand('copy')
     loginValue.contentEditable = false
 
-    hintAnimation(`${title} login copied successful`, 'success')
+    const hintMessage = t(`login copied successful`, {title})
+    hintAnimation(hintMessage, 'success')
   }
   const copyPasswordButton = () => {
     const passwordValue = passwordElement.current
@@ -33,7 +36,8 @@ const GroupInfo: React.FC<GroupInfoPropsTypes> = (props: GroupInfoPropsTypes) =>
     document.execCommand('copy')
     passwordValue.contentEditable = false
 
-    hintAnimation(`${title} password copied successful`, 'success')
+    const hintMessage = t(`password copied successful`, {title})
+    hintAnimation(hintMessage, 'success')
   }
 
   return (

@@ -1,3 +1,17 @@
 {
-  "Логин": "Login"
-}
+  "Login": "Login",
+  "placeholderLogin": "Login",
+  "placeholderPassword": "Password",
+  "your safe": "your safe",
+  "Add group": "Add group",
+  "Logout": "Logout",
+  "content": "MARKDOWN CONTENT",
+  "Enter name": "Enter name of group",
+  "must select a group": "select a group, my friend",
+  "login copied successful": "{{title}} login copied successful",
+  "password copied successful": "{{title}} password copied successful",
+  "are you sure--start": "Are you sure that you want to delete",
+  "are you sure--end": "passwords",
+  "yes": "Yes",
+  "no": "Oh, no"
+} 

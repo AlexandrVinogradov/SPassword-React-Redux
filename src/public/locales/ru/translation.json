@@ -1,3 +1,19 @@
 {
-  "Welcome to React": "Willkommen bei react und react-i18next"
+  "Login": "Логин",
+  "placeholderLogin": "Логин",
+  "placeholderPassword": "Пароль",
+  "your safe": "Ваша безопасность",
+  "Add group": "Добавить аккаунт",
+  "Logout": "Выход",
+  "content": "ВАШИ ПАРОЛИ ОТОБРАЗЯТСЯ ТУТ",
+  "Enter name": "Введите название аккаунта",
+  "must select a group": "Выберите аккаунт",
+  "login copied successful": "{{title}} логин скопирован в буфер обмена",
+  "password copied successful": "{{title}} пароль скопирован в буфер обмена",
+  "are you sure--start": "Вы уверены, что хотите удалить",
+  "are you sure--end": "аккаунт",
+  "yes": "Да",
+  "no": "Ох, нет"
 }
+
+ 
