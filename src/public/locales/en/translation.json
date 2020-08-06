@@ -13,5 +13,8 @@
   "are you sure--start": "Are you sure that you want to delete",
   "are you sure--end": "passwords",
   "yes": "Yes",
-  "no": "Oh, no"
+  "no": "Oh, no",
+  "Enter login": "Enter login",
+  "Enter password": "Enter password",
+  "Edit": "Edit"
 } 

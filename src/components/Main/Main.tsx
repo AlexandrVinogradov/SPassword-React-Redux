@@ -13,7 +13,6 @@ import { GroupsType } from '../../types/types'
 // delete and select next
 // duplicate with container component (types)
 
-// TYPES --
 type MapStatePropsTypes = {
   groups: GroupsType[],
   idOfSelectedGroup: number,
@@ -26,7 +25,6 @@ type MapDispatchPropsTypes = {
 }
 type OwnPropsTypes = {}
 type MainPropsTypes = MapStatePropsTypes & MapDispatchPropsTypes & OwnPropsTypes
-// TYPES --
 
 const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
   const { groups, selectGroup, idOfSelectedGroup, deleteGroup, updateLogin, addGroup } = props
@@ -51,7 +49,6 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
   // }
 
   const onAddGroup = (value: any) => {
-    console.log(value)
     addGroup(value.customInput)
     toggleModal(false)
   }

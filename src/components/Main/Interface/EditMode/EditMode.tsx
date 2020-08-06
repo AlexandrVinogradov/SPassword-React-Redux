@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import { Field, reduxForm } from 'redux-form'
 import style from './EditMode.module.scss'
 import { Input } from '../../../common/FormsControls/FormControls'
@@ -46,19 +47,18 @@ const EditMode: React.FC<EditModePropsTypes> = props => {
 
 const EditModeForm = (props: EditModeFormProps) => {
   const { handleSubmit } = props
+  const { t } = useTranslation()
 
   return (
     <form className={style.form} onSubmit={handleSubmit}>
-      <Field placeholder='Enter login' component={Input} validate={[spaceDetect]} name='customLoginInput' />
-      <Field placeholder='Enter password' component={Input} validate={[spaceDetect]} name='customPasswordInput' />
+      <Field placeholder={t('Enter login')} component={Input} validate={[spaceDetect]} name='customLoginInput' />
+      <Field placeholder={t('Enter password')} component={Input} validate={[spaceDetect]} name='customPasswordInput' />
       <button className={style.edit_button} type='submit'>
-        Edit
+        {t('Edit')}
       </button>
     </form>
   )
 }
-
-console.log('MAKE BEAUTY')
 
 type MapStatePropsTypes = {
   initialValues: () => void,

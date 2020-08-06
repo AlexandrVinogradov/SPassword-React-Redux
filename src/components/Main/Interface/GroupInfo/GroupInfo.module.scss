@@ -15,13 +15,18 @@
   @include min-width($tableWidth) {
     font-size: get-vw(48px);
     line-height: get-vw(59px);
-    max-width: none;
+    max-width: get-vw(600px);
   }
 
   .login,
   .password {
     display: flex;
     align-items: center;
+
+    & > p {
+      font-size: get-vw(30px);
+      white-space: nowrap;
+    }
   }
   button {
     border: none;
