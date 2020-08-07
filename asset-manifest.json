@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/SPassword-React-Redux/static/css/main.57e9221e.chunk.css",
-    "main.js": "/SPassword-React-Redux/static/js/main.f861f77b.chunk.js",
-    "main.js.map": "/SPassword-React-Redux/static/js/main.f861f77b.chunk.js.map",
+    "main.css": "/SPassword-React-Redux/static/css/main.44d2f123.chunk.css",
+    "main.js": "/SPassword-React-Redux/static/js/main.983bfd4b.chunk.js",
+    "main.js.map": "/SPassword-React-Redux/static/js/main.983bfd4b.chunk.js.map",
     "runtime-main.js": "/SPassword-React-Redux/static/js/runtime-main.3f67133a.js",
     "runtime-main.js.map": "/SPassword-React-Redux/static/js/runtime-main.3f67133a.js.map",
-    "static/js/2.f9ceaaea.chunk.js": "/SPassword-React-Redux/static/js/2.f9ceaaea.chunk.js",
-    "static/js/2.f9ceaaea.chunk.js.map": "/SPassword-React-Redux/static/js/2.f9ceaaea.chunk.js.map",
+    "static/js/2.44718e79.chunk.js": "/SPassword-React-Redux/static/js/2.44718e79.chunk.js",
+    "static/js/2.44718e79.chunk.js.map": "/SPassword-React-Redux/static/js/2.44718e79.chunk.js.map",
     "index.html": "/SPassword-React-Redux/index.html",
-    "precache-manifest.6a7012b908effbdd8ab6a4a6e4d1eab6.js": "/SPassword-React-Redux/precache-manifest.6a7012b908effbdd8ab6a4a6e4d1eab6.js",
+    "precache-manifest.f96f11dcf943dfdcb8fe07213e73df62.js": "/SPassword-React-Redux/precache-manifest.f96f11dcf943dfdcb8fe07213e73df62.js",
     "service-worker.js": "/SPassword-React-Redux/service-worker.js",
-    "static/css/main.57e9221e.chunk.css.map": "/SPassword-React-Redux/static/css/main.57e9221e.chunk.css.map",
-    "static/js/2.f9ceaaea.chunk.js.LICENSE.txt": "/SPassword-React-Redux/static/js/2.f9ceaaea.chunk.js.LICENSE.txt",
+    "static/css/main.44d2f123.chunk.css.map": "/SPassword-React-Redux/static/css/main.44d2f123.chunk.css.map",
+    "static/js/2.44718e79.chunk.js.LICENSE.txt": "/SPassword-React-Redux/static/js/2.44718e79.chunk.js.LICENSE.txt",
     "static/media/NavListBar.module.scss": "/SPassword-React-Redux/static/media/Montserrat-Regular.ee1fbd62.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.3f67133a.js",
-    "static/js/2.f9ceaaea.chunk.js",
-    "static/css/main.57e9221e.chunk.css",
-    "static/js/main.f861f77b.chunk.js"
+    "static/js/2.44718e79.chunk.js",
+    "static/css/main.44d2f123.chunk.css",
+    "static/js/main.983bfd4b.chunk.js"
   ]
 }
