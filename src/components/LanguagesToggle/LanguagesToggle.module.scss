@@ -1,0 +1,33 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+
+.Language_toggle_form {
+
+  
+  .language_button {
+    background: none;
+    padding: 0;
+    border: none;
+    margin-right: 5px;
+
+    .icon_flag {
+      @include min-width($smPhoneWidth) {
+        width: 20px;
+        height: 20px;
+        opacity: 0.8;
+        transition: 0.3s ease;
+        cursor: pointer;
+      }
+      @include min-width($tableWidth) {
+        width: get-vw(30px);
+        height: get-vw(30px);
+      }
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+

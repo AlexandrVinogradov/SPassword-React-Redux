@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation, withTranslation, WithTranslation } from 'react-i18next'
 import style from './Interface.module.scss'
+
 import styleGroupInfo from './GroupInfo/GroupInfo.module.scss'
 import shield from '../../../img/shield.png'
 import SVGIcon from '../../../SVGIcons'
@@ -10,6 +11,7 @@ import Hint from './Hint/Hint'
 import './animation.scss'
 import { GroupsType } from '../../../types/types'
 import GroupInfo from './GroupInfo/GroupInfo'
+import LanguageToggle from '../../LanguagesToggle/LanguagesToggle'
 
 type InterfacePropsTypes = {
   idOfSelectedGroup: number,
@@ -20,15 +22,17 @@ type InterfacePropsTypes = {
   isEditMode: boolean,
 }
 
-const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) => {
-  const { idOfSelectedGroup, updateLogin, groups, deleteGroup, isEditMode, editModeToggle } = props
+type InterfacePropsTypesWithTranslation = InterfacePropsTypes & WithTranslation
+
+
+const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: InterfacePropsTypesWithTranslation) => {
+  const { idOfSelectedGroup, updateLogin, groups, deleteGroup, isEditMode, editModeToggle, i18n, tReady } = props
 
   const [showAcceptModal, isShowAcceptModal] = useState(false)
   const [showHint, isHint] = useState(false)
   const [hintMessage, setHintMessage] = useState('null')
   const [hintStatus, setHintStatusStyle] = useState('null')
   const { t } = useTranslation()
-
 
   let title: string = ''
   let login: string | null = null
@@ -95,6 +99,8 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
             <SVGIcon className={style.icon_dots} name='dots' />
           </button>
 
+          <LanguageToggle i18n={i18n} tReady={tReady} t={t} />
+
           <div className={style.edit_btns}>
             <button onClick={handleEnterInEditMod} type='button' className={style.btn}>
               <SVGIcon className={style.icon_pencil} name='pencil' />
@@ -129,4 +135,5 @@ const Interface: React.FC<InterfacePropsTypes> = (props: InterfacePropsTypes) =>
   )
 }
 
-export default Interface
+export default withTranslation()(Interface)
+

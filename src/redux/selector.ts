@@ -1,4 +1,3 @@
-// import { createSelector } from 'reselect';
 import { AppStateType } from './store';
 
 export const getGroups = (state: AppStateType) => {

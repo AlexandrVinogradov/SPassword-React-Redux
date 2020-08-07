@@ -1,8 +1,6 @@
-// @import "../../scss/fonts.scss";
 @import "../../scss/variables.scss";
 @import "../../scss/mixins.scss";
 
-// @import "../../scss/components.scss";
 
 .Main {
   @include min-width($smPhoneWidth) {
@@ -18,6 +16,7 @@
 
   // section1
   .sidebar {
+    min-width: get-vw(200px);
     @include min-width($smPhoneWidth) {
       display: none;
     }

@@ -7,11 +7,7 @@ import NavListBar from './NavListBar/NavListBar'
 import SVGIcon from '../../SVGIcons'
 import Interface from './Interface/Interface'
 import ModalAdd from './ModalAdd/ModalAdd'
-
 import { GroupsType } from '../../types/types'
-
-// delete and select next
-// duplicate with container component (types)
 
 type MapStatePropsTypes = {
   groups: GroupsType[],
@@ -44,10 +40,6 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
     }
   }
 
-  // type onAddGroupPropsTypes = {
-  //   customInput: string
-  // }
-
   const onAddGroup = (value: any) => {
     addGroup(value.customInput)
     toggleModal(false)
@@ -57,7 +49,6 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
     <main className={style.Main}>
       {showModal ? (
         <ModalAdd
-          // selectGroup={selectGroup}
           toggleModal={toggleModal}
           handleCloseModal={handleCloseModal}
           onAddGroup={onAddGroup}
@@ -79,7 +70,6 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
           editModeToggle={editModeToggle}
           groups={groups}
           selectGroup={selectGroup}
-          // idOfSelectedGroup={idOfSelectedGroup}
         />
 
         <NavLink className={`${style.circle_btn} ${style.circle_btn__logout}`} to='/login'>

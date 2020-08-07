@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/tasks.txt
 /.vscode/chrome
 /.pnp
 .pnp.js

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import shield from '../../img/shield.png'
 import style from './Login.module.scss'
 
-const Login: React.FC = props => {
+const Login: React.FC = () => {
   const { t } = useTranslation()
 
   return (

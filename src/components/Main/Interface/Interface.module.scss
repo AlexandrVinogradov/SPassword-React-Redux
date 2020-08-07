@@ -1,4 +1,3 @@
-// @import "../../../scss/fonts.scss";
 @import "../../../scss/variables.scss";
 @import "../../../scss/mixins.scss";
 
@@ -65,10 +64,12 @@
           font-weight: 500;
           text-transform: none;
           color: $dark-color;
+          min-width: none;
         }
         @include min-width($tableWidth) {
           font-size: get-vw(36px);
           line-height: get-vw(44px);
+          min-width: get-vw(300px);
         }
       }
 

@@ -48,6 +48,8 @@
       padding: get-vw1230(24px) 0px get-vw1230(64px);
       font-size: get-vw1230(24px);
       line-height: get-vw1230(29px);
+      // min-width: get-vw(500px);
+      white-space: nowrap;
     }
     @include min-width(1230px) {
       font-size: 24px;
