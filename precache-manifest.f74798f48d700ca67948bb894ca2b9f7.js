@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "113c80981fc5a38a33e8f9d4c35c66ee",
+    "revision": "c22a6bdbed6fab4359d94bcb7bb5165d",
     "url": "/SPassword-React-Redux/index.html"
   },
   {
-    "revision": "8dce9f17c7ca18cea10e",
+    "revision": "5a07b277fce48ba131fc",
     "url": "/SPassword-React-Redux/static/css/main.44d2f123.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SPassword-React-Redux/static/js/2.44718e79.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8dce9f17c7ca18cea10e",
-    "url": "/SPassword-React-Redux/static/js/main.983bfd4b.chunk.js"
+    "revision": "5a07b277fce48ba131fc",
+    "url": "/SPassword-React-Redux/static/js/main.8508e398.chunk.js"
   },
   {
     "revision": "aad6d52fae68ec1f1d02",
