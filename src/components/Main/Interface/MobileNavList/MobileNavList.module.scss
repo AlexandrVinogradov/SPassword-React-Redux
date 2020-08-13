@@ -1,0 +1,30 @@
+@import "../../../../scss/variables.scss";
+@import "../../../../scss/mixins.scss";
+
+.MobileNavList {
+  background: $default-color;
+  height: 200px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  @include min-width($tableWidth) {
+    display: none;
+  }
+
+  & > button {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+
+    .icon_close {
+      width: 20px;
+      height: 20px;
+      fill: $border-lighter;
+    }
+  }
+}

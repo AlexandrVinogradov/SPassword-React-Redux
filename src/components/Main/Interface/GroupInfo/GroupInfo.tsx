@@ -7,15 +7,15 @@ type GroupInfoPropsTypes = {
   title: string,
   login: string | null,
   password: string | null,
-  hintAnimation: (message: string, hintStatus:string) => void,
+  hintAnimation: (message: string, hintStatus: string) => void,
 }
 
 const GroupInfo: React.FC<GroupInfoPropsTypes> = (props: GroupInfoPropsTypes) => {
   const { title, hintAnimation, login, password } = props
   const { t } = useTranslation()
 
-  const loginElement: any = React.createRef()
-  const passwordElement: any = React.createRef()
+  const loginElement = React.createRef<any>()
+  const passwordElement = React.createRef<any>()
 
   const copyLoginButton = () => {
     const loginValue = loginElement.current
@@ -25,7 +25,7 @@ const GroupInfo: React.FC<GroupInfoPropsTypes> = (props: GroupInfoPropsTypes) =>
     document.execCommand('copy')
     loginValue.contentEditable = false
 
-    const hintMessage = t(`login copied successful`, {title})
+    const hintMessage = t(`login copied successful`, { title })
     hintAnimation(hintMessage, 'success')
   }
   const copyPasswordButton = () => {
@@ -36,7 +36,7 @@ const GroupInfo: React.FC<GroupInfoPropsTypes> = (props: GroupInfoPropsTypes) =>
     document.execCommand('copy')
     passwordValue.contentEditable = false
 
-    const hintMessage = t(`password copied successful`, {title})
+    const hintMessage = t(`password copied successful`, { title })
     hintAnimation(hintMessage, 'success')
   }
 

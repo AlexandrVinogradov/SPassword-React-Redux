@@ -19,6 +19,10 @@
         cursor: pointer;
       }
       @include min-width($tableWidth) {
+        width: get-vw14(30px);
+        height: get-vw14(30px);
+      }
+      @include min-width($desktopWidth) {
         width: get-vw(30px);
         height: get-vw(30px);
       }

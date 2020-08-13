@@ -8,6 +8,7 @@ import SVGIcon from '../../SVGIcons'
 import Interface from './Interface/Interface'
 import ModalAdd from './ModalAdd/ModalAdd'
 import { GroupsType } from '../../types/types'
+import MobileNavList from './Interface/MobileNavList/MobileNavList'
 
 type MapStatePropsTypes = {
   groups: GroupsType[],
@@ -26,6 +27,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
   const { groups, selectGroup, idOfSelectedGroup, deleteGroup, updateLogin, addGroup } = props
 
   const [showModal, toggleModal] = useState(false)
+  const [showMobileNavList, isMobileNavList] = useState(false)
   const [isEditMode, editModeToggle] = useState(false)
   const { t } = useTranslation()
 
@@ -48,10 +50,15 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
   return (
     <main className={style.Main}>
       {showModal ? (
-        <ModalAdd
-          toggleModal={toggleModal}
-          handleCloseModal={handleCloseModal}
-          onAddGroup={onAddGroup}
+        <ModalAdd toggleModal={toggleModal} handleCloseModal={handleCloseModal} onAddGroup={onAddGroup} />
+      ) : null}
+
+      {showMobileNavList ? (
+        <MobileNavList
+          isMobileNavList={isMobileNavList}
+          editModeToggle={editModeToggle}
+          groups={groups}
+          selectGroup={selectGroup}
         />
       ) : null}
 
@@ -67,6 +74,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
         </button>
 
         <NavListBar
+          isMobileNavList={isMobileNavList}
           editModeToggle={editModeToggle}
           groups={groups}
           selectGroup={selectGroup}
@@ -85,6 +93,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
         idOfSelectedGroup={idOfSelectedGroup}
         editModeToggle={editModeToggle}
         isEditMode={isEditMode}
+        isMobileNavList={isMobileNavList}
       />
     </main>
   )

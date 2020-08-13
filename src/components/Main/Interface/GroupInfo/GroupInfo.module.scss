@@ -13,7 +13,10 @@
     transform: translate(-50%, -50%);
   }
   @include min-width($tableWidth) {
-    font-size: get-vw(48px);
+    line-height: get-vw14(59px);
+    max-width: get-vw14(600px);
+  }
+  @include min-width($desktopWidth) {
     line-height: get-vw(59px);
     max-width: get-vw(600px);
   }
@@ -29,6 +32,10 @@
         white-space: nowrap;
       }
       @include min-width($tableWidth) {
+        font-size: get-vw14(30px);
+        min-width: get-vw14(240px);
+      }
+      @include min-width($desktopWidth) {
         font-size: get-vw(30px);
         min-width: get-vw(240px);
       }
@@ -41,7 +48,7 @@
     margin-top: 6px;
     transition: 0.3s ease;
 
-    &:hover {
+  &:hover {
       opacity: 1;
       transform: scale(1.1);
     }

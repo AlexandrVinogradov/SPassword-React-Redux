@@ -7,6 +7,7 @@ type NavListBarPropsType = {
   groups: GroupsType[],
   editModeToggle: (toggle: boolean) => void,
   selectGroup: (idOfSelectedGroup: number) => void,
+  isMobileNavList: any,
 }
 
 type GroupPropsTypes = {
@@ -14,10 +15,11 @@ type GroupPropsTypes = {
   login: string | null,
   password: string | null,
   editModeToggle: (toggle: boolean) => void,
+  isMobileNavList: any,
 }
 
 const NavListBar: React.FC<NavListBarPropsType> = (props: NavListBarPropsType) => {
-  const { groups, editModeToggle, selectGroup } = props
+  const { groups, editModeToggle, selectGroup, isMobileNavList } = props
 
   const location = useLocation()
   const selectedGroup = groups.find(i => i.name === location.pathname.slice(6))
@@ -36,11 +38,14 @@ const NavListBar: React.FC<NavListBarPropsType> = (props: NavListBarPropsType) =
   findSelectedGroup()
 
   const groupElement = groups.map(g => (
-    <Group editModeToggle={editModeToggle} 
-    name={g.name} 
-    login={g.login} 
-    password={g.password}  
-    key={g.id} />
+    <Group
+      editModeToggle={editModeToggle}
+      isMobileNavList={isMobileNavList}
+      name={g.name}
+      login={g.login}
+      password={g.password}
+      key={g.id}
+    />
   ))
 
   return (
@@ -51,9 +56,10 @@ const NavListBar: React.FC<NavListBarPropsType> = (props: NavListBarPropsType) =
 }
 
 const Group: React.FC<GroupPropsTypes> = (props: GroupPropsTypes) => {
-  const test = () => {
-    const { login, password, editModeToggle } = props
-
+  const handleOpenEditModToggle = () => {
+    const { login, password, editModeToggle, isMobileNavList } = props
+    
+    isMobileNavList(false)
     if (!login && !password) {
       editModeToggle(true)
     }
@@ -62,7 +68,12 @@ const Group: React.FC<GroupPropsTypes> = (props: GroupPropsTypes) => {
   const { name } = props
   return (
     <li>
-      <NavLink onClick={test} to={`/main/${name}`} activeClassName={style.active} className={style.a}>
+      <NavLink
+        onClick={handleOpenEditModToggle}
+        to={`/main/${name}`}
+        activeClassName={style.active}
+        className={style.a}
+      >
         {name}
       </NavLink>
     </li>

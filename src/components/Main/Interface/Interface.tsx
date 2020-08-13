@@ -20,13 +20,23 @@ type InterfacePropsTypes = {
   deleteGroup: (login: string) => void,
   editModeToggle: (toggle: boolean) => void,
   isEditMode: boolean,
+  isMobileNavList: (toggle: boolean) => void, 
 }
 
 type InterfacePropsTypesWithTranslation = InterfacePropsTypes & WithTranslation
 
-
 const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: InterfacePropsTypesWithTranslation) => {
-  const { idOfSelectedGroup, updateLogin, groups, deleteGroup, isEditMode, editModeToggle, i18n, tReady } = props
+  const {
+    idOfSelectedGroup,
+    updateLogin,
+    groups,
+    deleteGroup,
+    isEditMode,
+    editModeToggle,
+    i18n,
+    tReady,
+    isMobileNavList,
+  } = props
 
   const [showAcceptModal, isShowAcceptModal] = useState(false)
   const [showHint, isHint] = useState(false)
@@ -58,6 +68,10 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
     }
   }
 
+  const handleOpenMobileNavList = () => {
+    isMobileNavList(true)
+  }
+
   const handleShowAcceptModal = () => {
     if (idOfSelectedGroup === 0 || idOfSelectedGroup) {
       isShowAcceptModal(true)
@@ -85,7 +99,11 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
 
       <section className={style.interface}>
         <div className={style.header_mobile}>
-          <SVGIcon className={style.icon_rectangles} name='rectangles' />
+
+          <button onClick={handleOpenMobileNavList} type='button'>
+            <SVGIcon className={style.icon_rectangles} name='rectangles' />
+          </button>
+
           <div className={style.header__mobile_logo}>
             <p className={style.sidebar__header_name}>SPassword</p>
             <img src={shield} alt='SPassword logo' />
@@ -94,10 +112,6 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
 
         <div className={style.header}>
           <h1>{title}</h1>
-
-          <button type='button' className={style.btn}>
-            <SVGIcon className={style.icon_dots} name='dots' />
-          </button>
 
           <LanguageToggle i18n={i18n} tReady={tReady} t={t} />
 
@@ -136,4 +150,3 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
 }
 
 export default withTranslation()(Interface)
-

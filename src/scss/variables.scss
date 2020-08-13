@@ -12,7 +12,7 @@ $mainFontWeight          : 400;
 $mainLineHeight          : 1.4;
 
 // $largeDesktopWidth       : 1600px;
-// $desktopWidth            : 1280px;
+$desktopWidth            : 1400px;
 // $smDesktopWidth          : 1024px;
 $tableWidth              : 768px;
 // $smTableWidth            : 640px;
@@ -56,11 +56,21 @@ $border-lighter-02        : #edf7fa;
    px to vw convertor
 */
 
-$vw-viewport19000: 1900;
+$vw-viewport19000: 1800;
 $vw-enable: true;
 @function get-vw($font) {
   @if $vw-enable {
     $vw-context: $vw-viewport19000 * 0.01 * 1px;
+    @return $font / $vw-context * 1vw;
+  }
+@return $font;
+}
+
+$vw-viewport14000: 1400;
+$vw-enable: true;
+@function get-vw14($font) {
+  @if $vw-enable {
+    $vw-context: $vw-viewport14000 * 0.01 * 1px;
     @return $font / $vw-context * 1vw;
   }
 @return $font;

@@ -6,7 +6,7 @@ import style from './LanguagesToggle.module.scss'
 const LanguageToggle: React.FC<WithTranslation> = (props: WithTranslation) => {
   const { i18n } = props
 
-  const changeLanguage = (lng: any) => {
+  const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
   }
 

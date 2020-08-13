@@ -21,10 +21,16 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 12px;
-      .icon_rectangles {
-        width: 24px;
-        height: 24px;
-        fill: $success-color-dark;
+
+      & > button {
+        background: none;
+        border: none;
+        
+        .icon_rectangles {
+          width: 24px;
+          height: 24px;
+          fill: $success-color-dark;
+        }
       }
       .header__mobile_logo {
         display: flex;
@@ -54,6 +60,9 @@
         padding-bottom: 0px;
         max-height: 60.16px;
         height: 61px;
+        max-width: get-vw14(834px);
+      }
+      @include min-width($desktopWidth) {
         max-width: get-vw(834px);
       }
 
@@ -67,6 +76,11 @@
           min-width: none;
         }
         @include min-width($tableWidth) {
+          font-size: get-vw14(36px);
+          line-height: get-vw14(44px);
+          min-width: get-vw14(300px);
+        }
+        @include min-width($desktopWidth) {
           font-size: get-vw(36px);
           line-height: get-vw(44px);
           min-width: get-vw(300px);
@@ -75,10 +89,6 @@
 
       .edit_btns {
         @include min-width($smPhoneWidth) {
-          display: flex;
-          display: none;
-        }
-        @include min-width($tableWidth) {
           display: block;
         }
       }
@@ -95,12 +105,20 @@
         }
 
         .icon_pencil {
-          width: get-vw(24px);
+          width: 18px;
           fill: $contrast-color;
+
+          @include min-width($tableWidth) {
+            width: get-vw14(24px);
+          }
         }
         .icon_bucket {
-          width: get-vw(18px);
+          width: 15px;
           fill: $success-color-dark;
+
+          @include min-width($tableWidth) {
+            width: get-vw14(18px);
+          }
         }
       }
       .icon_dots {
@@ -126,6 +144,10 @@
         position: relative;
       }
       @include min-width($tableWidth) {
+        height: get-vw14(712px);
+        width: get-vw14(834px);
+      }
+      @include min-width($desktopWidth) {
         height: get-vw(712px);
         width: get-vw(834px);
       }
@@ -159,6 +181,10 @@
     transform: translate(-50%, -50%);
   }
   @include min-width($tableWidth) {
+    font-size: get-vw14(48px);
+    line-height: get-vw14(59px);
+  }
+  @include min-width($desktopWidth) {
     font-size: get-vw(48px);
     line-height: get-vw(59px);
     max-width: none;

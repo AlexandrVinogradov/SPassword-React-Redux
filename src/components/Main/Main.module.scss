@@ -7,9 +7,12 @@
     margin: 0 auto;
     padding: get-vw(60px) 16px;
     display: flex;
-    // width: 100%;
   }
   @include min-width($tableWidth) {
+    max-width: get-vw14(1150px);
+    padding: get-vw14(60px) 0px;
+  }
+  @include min-width($desktopWidth) {
     max-width: get-vw(1150px);
     padding: get-vw(60px) 0px;
   }
@@ -22,12 +25,17 @@
     }
     @include min-width($tableWidth) {
       border-right: 2px solid $border-lighter-02;
-      margin-right: get-vw(64px);
-      padding-right: get-vw(24px);
+      margin-right: get-vw14(64px);
+      padding-right: get-vw14(24px);
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       position: relative;
+      width: 100%;
+    }
+    @include min-width($desktopWidth) {
+      margin-right: get-vw(64px);
+      padding-right: get-vw(24px);
     }
 
     .header {
@@ -44,6 +52,14 @@
       .header_name {
         font-weight: bold;
         font-size: get-vw(24px);
+
+        @include min-width($tableWidth) {
+          font-size: get-vw(40px);
+        }
+        @include min-width($desktopWidth) {
+          font-size: get-vw(24px);
+
+        }
       }
     }
 
@@ -56,9 +72,16 @@
       font-family: $mainFont;
       font-style: normal;
       font-weight: normal;
-      font-size: get-vw(18px);
       justify-content: flex-end;
       transition: 0.4s ease;
+      padding: 0;
+
+      @include min-width($tableWidth) {
+        font-size: get-vw(28px);
+      }
+      @include min-width($desktopWidth) {
+        font-size: get-vw(18px);
+      }
       
       & > p {
         white-space: nowrap;
@@ -66,7 +89,7 @@
 
       &:hover {
         opacity: 0.7;
-        transform: scale(1.04);
+        margin-right: 6px;
         color: $success-color-dark;
         svg {
           fill: $success-color-dark;
@@ -78,6 +101,15 @@
         padding-left: get-vw(16px);
         fill: $success-color;
         transition: 0.3s ease;
+
+        @include min-width($tableWidth) {
+          width: get-vw14(24px);
+          padding-left: get-vw14(16px);
+        }
+        @include min-width($desktopWidth) {
+          width: get-vw(24px);
+          padding-left: get-vw(16px);
+        }
       }
     }
     .circle_btn__logout {
