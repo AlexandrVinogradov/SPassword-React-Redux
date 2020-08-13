@@ -5,7 +5,6 @@ import { AppStateType } from '../../redux/store'
 import { getGroups, getIdOfSelectedGroup } from '../../redux/selector'
 import { GroupsType } from '../../types/types'
 
-
 type MapStatePropsTypes = {
   groups: GroupsType[],
   idOfSelectedGroup?: any,
@@ -26,8 +25,8 @@ const mapStateToProps = (state: AppStateType): MapStatePropsTypes => {
   }
 }
 export default connect<MapStatePropsTypes, MapDispatchPropsTypes, OwnPropsTypes, AppStateType>(mapStateToProps, {
-  addGroup:  actions.addGroup,
-  selectGroup:  actions.selectGroup,
-  deleteGroup:  actions.deleteGroup,
-  updateLogin:  actions.updateLogin,
+  addGroup: actions.addGroup,
+  selectGroup: actions.selectGroup,
+  deleteGroup: actions.deleteGroup,
+  updateLogin: actions.updateLogin,
 })(Main)
