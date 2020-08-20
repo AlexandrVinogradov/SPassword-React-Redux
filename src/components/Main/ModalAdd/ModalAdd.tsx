@@ -14,6 +14,8 @@ type ModalAddPropsTypes = {
   toggleModal: (toggle: boolean) => void,
 }
 
+
+// MODALADD
 const ModalAdd: React.FC<ModalAddPropsTypes> = (props: ModalAddPropsTypes) => {
   const { handleCloseModal, onAddGroup, toggleModal } = props
 
@@ -40,6 +42,7 @@ const ModalAdd: React.FC<ModalAddPropsTypes> = (props: ModalAddPropsTypes) => {
   )
 }
 
+// FORM
 const GroupForm = (props: any) => {
   const { handleSubmit } = props
 

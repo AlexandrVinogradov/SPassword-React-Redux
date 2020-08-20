@@ -3,10 +3,12 @@ import { reducer as formReducer } from 'redux-form'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import mainReducer from './main-reducer'
+import authReducer from './auth-reducer'
 
 const reducers = combineReducers({
   mainPage: mainReducer,
   form: formReducer,
+  auth: authReducer
 })
 
 type reducersType = typeof reducers

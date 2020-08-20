@@ -57,20 +57,27 @@
       padding: 24px 0px 64px;
     }
   }
-  .input {
-    @include min-width($smPhoneWidth) {
-      margin-bottom: 20px;
-    }
-    @include min-width($tableWidth) {
-      margin-bottom: get-vw1230(20px);
-    }
-    @include min-width(1230px) {
-      margin-bottom: 20px;
-    }
-    &::placeholder {
-      color: $contrast-color;
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      @include min-width($smPhoneWidth) {
+        margin-bottom: 20px;
+        width: 100%;
+      }
+      @include min-width($tableWidth) {
+        margin-bottom: get-vw1230(20px);
+      }
+      @include min-width(1230px) {
+        margin-bottom: 20px;
+      }
+      &::placeholder {
+        color: $contrast-color;
+      }
     }
   }
+
   .btn_link {
     @include min-width($smPhoneWidth) {
       max-width: 190px;
@@ -153,6 +160,10 @@
           width: 185px;
         }
       }
+    }
+    .registration_btn {
+      background: none;
+      border: none;
     }
   }
 }
