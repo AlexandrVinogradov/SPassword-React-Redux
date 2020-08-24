@@ -55,9 +55,9 @@ const mainReducer = (state = initialState, action: ActionTypes): InitialStateTyp
 }
 export default mainReducer
 
-type ActionTypes = InfernActionsTypes<typeof actions>
+type ActionTypes = InfernActionsTypes<typeof mainReducerActions>
 
-export const  actions = {
+export const  mainReducerActions = {
   addGroup : (name: string): addGroupActionType => ({ type: ADD_GROUP, name } as const),
   deleteGroup : (name: string): deleteGroupActionType => ({ type: DELETE_GROUP, name } as const),
   selectGroup : (idOfSelectedGroup: number): selectGroupActionType => ({

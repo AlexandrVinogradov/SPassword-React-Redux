@@ -1,25 +1,32 @@
 import * as axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'https://spassword-api.sevenns.pw/v1',
-  header: {
-    Name: '123'
-  }
+  withCredentials: true,
+  baseURL: 'https://spassword-api.sevenns.pw/v1/',
 })
 
-export const  authAPI = {
-  // registration(email, password, firstName, lastName) {
-  //   return instance.post('/user/createUser', 'x-api-key', {email, password, firstName, lastName})
-  // },
-
+export const authAPI = {
   login(email, password) {
-    return instance.post('/login', {email, password})
+    return instance
+      .post('/login', { email, password })
+      .then(response => {
+        return response
+      })
+      .catch(err => {
+        return err.response
+      })
   },
+
   logout() {
-    return instance.post('/login')
-  }
+    return instance
+      .post('/logout')
+      .then(response => {
+        return response
+      })
+      .catch(err => {
+        return err.response
+      })
+  },
 }
 
-export const nextAPI = {
-
-}
+export const nextAPI = {}

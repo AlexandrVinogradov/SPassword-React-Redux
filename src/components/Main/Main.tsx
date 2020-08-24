@@ -1,6 +1,6 @@
 import React, { useState, BaseSyntheticEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 import style from './Main.module.scss'
 import shield from '../../img/shield.png'
 import NavListBar from './NavListBar/NavListBar'
@@ -13,18 +13,21 @@ import MobileNavList from './Interface/MobileNavList/MobileNavList'
 type MapStatePropsTypes = {
   groups: GroupsType[],
   idOfSelectedGroup: number,
+  email: string,
+  isAuth: boolean,
 }
 type MapDispatchPropsTypes = {
   deleteGroup: (name: string) => void,
   updateLogin: (login: string) => void,
   addGroup: (name: string) => void,
   selectGroup: (idOfSelectedGroup: number) => void,
+  logout: () => void,
 }
 type OwnPropsTypes = {}
 type MainPropsTypes = MapStatePropsTypes & MapDispatchPropsTypes & OwnPropsTypes
 
 const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
-  const { groups, selectGroup, idOfSelectedGroup, deleteGroup, updateLogin, addGroup } = props
+  const { groups, selectGroup, idOfSelectedGroup, deleteGroup, updateLogin, addGroup, email, isAuth, logout } = props
 
   const [showModal, toggleModal] = useState(false)
   const [showMobileNavList, isMobileNavList] = useState(false)
@@ -45,6 +48,14 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
   const onAddGroup = (value: any) => {
     addGroup(value.customInput)
     toggleModal(false)
+  }
+
+  if (!isAuth) {
+    return <Redirect to='/login' />
+  }
+
+  const handleLogout = () => {
+    logout()
   }
 
   return (
@@ -80,10 +91,12 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
           selectGroup={selectGroup}
         />
 
-        <NavLink className={`${style.circle_btn} ${style.circle_btn__logout}`} to='/login'>
+        {/* <NavLink className={`${style.circle_btn} ${style.circle_btn__logout}`} to='/login'> */}
+        <button onClick={handleLogout} className={`${style.circle_btn} ${style.circle_btn__logout}`} type='button'>
           <p>{t('Logout')}</p>
           <SVGIcon className={style.circle_btn__icon} name='logout' />
-        </NavLink>
+        </button>
+        {/* </NavLink> */}
       </section>
 
       <Interface
@@ -94,6 +107,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
         editModeToggle={editModeToggle}
         isEditMode={isEditMode}
         isMobileNavList={isMobileNavList}
+        email={email}
       />
     </main>
   )

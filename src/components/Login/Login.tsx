@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { reduxForm, Field } from 'redux-form'
 import shield from '../../img/shield.png'
@@ -11,12 +11,15 @@ import { Input } from '../common/FormsControls/FormControls'
 // }
 
 const Login = (props: any) => {
-  const { login } = props
+  const { login, initialValues, isAuth } = props
   const { t } = useTranslation()
 
   const onSubmit = (formData: any) => {
-    console.log(formData.loginInputValue, formData.passwordInputValue)
     login(formData.loginInputValue, formData.passwordInputValue)
+  }
+
+  if (isAuth === true) {
+    return <Redirect to='/main' />
   }
 
   return (
@@ -24,7 +27,7 @@ const Login = (props: any) => {
       <img className={style.shield} src={shield} alt='shield' />
       <span className={style.title}>SPassword - {t('your safe')}</span>
 
-      <LoginReduxForm onSubmit={onSubmit} />
+      <LoginReduxForm onSubmit={onSubmit} initialValues={initialValues} />
     </div>
   )
 }
@@ -38,13 +41,13 @@ const LoginForm = (props: any) => {
       <Field placeholder={t('placeholderLogin')} component={Input} name='loginInputValue' autoFocus='true' />
       <Field placeholder={t('placeholderPassword')} component={Input} name='passwordInputValue' />
 
-      {/* <NavLink to='/registration' className={style.btn_link}> */}
+      {/* <NavLink to='/main' className={style.btn_link}> */}
         <button onClick={handleSubmit} className={style.registration_btn} type='button'>
-          {t('registration')}
+          {t('Login')}
         </button>
       {/* </NavLink> */}
 
-      {/* <NavLink to='/main' className={style.btn_link}>
+      {/* <NavLink to='/registration' className={style.btn_link}>
         <button className={style.btn} type='button'>
           {t('Login')}
         </button>

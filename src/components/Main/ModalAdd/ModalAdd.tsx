@@ -44,7 +44,7 @@ const ModalAdd: React.FC<ModalAddPropsTypes> = (props: ModalAddPropsTypes) => {
 
 // FORM
 const GroupForm = (props: any) => {
-  const { handleSubmit } = props
+const { handleSubmit } = props
 
   const { t } = useTranslation()
 

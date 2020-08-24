@@ -20,7 +20,8 @@ type InterfacePropsTypes = {
   deleteGroup: (login: string) => void,
   editModeToggle: (toggle: boolean) => void,
   isEditMode: boolean,
-  isMobileNavList: (toggle: boolean) => void, 
+  isMobileNavList: (toggle: boolean) => void,
+  email: string,
 }
 
 type InterfacePropsTypesWithTranslation = InterfacePropsTypes & WithTranslation
@@ -36,6 +37,7 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
     i18n,
     tReady,
     isMobileNavList,
+    email,
   } = props
 
   const [showAcceptModal, isShowAcceptModal] = useState(false)
@@ -99,7 +101,6 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
 
       <section className={style.interface}>
         <div className={style.header_mobile}>
-
           <button onClick={handleOpenMobileNavList} type='button'>
             <SVGIcon className={style.icon_rectangles} name='rectangles' />
           </button>
@@ -114,6 +115,8 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
           <h1>{title}</h1>
 
           <LanguageToggle i18n={i18n} tReady={tReady} t={t} />
+
+          {email}
 
           <div className={style.edit_btns}>
             <button onClick={handleEnterInEditMod} type='button' className={style.btn}>
