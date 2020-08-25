@@ -4,6 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import mainReducer from './main-reducer'
 import authReducer from './auth-reducer'
+import setAuthorizationToken from '../utils/setAuthorizationToken'
 
 const reducers = combineReducers({
   mainPage: mainReducer,
@@ -18,6 +19,8 @@ type PropertiesTypes<T> = T extends {[key: string]: infer U} ? U : never
 export type InfernActionsTypes<T extends {[key: string]: (...args: any[]) => any}> = ReturnType<PropertiesTypes<T>>
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware)))
+
+setAuthorizationToken(localStorage.jwtToken)
 
 
 // @ts-ignore

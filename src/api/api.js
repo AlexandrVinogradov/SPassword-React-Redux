@@ -1,4 +1,5 @@
 import * as axios from 'axios'
+import setAuthorizationToken from '../utils/setAuthorizationToken'
 
 const instance = axios.create({
   withCredentials: true,
@@ -10,6 +11,9 @@ export const authAPI = {
     return instance
       .post('/login', { email, password })
       .then(response => {
+        const token = response.data.data.uuid
+        localStorage.setItem('jwtToken', token)
+        setAuthorizationToken(token)
         return response
       })
       .catch(err => {
