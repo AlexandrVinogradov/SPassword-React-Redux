@@ -17,7 +17,7 @@ type MapStatePropsTypes = {
   isAuth: boolean,
 }
 type MapDispatchPropsTypes = {
-  deleteGroup: (name: string) => void,
+  deleteGroup: (name: string) => void, 
   updateLogin: (login: string) => void,
   addGroup: (name: string) => void,
   selectGroup: (idOfSelectedGroup: number) => void,

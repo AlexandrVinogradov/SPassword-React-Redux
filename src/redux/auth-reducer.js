@@ -36,7 +36,7 @@ const setUserAuthData = (email, password, uuid, firstName, lastName, isAuth) => 
   uuid,
   firstName,
   lastName,
-  isAuth
+  isAuth,
 })
 
 export const authActions = {
@@ -44,27 +44,35 @@ export const authActions = {
     const response = await authAPI.login(email, password)
 
     if (response.status === 200) {
-    const {email, password, uuid, firstName, lastName} = response.data.data
-      dispatch(
-        setUserAuthData(
-          email,
-          password,
-          uuid,
-          firstName,
-          lastName,
-          true
-        )
-      )
+      const { email, password, uuid, firstName, lastName } = response.data.data
+      dispatch(setUserAuthData(email, password, uuid, firstName, lastName, true))
     } else {
       alert('login no')
     }
   },
 
+  // getProfile: () =>  {
+  //   console.log(1231231231);
+  // },
+  getProfile: () => async dispatch => {
+    console.log('nu gitProfile')
+
+    const token = localStorage.jwtToken
+
+    if (token) {
+      const response = await authAPI.getProfile()
+    }
+
+    // const { email, password, uuid, firstName, lastName } = response.data.data
+
+    // dispatch(setUserAuthData(email, password, uuid, firstName, lastName, true))
+  },
+
   logout: () => async dispatch => {
     const response = await authAPI.logout()
-
+    console.log('nu logout')
     // if (response.status === 200) {
-      dispatch(setUserAuthData(null, null, null, null, null, false))
+    dispatch(setUserAuthData(null, null, null, null, null, false))
     // } else {
     //   alert('logout no')
     // }

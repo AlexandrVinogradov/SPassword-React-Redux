@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 import style from './App.module.scss'
 import store from './redux/store'
 import MainContainer from './components/Main/MainContainer'
 import Registration from './components/Login/Registration'
 import LoginContainer from './components/Login/LoginContainer'
+import { authActions } from './redux/auth-reducer'
 
-const App: React.FC = () => {
+// type AppPropsTypes = {
+//   logout: () => void,
+// }
+
+const App: React.FC = (props: any) => {
+  const { getProfile } = props
+
+  useEffect(() => {
+    getProfile()
+  })
+
   return (
     <div className={style.App}>
       <BrowserRouter>
@@ -21,14 +32,21 @@ const App: React.FC = () => {
   )
 }
 
-const Spassword: React.FC = () => {
+type MapDispatchPropsTypes = {
+  logout: () => void,
+}
+
+export const AppContainer = connect<MapDispatchPropsTypes>(null, {
+  getProfile: authActions.getProfile,
+})(App)
+
+export const Spassword: React.FC = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>
-        <App />
+        <AppContainer />
       </Provider>
     </BrowserRouter>
   )
 }
 
-export default Spassword

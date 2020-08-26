@@ -1,8 +1,8 @@
 import * as axios from 'axios'
+// import jwt from 'jsonwebtoken'
 import setAuthorizationToken from '../utils/setAuthorizationToken'
 
 const instance = axios.create({
-  withCredentials: true,
   baseURL: 'https://spassword-api.sevenns.pw/v1/',
 })
 
@@ -14,6 +14,8 @@ export const authAPI = {
         const token = response.data.data.uuid
         localStorage.setItem('jwtToken', token)
         setAuthorizationToken(token)
+        // console.log(jwt.decode(token));
+
         return response
       })
       .catch(err => {
@@ -21,6 +23,18 @@ export const authAPI = {
       })
   },
 
+  getProfile() {
+    const token = localStorage.jwtToken
+
+  
+    return instance
+      .get('/user')
+      .then(response => {
+        return response
+      })
+  },
+
+  // https://www.youtube.com/watch?v=FyyPUIAe6kc
   logout() {
     return instance
       .post('/logout')

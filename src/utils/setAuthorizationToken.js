@@ -1,10 +1,10 @@
-import Axios from "axios"
+import axios from 'axios'
 
-const setAuthorizationToken = (token) => {
+const setAuthorizationToken = token => {
   if (token) {
-    Axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
   } else {
-    delete Axios.defaults.headers.common['Authorization'];
+    delete axios.defaults.headers.common['Authorization']
   }
 }
 
