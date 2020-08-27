@@ -3,11 +3,16 @@ import { authAPI } from '../api/api'
 export const SET_USER_AUTH_DATA = 'spassword/main/SET_USER_AUTH_DATA'
 
 const initialState = {
-  email: null,
-  password: null,
-  uuid: null,
-  firstName: null,
-  lastName: null,
+  currentUser: {
+    uuid: null,
+    createdAt: null,
+    updatedAt: null,
+    email: null,
+    password: null,
+    firstName: null,
+    lastName: null,
+  },
+
   isAuth: false,
 }
 
@@ -16,11 +21,7 @@ const authReducer = (state = initialState, action) => {
     case SET_USER_AUTH_DATA:
       return {
         ...state,
-        email: action.email, // 78 13;00
-        password: action.password,
-        uuid: action.uuid,
-        firstName: action.firstName,
-        lastName: action.lastName,
+        currentUser: action.payload,
         isAuth: action.isAuth,
       }
     default:
@@ -29,31 +30,19 @@ const authReducer = (state = initialState, action) => {
 }
 export default authReducer
 
-const setUserAuthData = (email, password, uuid, firstName, lastName, isAuth) => ({
-  type: SET_USER_AUTH_DATA,
-  email,
-  password,
-  uuid,
-  firstName,
-  lastName,
-  isAuth,
-})
+const setUserAuthData = (payload, isAuth) => ({ type: SET_USER_AUTH_DATA, payload, isAuth })
 
 export const authActions = {
   login: (email, password) => async dispatch => {
     const response = await authAPI.login(email, password)
 
     if (response.status === 200) {
-      const { email, password, uuid, firstName, lastName } = response.data.data
-      dispatch(setUserAuthData(email, password, uuid, firstName, lastName, true))
+      dispatch(setUserAuthData(response.data.data, true))
     } else {
       alert('login no')
     }
   },
 
-  // getProfile: () =>  {
-  //   console.log(1231231231);
-  // },
   getProfile: () => async dispatch => {
     console.log('nu gitProfile')
 
@@ -61,20 +50,18 @@ export const authActions = {
 
     if (token) {
       const response = await authAPI.getProfile()
+      dispatch(setUserAuthData(response.data.data['0'], true))
     }
-
-    // const { email, password, uuid, firstName, lastName } = response.data.data
-
-    // dispatch(setUserAuthData(email, password, uuid, firstName, lastName, true))
   },
 
   logout: () => async dispatch => {
     const response = await authAPI.logout()
     console.log('nu logout')
-    // if (response.status === 200) {
-    dispatch(setUserAuthData(null, null, null, null, null, false))
-    // } else {
-    //   alert('logout no')
-    // }
+
+    if (response.status === 200) {
+      dispatch(setUserAuthData({}, false))
+    } else {
+      alert('logout no')
+    }
   },
 }

@@ -1,6 +1,4 @@
 import * as axios from 'axios'
-// import jwt from 'jsonwebtoken'
-import setAuthorizationToken from '../utils/setAuthorizationToken'
 
 const instance = axios.create({
   baseURL: 'https://spassword-api.sevenns.pw/v1/',
@@ -11,10 +9,8 @@ export const authAPI = {
     return instance
       .post('/login', { email, password })
       .then(response => {
-        const token = response.data.data.uuid
+        const token = response.headers['access-token']
         localStorage.setItem('jwtToken', token)
-        setAuthorizationToken(token)
-        // console.log(jwt.decode(token));
 
         return response
       })
@@ -26,19 +22,31 @@ export const authAPI = {
   getProfile() {
     const token = localStorage.jwtToken
 
-  
     return instance
-      .get('/user')
+      .get('/user', {
+        headers: {
+          'x-api-key': token,
+        },
+      })
       .then(response => {
         return response
       })
+      .catch(err => {
+        return err.response
+      })
   },
 
-  // https://www.youtube.com/watch?v=FyyPUIAe6kc
   logout() {
+    const token = localStorage.jwtToken
+
     return instance
-      .post('/logout')
+      .post('/logout', null, {
+        headers: {
+          'x-api-key': token,
+        },
+      })
       .then(response => {
+        localStorage.removeItem('jwtToken')
         return response
       })
       .catch(err => {
