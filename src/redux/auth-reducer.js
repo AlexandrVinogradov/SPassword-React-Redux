@@ -12,8 +12,8 @@ const initialState = {
     firstName: null,
     lastName: null,
   },
-
   isAuth: false,
+  errorMessage: null,
 }
 
 const authReducer = (state = initialState, action) => {
@@ -23,6 +23,7 @@ const authReducer = (state = initialState, action) => {
         ...state,
         currentUser: action.payload,
         isAuth: action.isAuth,
+        errorMessage: action.errorMessage,
       }
     default:
       return state
@@ -30,38 +31,35 @@ const authReducer = (state = initialState, action) => {
 }
 export default authReducer
 
-const setUserAuthData = (payload, isAuth) => ({ type: SET_USER_AUTH_DATA, payload, isAuth })
+const setUserAuthData = (payload, isAuth, errorMessage) => ({ type: SET_USER_AUTH_DATA, payload, isAuth, errorMessage })
 
 export const authActions = {
   login: (email, password) => async dispatch => {
     const response = await authAPI.login(email, password)
 
     if (response.status === 200) {
-      dispatch(setUserAuthData(response.data.data, true))
+      dispatch(setUserAuthData(response.data.data, true, null))
     } else {
-      alert('login no')
+      dispatch(setUserAuthData({}, false, response.data.error.message))
     }
   },
 
   getProfile: () => async dispatch => {
-    console.log('nu gitProfile')
-
     const token = localStorage.jwtToken
 
     if (token) {
       const response = await authAPI.getProfile()
-      dispatch(setUserAuthData(response.data.data['0'], true))
+      dispatch(setUserAuthData(response.data.data['0'], true, null))
     }
   },
 
   logout: () => async dispatch => {
     const response = await authAPI.logout()
-    console.log('nu logout')
 
     if (response.status === 200) {
-      dispatch(setUserAuthData({}, false))
+      dispatch(setUserAuthData({}, false, null))
     } else {
-      alert('logout no')
+      dispatch(setUserAuthData({}, false, response.data.error.message))
     }
   },
 }
