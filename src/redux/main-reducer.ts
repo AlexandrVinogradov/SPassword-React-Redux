@@ -1,6 +1,6 @@
 import { idNormalizer, findNextId, newLogin } from '../utils/object-helpers'
 import {
-  InitialStateType,
+  MainReducerInitialStateType,
   addGroupActionType,
   deleteGroupActionType,
   selectGroupActionType,
@@ -13,7 +13,7 @@ export const DELETE_GROUP = 'spassword/main/DELETE_GROUP'
 export const SELECT_GROUP = 'spassword/main/SELECT_GROUP'
 export const UPDATE_LOGIN = 'spassword/main/UPDATE_LOGIN'
 
-const initialState: InitialStateType = {
+const initialState: MainReducerInitialStateType = {
   groups: [
     { id: 0, name: 'Vk', login: 'admin', password: '12345' },
     { id: 1, name: 'Github', login: 'hello', password: 'qweasdzxc' },
@@ -24,7 +24,7 @@ const initialState: InitialStateType = {
   idOfSelectedGroup: 0,
 }
 
-const mainReducer = (state = initialState, action: ActionTypes): InitialStateType => {
+const mainReducer = (state = initialState, action: ActionTypes): MainReducerInitialStateType => {
   switch (action.type) {
     case ADD_GROUP:
       return {
@@ -55,9 +55,9 @@ const mainReducer = (state = initialState, action: ActionTypes): InitialStateTyp
 }
 export default mainReducer
 
-type ActionTypes = InfernActionsTypes<typeof mainReducerActions>
+type ActionTypes = InfernActionsTypes<typeof mainActions>
 
-export const  mainReducerActions = {
+export const  mainActions = {
   addGroup : (name: string): addGroupActionType => ({ type: ADD_GROUP, name } as const),
   deleteGroup : (name: string): deleteGroupActionType => ({ type: DELETE_GROUP, name } as const),
   selectGroup : (idOfSelectedGroup: number): selectGroupActionType => ({

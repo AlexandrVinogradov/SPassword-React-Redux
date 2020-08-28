@@ -1,18 +1,18 @@
 import { ADD_GROUP, DELETE_GROUP, SELECT_GROUP, UPDATE_LOGIN } from '../redux/main-reducer'
+import { SET_USER_AUTH_DATA } from '../redux/auth-reducer'
 
-// - STATE
+// - MAIN REDUCER
 export type GroupsType = {
   id: number,
   name: string,
   login: string | null,
   password: string | null,
 }
-export type InitialStateType = {
+export type MainReducerInitialStateType = {
   groups: GroupsType[],
   idOfSelectedGroup?: number,
 }
-
-// - ACTIONS
+// - MAIN REDUCER ACTIONS
 export type addGroupActionType = {
   type: typeof ADD_GROUP,
   name: string,
@@ -28,4 +28,27 @@ export type selectGroupActionType = {
 export type updateLoginActionType = {
   type: typeof UPDATE_LOGIN,
   login: string,
+}
+
+// - AUTH REDUCER
+export type CurrentUserTypes = {
+  uuid: string | null,
+  createdAt: string | null,
+  updatedAt: string | null,
+  email: string | null,
+  password: string | null,
+  firstName: string | null,
+  lastName: string | null,
+}
+export type AuthReducerInitialStateType = {
+  currentUser: CurrentUserTypes | {},
+  isAuth: boolean,
+  errorMessage: string | null,
+}
+// - AUTH REDUCER ACTIONS
+export type setUserAuthDataTypes = {
+  type: typeof SET_USER_AUTH_DATA,
+  payload: CurrentUserTypes | {},
+  isAuth: boolean,
+  errorMessage: string | null,
 }

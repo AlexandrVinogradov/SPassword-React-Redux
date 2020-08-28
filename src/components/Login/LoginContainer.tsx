@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Login from './Login'
-import { authActions } from '../../redux/auth-reducer'
+import { login } from '../../redux/auth-reducer'
 
 import { AppStateType } from '../../redux/store'
 import { getGroups, getIdOfSelectedGroup, getIsAuth } from '../../redux/selector'
@@ -8,7 +8,7 @@ import { GroupsType } from '../../types/types'
 
 type MapStatePropsTypes = {
   initialValues: any,
-  isAuth: boolean
+  isAuth: boolean,
 }
 
 // type MapDispatchPropsTypes = {
@@ -21,12 +21,8 @@ const mapStateToProps = (state: any): MapStatePropsTypes => {
     isAuth: getIsAuth(state),
     initialValues: {
       email: 'admin@mail.dev',
-      password: 'admin'
-    }
+      password: 'admin',
+    },
   }
 }
-export default connect(mapStateToProps, {
-  login: authActions.login,
-
-
-})(Login)
+export default connect(mapStateToProps, { login })(Login)

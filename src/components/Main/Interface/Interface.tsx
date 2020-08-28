@@ -21,7 +21,7 @@ type InterfacePropsTypes = {
   editModeToggle: (toggle: boolean) => void,
   isEditMode: boolean,
   isMobileNavList: (toggle: boolean) => void,
-  email: string,
+  email: string | null,
 }
 
 type InterfacePropsTypesWithTranslation = InterfacePropsTypes & WithTranslation

@@ -13,7 +13,7 @@ import MobileNavList from './Interface/MobileNavList/MobileNavList'
 type MapStatePropsTypes = {
   groups: GroupsType[],
   idOfSelectedGroup: number,
-  email: string,
+  email: string | null,
   isAuth: boolean,
 }
 type MapDispatchPropsTypes = {

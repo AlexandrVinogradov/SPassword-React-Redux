@@ -6,7 +6,7 @@ import store from './redux/store'
 import MainContainer from './components/Main/MainContainer'
 import Registration from './components/Login/Registration'
 import LoginContainer from './components/Login/LoginContainer'
-import { authActions } from './redux/auth-reducer'
+import { getProfile } from './redux/auth-reducer'
 
 // type AppPropsTypes = {
 //   logout: () => void,
@@ -37,7 +37,7 @@ type MapDispatchPropsTypes = {
 }
 
 export const AppContainer = connect<MapDispatchPropsTypes>(null, {
-  getProfile: authActions.getProfile,
+  getProfile,
 })(App)
 
 export const Spassword: React.FC = () => {
