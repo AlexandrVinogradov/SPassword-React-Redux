@@ -55,4 +55,17 @@ export const authAPI = {
   },
 }
 
-export const nextAPI = {}
+export const groupAPI = {
+  getGroups() {
+    const token = localStorage.jwtToken
+
+    return instance
+      .get('/groups', {
+        headers: {
+          'x-api-key': token,
+        },
+      })
+    .then(response => response)
+    .catch(err => err.response)
+  },
+}

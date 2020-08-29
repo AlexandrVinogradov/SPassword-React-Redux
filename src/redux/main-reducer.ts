@@ -6,7 +6,9 @@ import {
   selectGroupActionType,
   updateLoginActionType,
 } from '../types/types'
-import { InfernActionsTypes } from './store'
+import { InfernActionsTypes, AppStateType } from './store'
+import { ThunkAction } from 'redux-thunk'
+import {  groupAPI } from '../api/api'
 
 export const ADD_GROUP = 'spassword/main/ADD_GROUP'
 export const DELETE_GROUP = 'spassword/main/DELETE_GROUP'
@@ -24,7 +26,7 @@ const initialState: MainReducerInitialStateType = {
   idOfSelectedGroup: 0,
 }
 
-const mainReducer = (state = initialState, action: ActionTypes): MainReducerInitialStateType => {
+const mainReducer = (state = initialState, action: ActionsTypes): MainReducerInitialStateType => {
   switch (action.type) {
     case ADD_GROUP:
       return {
@@ -55,7 +57,9 @@ const mainReducer = (state = initialState, action: ActionTypes): MainReducerInit
 }
 export default mainReducer
 
-type ActionTypes = InfernActionsTypes<typeof mainActions>
+type ActionsTypes = InfernActionsTypes<typeof mainActions>
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
+
 
 export const  mainActions = {
   addGroup : (name: string): addGroupActionType => ({ type: ADD_GROUP, name } as const),
@@ -65,5 +69,12 @@ export const  mainActions = {
     idOfSelectedGroup,
   } as const),
   updateLogin : (login: string): updateLoginActionType => ({ type: UPDATE_LOGIN, login } as const)
-  
+}
+
+
+
+
+// thunksCreators => thunks(dispatch, getState)
+export const getGroupsFetch = (): ThunkType => async (dispatch, getState) => {
+  const response = await groupAPI.getGroups()
 }

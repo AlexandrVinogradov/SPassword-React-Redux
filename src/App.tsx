@@ -49,4 +49,3 @@ export const Spassword: React.FC = () => {
     </BrowserRouter>
   )
 }
-

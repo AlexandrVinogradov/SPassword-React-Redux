@@ -11,6 +11,6 @@ export const getIdOfSelectedGroup = (state: AppStateType) => {
 export const getIsAuth = (state: AppStateType) => {
   return state.auth.isAuth
 }
-export const getEmail = (state: AppStateType) => {
+export const getEmail = (state: any) => { // unknown error
   return state.auth.currentUser.email
 }

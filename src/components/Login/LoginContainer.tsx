@@ -3,11 +3,12 @@ import Login from './Login'
 import { login } from '../../redux/auth-reducer'
 
 import { AppStateType } from '../../redux/store'
-import { getGroups, getIdOfSelectedGroup, getIsAuth } from '../../redux/selector'
 import { GroupsType } from '../../types/types'
 
+import { getIsAuth } from '../../redux/selector'
+
 type MapStatePropsTypes = {
-  initialValues: any,
+  // initialValues: any,
   isAuth: boolean,
 }
 
@@ -19,10 +20,10 @@ type MapStatePropsTypes = {
 const mapStateToProps = (state: any): MapStatePropsTypes => {
   return {
     isAuth: getIsAuth(state),
-    initialValues: {
-      email: 'admin@mail.dev',
-      password: 'admin',
-    },
+    // initialValues: {
+    //   email: 'admin@mail.dev',
+    //   password: 'admin',
+    // },
   }
 }
 export default connect(mapStateToProps, { login })(Login)

@@ -1,4 +1,4 @@
-import React, { useState, BaseSyntheticEvent } from 'react'
+import React, { useState, BaseSyntheticEvent, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink, Redirect } from 'react-router-dom'
 import style from './Main.module.scss'
@@ -17,22 +17,28 @@ type MapStatePropsTypes = {
   isAuth: boolean,
 }
 type MapDispatchPropsTypes = {
-  deleteGroup: (name: string) => void, 
+  deleteGroup: (name: string) => void,
   updateLogin: (login: string) => void,
   addGroup: (name: string) => void,
   selectGroup: (idOfSelectedGroup: number) => void,
   logout: () => void,
+  getGroupsFetch: () => void,
 }
 type OwnPropsTypes = {}
 type MainPropsTypes = MapStatePropsTypes & MapDispatchPropsTypes & OwnPropsTypes
 
 const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
-  const { groups, selectGroup, idOfSelectedGroup, deleteGroup, updateLogin, addGroup, email, isAuth, logout } = props
+  const { groups, selectGroup, idOfSelectedGroup, deleteGroup, updateLogin, addGroup, email, isAuth, logout, getGroupsFetch } = props
 
   const [showModal, toggleModal] = useState(false)
   const [showMobileNavList, isMobileNavList] = useState(false)
   const [isEditMode, editModeToggle] = useState(false)
   const { t } = useTranslation()
+
+  useEffect(() => {
+    getGroupsFetch()
+    console.log('render main');
+  })
 
   const handleOpenModal = () => {
     toggleModal(true)
