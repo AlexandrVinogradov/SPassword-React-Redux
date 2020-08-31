@@ -15,7 +15,9 @@ export const DELETE_GROUP = 'spassword/main/DELETE_GROUP'
 export const SELECT_GROUP = 'spassword/main/SELECT_GROUP'
 export const UPDATE_LOGIN = 'spassword/main/UPDATE_LOGIN'
 
-const initialState: MainReducerInitialStateType = {
+export const SET_USER_GROUPS = 'spassword/main/SET_USER_GROUPS'
+
+const initialState: any = {
   groups: [
     { id: 0, name: 'Vk', login: 'admin', password: '12345' },
     { id: 1, name: 'Github', login: 'hello', password: 'qweasdzxc' },
@@ -24,9 +26,10 @@ const initialState: MainReducerInitialStateType = {
     { id: 4, name: 'La2 Accounts', login: 'password', password: 'password' },
   ],
   idOfSelectedGroup: 0,
+  userGroups: {},
 }
 
-const mainReducer = (state = initialState, action: ActionsTypes): MainReducerInitialStateType => {
+const mainReducer = (state = initialState, action: ActionsTypes): any => {
   switch (action.type) {
     case ADD_GROUP:
       return {
@@ -51,6 +54,12 @@ const mainReducer = (state = initialState, action: ActionsTypes): MainReducerIni
         groups: newLogin(state.groups, state.idOfSelectedGroup, action.login),
       }
 
+    case SET_USER_GROUPS:
+      return {
+        ...state,
+        groups: action.data,
+      }
+
     default:
       return state
   }
@@ -68,7 +77,10 @@ export const  mainActions = {
     type: SELECT_GROUP,
     idOfSelectedGroup,
   } as const),
-  updateLogin : (login: string): updateLoginActionType => ({ type: UPDATE_LOGIN, login } as const)
+  updateLogin : (login: string): updateLoginActionType => ({ type: UPDATE_LOGIN, login } as const),
+
+  //with API
+  setUserGroups: (data: any, errorMessage: string | null): any => ({type: SET_USER_GROUPS, data, errorMessage}as const)
 }
 
 
@@ -77,4 +89,10 @@ export const  mainActions = {
 // thunksCreators => thunks(dispatch, getState)
 export const getGroupsFetch = (): ThunkType => async (dispatch, getState) => {
   const response = await groupAPI.getGroups()
+
+  if (response.status === 200) {
+    dispatch(mainActions.setUserGroups(response.data.data, null))
+  } else {
+    dispatch(mainActions.setUserGroups({}, response.data.error.message))
+  }
 }

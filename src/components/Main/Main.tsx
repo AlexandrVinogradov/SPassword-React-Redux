@@ -38,7 +38,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
   useEffect(() => {
     getGroupsFetch()
     console.log('render main');
-  })
+  }, [])
 
   const handleOpenModal = () => {
     toggleModal(true)

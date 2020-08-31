@@ -11,6 +11,7 @@ export type GroupsType = {
 export type MainReducerInitialStateType = {
   groups: GroupsType[],
   idOfSelectedGroup?: number,
+
 }
 // - MAIN REDUCER ACTIONS
 export type addGroupActionType = {
