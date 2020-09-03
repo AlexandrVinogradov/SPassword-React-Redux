@@ -12,7 +12,7 @@ type NavListBarPropsType = {
 
 type GroupPropsTypes = {
   name: string,
-  login: string | null,
+login: string | null,
   password: string | null,
   editModeToggle: (toggle: boolean) => void,
   isMobileNavList: any,

@@ -14,13 +14,20 @@ export const idNormalizer = (groups, action) => {
 }
 
 export const findNextId = groups => {
-  const biggestId = Math.max(...groups.map(i => i.id))
-  return biggestId + 1
+  let biggestId = Math.max(...groups.map(i => i.id))
+
+  console.log(groups.length === 0)
+
+  if (groups.length === 0) {
+    biggestId = 0
+  } else {
+    biggestId += 1
+  }
+
+  return biggestId
 }
 
-
 export const newLogin = (groups, idOfSelectedGroup, login) => {
-
   groups[idOfSelectedGroup].login = login.customLoginInput
   groups[idOfSelectedGroup].password = login.customPasswordInput
 
