@@ -65,7 +65,41 @@ export const groupAPI = {
           'x-api-key': token,
         },
       })
-    .then(response => response)
-    .catch(err => err.response)
+      .then(response => response)
+      .catch(err => err.response)
+  },
+
+  createGroup(name, login, password) {
+    const token = localStorage.jwtToken
+
+    return instance
+      .post(
+        '/groups',
+        { name, login, password },
+        {
+          headers: {
+            'x-api-key': token,
+          },
+        }
+      )
+      .then(response => response)
+      .catch(err => err.response)
+  },
+
+  deleteGroup(uuid) {
+    const token = localStorage.jwtToken
+
+    return instance
+      .delete(
+        '/groups',
+        { uuid },
+        {
+          headers: {
+            'x-api-key': token,
+          },
+        }
+      )
+      .then(response => response)
+      .catch(err => err.response)
   },
 }

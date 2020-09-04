@@ -24,14 +24,8 @@ const initialState: any = {
     { id: 2, name: 'Facebook', login: '123123', password: '1997' },
     { id: 3, name: 'Steam', login: 'monkey', password: 'loveMyMom' },
     { id: 4, name: 'La2 Accounts', login: 'password', password: 'password' },
-    // { id: 5,  uuid:"e26f5135-47cc-4868-9b91-d22b794657fe", createdAt:"2020-08-17T00:07:52.981Z",
-    // updatedAt:"2020-08-17T00:08:05.572Z",
-    // name:"string",
-    // login:"my_account_name",
-    // password:"qwerty123"}
   ],
   idOfSelectedGroup: 0,
-  // userGroups: {},
 }
 
 
@@ -99,7 +93,7 @@ export const getGroupsFetch = (): ThunkType => async (dispatch, getState) => {
   if (response.status === 200) {
 
     // set id 
-    response.data.data.map((group: any, id: any) => {
+    response.data.data.map((group: any, id: number) => {
       group.id = id
     })
 
@@ -108,3 +102,14 @@ export const getGroupsFetch = (): ThunkType => async (dispatch, getState) => {
     dispatch(mainActions.setUserGroups({}, response.data.error.message))
   }
 }
+
+export const createGroupFetch = (name: string): ThunkType => async (dispatch, getState) => {
+  // make uslovie
+  const response = await groupAPI.createGroup(name, '', '')
+}
+
+export const deleteGroupFetch = (uuid: string): ThunkType => async (dispatch, getState) => {
+  // make uslovie
+  const response = await groupAPI.deleteGroup(uuid)
+}
+

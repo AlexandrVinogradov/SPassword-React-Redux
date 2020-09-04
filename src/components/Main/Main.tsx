@@ -23,12 +23,25 @@ type MapDispatchPropsTypes = {
   selectGroup: (idOfSelectedGroup: number) => void,
   logout: () => void,
   getGroupsFetch: () => void,
+  createGroupFetch: (name: string) => void,
 }
 type OwnPropsTypes = {}
 type MainPropsTypes = MapStatePropsTypes & MapDispatchPropsTypes & OwnPropsTypes
 
 const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
-  const { groups, selectGroup, idOfSelectedGroup, deleteGroup, updateLogin, addGroup, email, isAuth, logout, getGroupsFetch } = props
+  const {
+    groups,
+    selectGroup,
+    idOfSelectedGroup,
+    deleteGroup,
+    updateLogin,
+    addGroup,
+    email,
+    isAuth,
+    logout,
+    getGroupsFetch,
+    createGroupFetch
+  } = props
 
   const [showModal, toggleModal] = useState(false)
   const [showMobileNavList, isMobileNavList] = useState(false)
@@ -37,7 +50,6 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
 
   useEffect(() => {
     getGroupsFetch()
-    console.log('render main');
   }, [])
 
   const handleOpenModal = () => {
@@ -67,7 +79,12 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
   return (
     <main className={style.Main}>
       {showModal ? (
-        <ModalAdd toggleModal={toggleModal} handleCloseModal={handleCloseModal} onAddGroup={onAddGroup} />
+        <ModalAdd
+          toggleModal={toggleModal}
+          handleCloseModal={handleCloseModal}
+          onAddGroup={onAddGroup}
+          createGroupFetch={createGroupFetch}
+        />
       ) : null}
 
       {showMobileNavList ? (

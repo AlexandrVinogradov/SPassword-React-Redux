@@ -18,6 +18,7 @@ const AcceptModal: React.FC<AcceptModalPropsType> = (props: AcceptModalPropsType
 
   const handleDeleteGroup = () => {
     deleteGroup(title)
+    // deleteGroupFetch(uuid)
     isShowAcceptModal(false)
   }
 

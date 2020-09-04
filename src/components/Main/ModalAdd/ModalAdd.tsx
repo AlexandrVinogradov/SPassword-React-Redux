@@ -12,15 +12,16 @@ type ModalAddPropsTypes = {
   handleCloseModal: (isShowAcceptModal: any) => void,
   onAddGroup: (group: string) => void,
   toggleModal: (toggle: boolean) => void,
+  createGroupFetch: (name: string) => void,
 }
-
 
 // MODALADD
 const ModalAdd: React.FC<ModalAddPropsTypes> = (props: ModalAddPropsTypes) => {
-  const { handleCloseModal, onAddGroup, toggleModal } = props
+  const { handleCloseModal, onAddGroup, toggleModal, createGroupFetch } = props
 
   const addAndSelectGroup = (value: any) => {
     onAddGroup(value)
+    createGroupFetch(value.customInput)
   }
   const closeModalOnEsc = (e: any) => {
     if (e.keyCode === 27) {
@@ -44,7 +45,7 @@ const ModalAdd: React.FC<ModalAddPropsTypes> = (props: ModalAddPropsTypes) => {
 
 // FORM
 const GroupForm = (props: any) => {
-const { handleSubmit } = props
+  const { handleSubmit } = props
 
   const { t } = useTranslation()
 

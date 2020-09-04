@@ -16,8 +16,6 @@ export const idNormalizer = (groups, action) => {
 export const findNextId = groups => {
   let biggestId = Math.max(...groups.map(i => i.id))
 
-  console.log(groups.length === 0)
-
   if (groups.length === 0) {
     biggestId = 0
   } else {

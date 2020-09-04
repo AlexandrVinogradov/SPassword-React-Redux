@@ -52,7 +52,6 @@ const Login = (props: any) => {
   const { t } = useTranslation()
 
   const onSubmit = (formData: any) => {
-    console.log(formData.loginInputValue, formData.passwordInputValue)
     login(formData.loginInputValue, formData.passwordInputValue)
   }
 
