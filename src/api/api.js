@@ -91,8 +91,29 @@ export const groupAPI = {
 
     return instance
       .delete(
-        '/groups',
-        { uuid },
+        `/groups/${uuid}`,
+
+        {
+          headers: {
+            'x-api-key': token,
+          },
+        }
+      )
+      .then(response => response)
+      .catch(err => err.response)
+  },
+
+  putLogin(uuid, name, login, password) {
+    const token = localStorage.jwtToken
+
+    return instance
+      .put(
+        `/groups/${uuid}`,
+        {
+          name,
+          login,
+          password,
+        },
         {
           headers: {
             'x-api-key': token,

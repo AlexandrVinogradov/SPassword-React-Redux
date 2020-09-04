@@ -22,6 +22,8 @@ type InterfacePropsTypes = {
   isEditMode: boolean,
   isMobileNavList: (toggle: boolean) => void,
   email: string | null,
+  deleteGroupFetch: (uuid: string, title: string) => void
+  getGroupsFetch: () => void
 }
 
 type InterfacePropsTypesWithTranslation = InterfacePropsTypes & WithTranslation
@@ -38,6 +40,8 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
     tReady,
     isMobileNavList,
     email,
+    deleteGroupFetch,
+    getGroupsFetch
   } = props
 
   const [showAcceptModal, isShowAcceptModal] = useState(false)
@@ -47,6 +51,7 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
   const { t } = useTranslation()
 
   let title: string = ''
+  let selectedGroupId: string = ''
   let login: string | null = null
   let password: string | null = null
 
@@ -54,6 +59,7 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
     const selectedGroup = props.groups[props.idOfSelectedGroup]
 
     title = selectedGroup.name
+    selectedGroupId = selectedGroup.uuid
     login = selectedGroup.login
     password = selectedGroup.password
   }
@@ -94,7 +100,14 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
   return (
     <main className={style.interface__wrapper}>
       {showAcceptModal ? (
-        <AcceptModal title={title} deleteGroup={deleteGroup} isShowAcceptModal={isShowAcceptModal} />
+        <AcceptModal
+          selectedGroupId={selectedGroupId}
+          deleteGroupFetch={deleteGroupFetch}
+          title={title}
+          deleteGroup={deleteGroup}
+          isShowAcceptModal={isShowAcceptModal}
+          getGroupsFetch={getGroupsFetch}
+        />
       ) : null}
 
       {showHint ? <Hint hintStatus={hintStatus} hintMessage={hintMessage} /> : null}

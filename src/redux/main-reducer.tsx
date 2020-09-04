@@ -29,7 +29,6 @@ const initialState: any = {
 }
 
 
-
 const mainReducer = (state = initialState, action: ActionsTypes): any => {
   switch (action.type) {
     case ADD_GROUP:
@@ -104,12 +103,16 @@ export const getGroupsFetch = (): ThunkType => async (dispatch, getState) => {
 }
 
 export const createGroupFetch = (name: string): ThunkType => async (dispatch, getState) => {
-  // make uslovie
   const response = await groupAPI.createGroup(name, '', '')
 }
 
-export const deleteGroupFetch = (uuid: string): ThunkType => async (dispatch, getState) => {
-  // make uslovie
+export const deleteGroupFetch = (uuid: string, title: string): ThunkType => async (dispatch, getState) => {
   const response = await groupAPI.deleteGroup(uuid)
+  dispatch(mainActions.deleteGroup(title))
+}
+
+export const updateLoginFetch = (uuid: string, name: string, login: string, password: string): ThunkType => async (dispatch, getState) => {
+  const response = await groupAPI.putLogin(uuid, name, login, password)
+  // dispatch(mainActions.updateLogin(title))
 }
 

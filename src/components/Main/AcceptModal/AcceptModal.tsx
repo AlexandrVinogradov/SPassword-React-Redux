@@ -6,10 +6,14 @@ type AcceptModalPropsType = {
   title: string,
   isShowAcceptModal: (toggle: boolean) => void,
   deleteGroup: (title: string) => void,
+  selectedGroupId: string,
+  deleteGroupFetch: (uuid: string, title: string) => void,
+  getGroupsFetch: () => void,
+
 }
 
 const AcceptModal: React.FC<AcceptModalPropsType> = (props: AcceptModalPropsType) => {
-  const { title, isShowAcceptModal, deleteGroup } = props
+  const { title, isShowAcceptModal, deleteGroup, getGroupsFetch, selectedGroupId, deleteGroupFetch } = props
   const { t } = useTranslation()
 
   const handleCloseAcceptModal = () => {
@@ -17,8 +21,7 @@ const AcceptModal: React.FC<AcceptModalPropsType> = (props: AcceptModalPropsType
   }
 
   const handleDeleteGroup = () => {
-    deleteGroup(title)
-    // deleteGroupFetch(uuid)
+    deleteGroupFetch(selectedGroupId, title)
     isShowAcceptModal(false)
   }
 

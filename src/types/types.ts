@@ -3,6 +3,7 @@ import { SET_USER_AUTH_DATA } from '../redux/auth-reducer'
 
 // - MAIN REDUCER
 export type GroupsType = {
+  uuid: string,
   id: number,
   name: string,
   login: string | null,
