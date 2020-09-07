@@ -41,17 +41,15 @@ const LoginForm = (props: any) => {
       <Field placeholder={t('placeholderLogin')} component={Input} name='loginInputValue' autoFocus='true' />
       <Field placeholder={t('placeholderPassword')} component={Input} name='passwordInputValue' />
 
-      {/* <NavLink to='/main' className={style.btn_link}> */}
-        <button onClick={handleSubmit} className={style.registration_btn} type='button'>
-          {t('Login')}
+      <NavLink to='/registration'>
+        <button className={style.registration_btn} type='button'>
+          {t('Registration')}
         </button>
-      {/* </NavLink> */}
+      </NavLink>
 
-      {/* <NavLink to='/registration' className={style.btn_link}>
-        <button className={style.btn} type='button'>
-          {t('Login')}
-        </button>
-      </NavLink> */}
+      <button onClick={handleSubmit} className={style.btn} type='button'>
+        {t('Login')}
+      </button>
     </form>
   )
 }

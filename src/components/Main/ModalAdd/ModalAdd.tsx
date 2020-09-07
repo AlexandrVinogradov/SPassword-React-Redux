@@ -13,15 +13,17 @@ type ModalAddPropsTypes = {
   onAddGroup: (group: string) => void,
   toggleModal: (toggle: boolean) => void,
   createGroupFetch: (name: string) => void,
+  getGroupsFetch: () => void,
 }
 
 // MODALADD
 const ModalAdd: React.FC<ModalAddPropsTypes> = (props: ModalAddPropsTypes) => {
-  const { handleCloseModal, onAddGroup, toggleModal, createGroupFetch } = props
+  const { handleCloseModal, onAddGroup, toggleModal, createGroupFetch, getGroupsFetch } = props
 
   const addAndSelectGroup = (value: any) => {
     onAddGroup(value)
     createGroupFetch(value.customInput)
+    getGroupsFetch()
   }
   const closeModalOnEsc = (e: any) => {
     if (e.keyCode === 27) {

@@ -88,6 +88,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
           handleCloseModal={handleCloseModal}
           onAddGroup={onAddGroup}
           createGroupFetch={createGroupFetch}
+          getGroupsFetch={getGroupsFetch}
         />
       ) : null}
 
@@ -136,7 +137,6 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
         isMobileNavList={isMobileNavList}
         email={email}
         deleteGroupFetch={deleteGroupFetch}
-        getGroupsFetch={getGroupsFetch}
         updateLoginFetch={updateLoginFetch}
       />
     </main>

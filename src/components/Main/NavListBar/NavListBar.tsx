@@ -12,7 +12,7 @@ type NavListBarPropsType = {
 
 type GroupPropsTypes = {
   name: string,
-login: string | null,
+  login: string | null,
   password: string | null,
   editModeToggle: (toggle: boolean) => void,
   isMobileNavList: any,
@@ -58,10 +58,12 @@ const NavListBar: React.FC<NavListBarPropsType> = (props: NavListBarPropsType) =
 const Group: React.FC<GroupPropsTypes> = (props: GroupPropsTypes) => {
   const handleOpenEditModToggle = () => {
     const { login, password, editModeToggle, isMobileNavList } = props
-    
+
     isMobileNavList(false)
     if (!login && !password) {
       editModeToggle(true)
+    } else {
+      editModeToggle(false)
     }
   }
 

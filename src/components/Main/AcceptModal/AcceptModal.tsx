@@ -5,15 +5,12 @@ import style from './AcceptModal.module.scss'
 type AcceptModalPropsType = {
   title: string,
   isShowAcceptModal: (toggle: boolean) => void,
-  deleteGroup: (title: string) => void,
   selectedGroupId: string,
   deleteGroupFetch: (uuid: string, title: string) => void,
-  getGroupsFetch: () => void,
-
 }
 
 const AcceptModal: React.FC<AcceptModalPropsType> = (props: AcceptModalPropsType) => {
-  const { title, isShowAcceptModal, deleteGroup, getGroupsFetch, selectedGroupId, deleteGroupFetch } = props
+  const { title, isShowAcceptModal, selectedGroupId, deleteGroupFetch } = props
   const { t } = useTranslation()
 
   const handleCloseAcceptModal = () => {

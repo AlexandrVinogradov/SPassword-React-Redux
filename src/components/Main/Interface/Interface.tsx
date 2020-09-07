@@ -22,8 +22,7 @@ type InterfacePropsTypes = {
   isEditMode: boolean,
   isMobileNavList: (toggle: boolean) => void,
   email: string | null,
-  deleteGroupFetch: (uuid: string, title: string) => void
-  getGroupsFetch: () => void,
+  deleteGroupFetch: (uuid: string, title: string) => void,
   updateLoginFetch: (uuid: string, name: string, login: any) => void,
 }
 
@@ -42,8 +41,7 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
     isMobileNavList,
     email,
     deleteGroupFetch,
-    getGroupsFetch,
-    updateLoginFetch
+    updateLoginFetch,
   } = props
 
   const [showAcceptModal, isShowAcceptModal] = useState(false)
@@ -106,9 +104,7 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
           selectedGroupId={selectedGroupId}
           deleteGroupFetch={deleteGroupFetch}
           title={title}
-          deleteGroup={deleteGroup}
           isShowAcceptModal={isShowAcceptModal}
-          getGroupsFetch={getGroupsFetch}
         />
       ) : null}
 

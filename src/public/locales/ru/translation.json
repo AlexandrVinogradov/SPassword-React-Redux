@@ -16,7 +16,9 @@
   "no": "Ох, нет",
   "Enter login": "Введите логин",
   "Enter password": "Введите пароль",
-  "Edit": "Ввод"
+  "Edit": "Ввод",
+  "Registration": "Регистрация",
+  "Already have account": "Войти в существующий аккаунт"
 }
 
- 
+  
