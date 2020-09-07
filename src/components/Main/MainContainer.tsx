@@ -1,6 +1,12 @@
 import { connect } from 'react-redux'
 import Main from './Main'
-import { mainActions, getGroupsFetch, createGroupFetch, deleteGroupFetch } from '../../redux/main-reducer'
+import {
+  mainActions,
+  getGroupsFetch,
+  createGroupFetch,
+  deleteGroupFetch,
+  updateLoginFetch,
+} from '../../redux/main-reducer'
 import { logout } from '../../redux/auth-reducer'
 import { AppStateType } from '../../redux/store'
 import { getGroups, getIdOfSelectedGroup, getEmail, getIsAuth } from '../../redux/selector'
@@ -22,6 +28,7 @@ type MapDispatchPropsTypes = {
   getGroupsFetch: () => void,
   createGroupFetch: (name: string) => void,
   deleteGroupFetch: (uuid: string, title: string) => void,
+  updateLoginFetch: (uuid: string, name: string, login: any) => void,
 }
 type OwnPropsTypes = {}
 
@@ -42,4 +49,5 @@ export default connect<MapStatePropsTypes, MapDispatchPropsTypes, OwnPropsTypes,
   getGroupsFetch,
   createGroupFetch,
   deleteGroupFetch,
+  updateLoginFetch,
 })(Main)

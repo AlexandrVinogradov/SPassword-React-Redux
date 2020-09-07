@@ -83,8 +83,6 @@ export const  mainActions = {
 }
 
 
-
-
 // thunksCreators => thunks(dispatch, getState)
 export const getGroupsFetch = (): ThunkType => async (dispatch, getState) => {
   const response = await groupAPI.getGroups()
@@ -111,8 +109,8 @@ export const deleteGroupFetch = (uuid: string, title: string): ThunkType => asyn
   dispatch(mainActions.deleteGroup(title))
 }
 
-export const updateLoginFetch = (uuid: string, name: string, login: string, password: string): ThunkType => async (dispatch, getState) => {
-  const response = await groupAPI.putLogin(uuid, name, login, password)
-  // dispatch(mainActions.updateLogin(title))
+export const updateLoginFetch = (uuid: string, name: string, login: any): ThunkType => async (dispatch, getState) => {
+  const response = await groupAPI.putLogin(uuid, name, login.customLoginInput, login.customPasswordInput)
+  dispatch(mainActions.updateLogin(login))
 }
 

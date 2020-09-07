@@ -13,13 +13,16 @@ type EditModePropsTypes = {
   editModeToggle: (toggle: boolean) => void,
   login: string | null,
   password: string | null,
+  updateLoginFetch: (uuid: string, name: string, login: any) => void,
+  selectedGroupId: string,
+  title: string,
 }
 type EditModeFormProps = {
   handleSubmit: (value: any) => void,
 }
 
 const EditMode: React.FC<EditModePropsTypes> = props => {
-  const { updateLogin, editModeToggle, isEditMode, login, password } = props
+  const { updateLogin, editModeToggle, isEditMode, login, password, selectedGroupId, title, updateLoginFetch } = props
 
   const getInitialValues = () => {
     return {
@@ -30,6 +33,7 @@ const EditMode: React.FC<EditModePropsTypes> = props => {
 
   const handleExitEditMode = (values: any) => {
     updateLogin(values)
+    updateLoginFetch(selectedGroupId, title, values)
     editModeToggle(!isEditMode)
   }
 

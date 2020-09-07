@@ -25,6 +25,7 @@ type MapDispatchPropsTypes = {
   getGroupsFetch: () => void,
   createGroupFetch: (name: string) => void,
   deleteGroupFetch: (uuid: string, title: string) => void,
+  updateLoginFetch: (uuid: string, name: string, login: any) => void,
 }
 type OwnPropsTypes = {}
 type MainPropsTypes = MapStatePropsTypes & MapDispatchPropsTypes & OwnPropsTypes
@@ -43,6 +44,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
     getGroupsFetch,
     createGroupFetch,
     deleteGroupFetch,
+    updateLoginFetch,
   } = props
 
   const [showModal, toggleModal] = useState(false)
@@ -135,6 +137,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
         email={email}
         deleteGroupFetch={deleteGroupFetch}
         getGroupsFetch={getGroupsFetch}
+        updateLoginFetch={updateLoginFetch}
       />
     </main>
   )
