@@ -5,6 +5,7 @@ import {
   deleteGroupActionType,
   selectGroupActionType,
   updateLoginActionType,
+  GroupsType,
 } from '../types/types'
 import { InfernActionsTypes, AppStateType } from './store'
 import { ThunkAction } from 'redux-thunk'
@@ -90,7 +91,7 @@ export const getGroupsFetch = (): ThunkType => async (dispatch, getState) => {
   if (response.status === 200) {
 
     // set id 
-    response.data.data.map((group: any, id: number) => {
+    response.data.data.map((group: GroupsType, id: number) => {
       group.id = id
     })
 

@@ -54,11 +54,19 @@ export const Textarea = ({ input, meta }) => {
 
 export const Input = ({ input, meta, ...props }) => {
   const hasError = meta.touched && meta.error
-  const { placeholder, autoFocus } = props
+  const { placeholder, autoFocus, className, active } = props
   return (
     <div className={`${s.formControl} ${hasError ? s.error : ''}`}>
       <div>
-        <input autoFocus={autoFocus} placeholder={placeholder} type='text' {...input} {...meta} />
+        <input
+          autoFocus={autoFocus}
+          placeholder={placeholder}
+          className={className}
+          active={active}
+          type='text'
+          {...input}
+          {...meta}
+        />
       </div>
       {hasError && <span>{meta.error}</span>}
     </div>

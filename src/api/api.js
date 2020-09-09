@@ -14,9 +14,7 @@ export const authAPI = {
 
         return response
       })
-      .catch(err => {
-        return err.response
-      })
+      .catch(err => err.response)
   },
 
   getProfile() {
@@ -28,12 +26,20 @@ export const authAPI = {
           'x-api-key': token,
         },
       })
-      .then(response => {
-        return response
+      .then(response => response)
+      .catch(err => err.response)
+  },
+
+  postRegistration(email, password, firstName, lastName) {
+    return instance
+      .post(`/user`, {
+        email,
+        password,
+        firstName,
+        lastName,
       })
-      .catch(err => {
-        return err.response
-      })
+      .then(response => response)
+      .catch(err => err.response)
   },
 
   logout() {

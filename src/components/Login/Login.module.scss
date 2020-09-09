@@ -48,7 +48,6 @@
       padding: get-vw1230(24px) 0px get-vw1230(64px);
       font-size: get-vw1230(24px);
       line-height: get-vw1230(29px);
-      // min-width: get-vw(500px);
       white-space: nowrap;
     }
     @include min-width(1230px) {
@@ -57,9 +56,14 @@
       padding: 24px 0px 64px;
     }
   }
-  form {
+  .errorMessage {
+    color: $error;
+    padding: 0px 0px 10px;
+  }
+  .form {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 
     input {
       @include min-width($smPhoneWidth) {
@@ -75,6 +79,13 @@
       &::placeholder {
         color: $contrast-color;
       }
+    }
+
+    span {
+      position: static;
+      margin-bottom: 20px;
+      display: block;
+      padding-top: 0;
     }
   }
   .btn {
@@ -170,8 +181,21 @@
     //   }
     // }
   }
-  .registration_btn {
-    background: none;
-    border: none;
+  .registration_toggle_btn {
+    @include min-width($smPhoneWidth) {
+      padding: 7px 0px 7px;
+      background: none;
+      border: none;
+      transition: 0.3s ease;
+
+      &:hover {
+        color: $success-color;
+      }
+    }
+  }
+}
+.Registration {
+  @include min-width($smPhoneWidth) {
+    padding-top: 20px;
   }
 }

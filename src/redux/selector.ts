@@ -14,3 +14,7 @@ export const getIsAuth = (state: AppStateType) => {
 export const getEmail = (state: any) => { // unknown error
   return state.auth.currentUser.email
 }
+
+export const getErrorMessage = (state: AppStateType) => { 
+  return state.auth.errorMessage
+}

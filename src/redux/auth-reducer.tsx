@@ -51,7 +51,7 @@ export const authActions = {
     isAuth: boolean,
     errorMessage: string | null
   ): setUserAuthDataTypes => ({
-    type: SET_USER_AUTH_DATA,
+    type: SET_USER_AUTH_DATA, 
     payload,
     isAuth,
     errorMessage,
@@ -87,3 +87,10 @@ export const  logout = (): ThunkType => async (dispatch, getState) => {
     dispatch(authActions.setUserAuthData({}, false, response.data.error.message))
   }
 }
+
+export const  registrationFetch = (email: string, password: string, firstName: string, lastName: string): ThunkType => async (dispatch, getState) => {
+  const response = await authAPI.postRegistration(email, password, firstName, lastName)
+  console.log('123');
+}
+
+
