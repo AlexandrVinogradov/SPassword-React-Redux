@@ -2,18 +2,21 @@ import React, { useEffect } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import { Provider, connect } from 'react-redux'
 import style from './App.module.scss'
-import store from './redux/store'
+import store, { AppStateType } from './redux/store'
 import MainContainer from './components/Main/MainContainer'
 import Registration from './components/Login/Registration'
-import LoginContainer from './components/Login/LoginContainer'
-import { getProfile } from './redux/auth-reducer'
+import Login from './components/Login/Login'
+import { getProfile, login } from './redux/auth-reducer'
+import { getIsAuth } from './redux/selector'
 
-// type AppPropsTypes = {
-//   logout: () => void,
-// }
+type AppPropsTypes = {
+  getProfile: () => void,
+  login: (email: string, password: string) => void,
+  isAuth: boolean,
+}
 
-const App: React.FC = (props: any) => {
-  const { getProfile } = props
+const App: React.FC<AppPropsTypes> = (props: AppPropsTypes) => {
+  const { getProfile, login, isAuth } = props
 
   useEffect(() => {
     getProfile()
@@ -24,8 +27,8 @@ const App: React.FC = (props: any) => {
       <BrowserRouter>
         <Switch>
           <Route path='/main' render={() => <MainContainer />} />
-          <Route path='/registration' render={() => <Registration />} />
-          <Route path='/' render={() => <LoginContainer />} />
+          <Route path='/registration' render={() => <Registration login={login} isAuth={isAuth} />} />
+          <Route path='/' render={() => <Login login={login} isAuth={isAuth} />} />
         </Switch>
       </BrowserRouter>
     </div>
@@ -33,11 +36,22 @@ const App: React.FC = (props: any) => {
 }
 
 type MapDispatchPropsTypes = {
-  logout: () => void,
+  getProfile: () => void,
+  login: (email: string, password: string) => void,
+}
+type MapStatePropsTypes = {
+  isAuth: boolean,
 }
 
-export const AppContainer = connect<MapDispatchPropsTypes>(null, {
+const mapStateToProps = (state: any): MapStatePropsTypes => {
+  return {
+    isAuth: getIsAuth(state),
+  }
+}
+
+export const AppContainer: any = connect<MapStatePropsTypes, MapDispatchPropsTypes, AppStateType>(mapStateToProps, {
   getProfile,
+  login,
 })(App)
 
 export const Spassword: React.FC = () => {

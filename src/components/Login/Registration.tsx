@@ -25,7 +25,7 @@ const Login = (props: any) => {
   return (
     <div className={style.Login}>
       <img className={style.shield} src={shield} alt='shield' />
-      <span className={style.title}>SPassword - {t('your safe')}</span>
+      <span className={style.title}>SPassword - {t('Registration')}</span>
 
       <LoginReduxForm onSubmit={onSubmit} initialValues={initialValues} />
     </div>
@@ -38,8 +38,27 @@ const LoginForm = (props: any) => {
 
   return (
     <form className={style.form} onSubmit={handleSubmit}>
-      <Field placeholder={t('placeholderLogin')} component={Input} name='loginInputValue' autoFocus='true' />
-      <Field placeholder={t('placeholderPassword')} component={Input} name='passwordInputValue' />
+      <Field
+        placeholder={t('registrationPlaceholderLogin')}
+        component={Input}
+        name='registrationLoginInputValue'
+        autoFocus='true'
+      />
+      <Field
+        placeholder={t('registrationPlaceholderPassword')}
+        component={Input}
+        name='registrationPasswordInputValue'
+      />
+      <Field
+        placeholder={t('registrationPlaceholderFirstName')}
+        component={Input}
+        name='registrationFirstNameInputValue'
+      />
+      <Field
+        placeholder={t('registrationPlaceholderLastName')}
+        component={Input}
+        name='registrationLastNameInputValue'
+      />
 
       <NavLink to='/login'>
         <button className={style.registration_btn} type='button'>

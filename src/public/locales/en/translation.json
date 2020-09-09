@@ -18,5 +18,9 @@
   "Enter password": "Enter password",
   "Edit": "Edit",
   "Registration": "Registration",
-  "Already have account": "Already have account"
+  "Already have account": "Already have account",
+  "registrationPlaceholderLogin": "Enter Login for registration",
+  "registrationPlaceholderPassword": "Enter password for registration",
+  "registrationPlaceholderFirstName": "Enter First name for registration",
+  "registrationPlaceholderLastName": "Enter Last name for registration"
 } 

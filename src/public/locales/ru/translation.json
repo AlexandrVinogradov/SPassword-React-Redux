@@ -18,7 +18,11 @@
   "Enter password": "Введите пароль",
   "Edit": "Ввод",
   "Registration": "Регистрация",
-  "Already have account": "Войти в существующий аккаунт"
+  "Already have account": "Войти в существующий аккаунт",
+  "registrationPlaceholderLogin": "Введите логин для регистрации",
+  "registrationPlaceholderPassword": "Введите пароль для регистрации",
+  "registrationPlaceholderFirstName": "Введите Имя для регистрации",
+  "registrationPlaceholderLastName": "Введите Фамилию для регистрации"
 }
 
   
