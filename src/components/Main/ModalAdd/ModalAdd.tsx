@@ -66,7 +66,7 @@ const GroupForm = (props: any) => {
             placeholder={t('Enter name')}
             component={Input}
             name='customInput'
-            autoFocus='true'
+            autoFocus
           />
 
           <button onClick={handleSubmit} type='submit'>
