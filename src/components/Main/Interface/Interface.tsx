@@ -3,7 +3,7 @@ import { useTranslation, withTranslation, WithTranslation } from 'react-i18next'
 import style from './Interface.module.scss'
 
 import styleGroupInfo from './GroupInfo/GroupInfo.module.scss'
-import shield from '../../../img/shield.png'
+import shield from '../../../assets/images/shield.png'
 import SVGIcon from '../../../SVGIcons'
 import AcceptModal from '../AcceptModal/AcceptModal'
 import EditMode from './EditMode/EditMode'
