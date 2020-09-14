@@ -193,6 +193,10 @@
       }
     }
   }
+
+  .preloader {
+    margin: 20px auto 0;
+  }
 }
 .Registration {
   @include min-width($smPhoneWidth) {

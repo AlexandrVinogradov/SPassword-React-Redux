@@ -12,7 +12,6 @@ export type GroupsType = {
 export type MainReducerInitialStateType = {
   groups: GroupsType[],
   idOfSelectedGroup?: number,
-
 }
 // - MAIN REDUCER ACTIONS
 export type addGroupActionType = {
@@ -46,6 +45,7 @@ export type AuthReducerInitialStateType = {
   currentUser: CurrentUserTypes | {},
   isAuth: boolean,
   errorMessage: string | null,
+  isAuthFetching: boolean,
 }
 // - AUTH REDUCER ACTIONS
 export type setUserAuthDataTypes = {

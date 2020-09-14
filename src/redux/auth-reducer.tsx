@@ -5,6 +5,7 @@ import { InfernActionsTypes, AppStateType } from './store'
 import { ThunkAction } from 'redux-thunk'
 
 export const SET_USER_AUTH_DATA = 'spassword/auth/SET_USER_AUTH_DATA'
+export const TOGGLE_IS_FETCHING = 'spassword/auth/TOGGLE_IS_FETCHING'
 
 const initialState: AuthReducerInitialStateType = {
   currentUser: {
@@ -18,6 +19,7 @@ const initialState: AuthReducerInitialStateType = {
   },
   isAuth: false,
   errorMessage: null,
+  isAuthFetching: false
 }
 
 const authReducer = (state = initialState, action: ActionsTypes): AuthReducerInitialStateType => {
@@ -29,6 +31,11 @@ const authReducer = (state = initialState, action: ActionsTypes): AuthReducerIni
         isAuth: action.isAuth,
         errorMessage: action.errorMessage,
       }
+    case TOGGLE_IS_FETCHING:
+        return {
+          ...state, 
+          isAuthFetching: action.isFetching
+        }
     default:
       return state
   }
@@ -50,17 +57,17 @@ export const authActions = {
     payload: CurrentUserTypes | {},
     isAuth: boolean,
     errorMessage: string | null
-  ): setUserAuthDataTypes => ({
-    type: SET_USER_AUTH_DATA, 
-    payload,
-    isAuth,
-    errorMessage,
-  } as const),
+  ): setUserAuthDataTypes => ({type: SET_USER_AUTH_DATA, payload, isAuth, errorMessage, } as const),
+
+  toggleIsFetching: (isFetching: any): any => ({type: TOGGLE_IS_FETCHING, isFetching} as const)
 }
+
 
 // thunksCreators => thunks(dispatch, getState)
 export const login = (email: string | null, password: string | null): ThunkType => async (dispatch, getState) => {
+  dispatch(authActions.toggleIsFetching(true))
   const response = await authAPI.login(email, password)
+  dispatch(authActions.toggleIsFetching(false))
 
   if (response.status === 200) {
     dispatch(authActions.setUserAuthData(response.data.data, true, null))

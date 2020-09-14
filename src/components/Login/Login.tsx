@@ -2,10 +2,13 @@ import React from 'react'
 import { NavLink, Redirect } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { reduxForm, Field, InjectedFormProps } from 'redux-form'
+import { useSelector } from 'react-redux'
 import shield from '../../assets/images/shield.png'
 import style from './Login.module.scss'
 import { Input } from '../common/FormsControls/FormControls'
 import { email, required } from '../../utils/validators'
+import Preloader from '../common/Preloader/Preloader'
+import { AppStateType } from '../../redux/store'
 
 type LoginPropsType = {
   login: (email: string, password: string) => void,
@@ -40,6 +43,11 @@ const Login: React.FC<LoginPropsType> = (props: LoginPropsType) => {
 const LoginForm: React.FC<InjectedFormProps> = (props: InjectedFormProps) => {
   const { handleSubmit } = props
   const { t } = useTranslation()
+  const isFetching = useSelector((state: AppStateType) => state.auth.isAuthFetching)
+
+  if (isFetching) {
+    return <Preloader className={style.preloader} />
+  }
 
   return (
     <form className={style.form} onSubmit={handleSubmit}>
@@ -50,7 +58,13 @@ const LoginForm: React.FC<InjectedFormProps> = (props: InjectedFormProps) => {
         name='loginInputValue'
         autoFocus
       />
-      <Field active={false} validate={[required]} placeholder={t('placeholderPassword')} component={Input} name='passwordInputValue' />
+      <Field
+        active={false}
+        validate={[required]}
+        placeholder={t('placeholderPassword')}
+        component={Input}
+        name='passwordInputValue'
+      />
 
       <NavLink to='/registration'>
         <button className={style.registration_toggle_btn} type='button'>
