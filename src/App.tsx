@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import { Provider, connect } from 'react-redux'
 import style from './App.module.scss'
@@ -6,29 +6,21 @@ import store, { AppStateType } from './redux/store'
 import MainContainer from './components/Main/MainContainer'
 import Registration from './components/Login/Registration'
 import Login from './components/Login/Login'
-import { getProfile, login, registrationFetch } from './redux/auth-reducer'
-import { getIsAuth, getErrorMessage, getUserUuid } from './redux/selector'
+import { login, registrationFetch } from './redux/auth-reducer'
+import { getIsAuth, getErrorMessage } from './redux/selector'
 
 type MapDispatchPropsTypes = {
-  getProfile: (uuid: string) => void,
   login: (email: string, password: string) => void,
   registrationFetch: (email: string, password: string, firstName: string, lastName: string) => void,
 }
 type MapStatePropsTypes = {
   isAuth: boolean,
   errorMessage: string | null,
-  userUuid: string,
 }
 type AppPropsTypes = MapDispatchPropsTypes & MapStatePropsTypes
 
 const App: React.FC<AppPropsTypes> = (props: AppPropsTypes) => {
-  const { userUuid, getProfile, login, isAuth, registrationFetch, errorMessage } = props
-
-  // useEffect(() => {
-  //   if (isAuth) {
-  //     getProfile('')
-  //   }
-  // })
+  const { login, isAuth, registrationFetch, errorMessage } = props
 
   return (
     <div className={style.App}>
@@ -50,14 +42,12 @@ const mapStateToProps = (state: any): MapStatePropsTypes => {
   return {
     isAuth: getIsAuth(state),
     errorMessage: getErrorMessage(state),
-    userUuid: getUserUuid(state),
   }
 }
 
 export const AppContainer: React.FC<any> = connect<MapStatePropsTypes, MapDispatchPropsTypes, AppStateType>(
   mapStateToProps,
   {
-    getProfile,
     login,
     registrationFetch,
   }

@@ -76,14 +76,14 @@ export const login = (email: string | null, password: string | null): ThunkType 
   }
 }
 
-export const  getProfile = (uuid: string): ThunkType => async (dispatch, getState) => {
-  const token = localStorage.jwtToken
+// export const  getProfile = (uuid: string): ThunkType => async (dispatch, getState) => {
+//   const token = localStorage.jwtToken
 
-  if (token) {
-    const response = await authAPI.getProfile(uuid)
-    dispatch(authActions.setUserAuthData(response.data.data, true, null))
-  }
-}
+//   if (token) {
+//     const response = await authAPI.getProfile(uuid)
+//     dispatch(authActions.setUserAuthData(response.data.data, true, null))
+//   }
+// }
 
 export const  logout = (): ThunkType => async (dispatch, getState) => {
   const response = await authAPI.logout() 

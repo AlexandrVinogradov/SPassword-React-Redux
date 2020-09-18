@@ -14,7 +14,6 @@ type LoginPropsType = {
   login: (email: string, password: string) => void,
   isAuth: boolean,
   errorMessage: string | null,
-  // getProfile: () => void,
 }
 
 const Login: React.FC<LoginPropsType> = (props: LoginPropsType) => {
@@ -23,7 +22,6 @@ const Login: React.FC<LoginPropsType> = (props: LoginPropsType) => {
 
   const onSubmit = (formData: any) => {
     login(formData.loginInputValue, formData.passwordInputValue)
-    // getProfile()
   }
 
   if (isAuth === true) {

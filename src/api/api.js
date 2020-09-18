@@ -17,18 +17,18 @@ export const authAPI = {
       .catch(err => err.response)
   },
 
-  getProfile(uuid) {
-    const token = localStorage.jwtToken
+  // getProfile(uuid) {
+  //   const token = localStorage.jwtToken
 
-    return instance
-      .get(`/user${uuid}`, {
-        headers: {
-          'x-api-key': token,
-        },
-      })
-      .then(response => response)
-      .catch(err => err.response)
-  },
+  //   return instance
+  //     .get(`/user${uuid}`, {
+  //       headers: {
+  //         'x-api-key': token,
+  //       },
+  //     })
+  //     .then(response => response)
+  //     .catch(err => err.response)
+  // },
 
   logout() {
     const token = localStorage.jwtToken
