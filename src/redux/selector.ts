@@ -11,10 +11,16 @@ export const getIdOfSelectedGroup = (state: AppStateType) => {
 export const getIsAuth = (state: AppStateType) => {
   return state.auth.isAuth
 }
-export const getEmail = (state: any) => { // unknown error
+export const getEmail = (state: any) => {
+  // unknown error
   return state.auth.currentUser.email
 }
 
-export const getErrorMessage = (state: AppStateType) => { 
+export const getErrorMessage = (state: AppStateType) => {
   return state.auth.errorMessage
+}
+
+export const getUserUuid = (state: any) => {
+  return state.auth.currentUser.uuid
+  // return 'sda'
 }

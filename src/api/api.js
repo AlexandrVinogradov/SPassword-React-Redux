@@ -17,11 +17,11 @@ export const authAPI = {
       .catch(err => err.response)
   },
 
-  getProfile() {
+  getProfile(uuid) {
     const token = localStorage.jwtToken
 
     return instance
-      .get('/user', {
+      .get(`/user${uuid}`, {
         headers: {
           'x-api-key': token,
         },

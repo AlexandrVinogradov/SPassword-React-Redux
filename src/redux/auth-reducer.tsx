@@ -76,12 +76,12 @@ export const login = (email: string | null, password: string | null): ThunkType 
   }
 }
 
-export const  getProfile = (): ThunkType => async (dispatch, getState) => {
+export const  getProfile = (uuid: string): ThunkType => async (dispatch, getState) => {
   const token = localStorage.jwtToken
 
   if (token) {
-    const response = await authAPI.getProfile()
-    dispatch(authActions.setUserAuthData(response.data.data['0'], true, null))
+    const response = await authAPI.getProfile(uuid)
+    dispatch(authActions.setUserAuthData(response.data.data, true, null))
   }
 }
 

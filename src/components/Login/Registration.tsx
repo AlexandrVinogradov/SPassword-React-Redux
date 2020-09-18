@@ -23,7 +23,6 @@ const Registration: React.FC<RegistrationPropsType> = (props: RegistrationPropsT
       formData.registrationFirstNameInputValue,
       formData.registrationLastNameInputValue
     )
-    // alert('asd')
   }
 
   if (isAuth === true) {
