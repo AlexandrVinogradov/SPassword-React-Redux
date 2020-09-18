@@ -30,18 +30,6 @@ export const authAPI = {
       .catch(err => err.response)
   },
 
-  postRegistration(email, password, firstName, lastName) {
-    return instance
-      .post(`/user`, {
-        email,
-        password,
-        firstName,
-        lastName,
-      })
-      .then(response => response)
-      .catch(err => err.response)
-  },
-
   logout() {
     const token = localStorage.jwtToken
 
@@ -58,6 +46,18 @@ export const authAPI = {
       .catch(err => {
         return err.response
       })
+  },
+
+  postRegistration(email, password, firstName, lastName) {
+    return instance
+      .post(`/signup`, {
+        email,
+        password,
+        firstName,
+        lastName,
+      })
+      .then(response => response)
+      .catch(err => err.response)
   },
 }
 

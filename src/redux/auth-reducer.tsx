@@ -86,7 +86,7 @@ export const  getProfile = (): ThunkType => async (dispatch, getState) => {
 }
 
 export const  logout = (): ThunkType => async (dispatch, getState) => {
-  const response = await authAPI.logout()
+  const response = await authAPI.logout() 
 
   if (response.status === 200) {
     dispatch(authActions.setUserAuthData({}, false, null))
