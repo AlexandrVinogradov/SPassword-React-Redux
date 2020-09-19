@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import { Provider, connect } from 'react-redux'
 import style from './App.module.scss'
@@ -6,12 +6,13 @@ import store, { AppStateType } from './redux/store'
 import MainContainer from './components/Main/MainContainer'
 import Registration from './components/Login/Registration'
 import Login from './components/Login/Login'
-import { login, registrationFetch } from './redux/auth-reducer'
-import { getIsAuth, getErrorMessage } from './redux/selector'
+import { login, registrationFetch, getProfile } from './redux/auth-reducer'
+import { getIsAuth, getErrorMessage} from './redux/selector'
 
 type MapDispatchPropsTypes = {
   login: (email: string, password: string) => void,
   registrationFetch: (email: string, password: string, firstName: string, lastName: string) => void,
+  getProfile: () => void,
 }
 type MapStatePropsTypes = {
   isAuth: boolean,
@@ -20,7 +21,12 @@ type MapStatePropsTypes = {
 type AppPropsTypes = MapDispatchPropsTypes & MapStatePropsTypes
 
 const App: React.FC<AppPropsTypes> = (props: AppPropsTypes) => {
-  const { login, isAuth, registrationFetch, errorMessage } = props
+  const { getProfile, login, isAuth, registrationFetch, errorMessage } = props
+
+  useEffect(() => {
+    // we have checked isToken inside
+    getProfile()
+  }, [])
 
   return (
     <div className={style.App}>
@@ -50,6 +56,7 @@ export const AppContainer: React.FC<any> = connect<MapStatePropsTypes, MapDispat
   {
     login,
     registrationFetch,
+    getProfile,
   }
 )(App)
 

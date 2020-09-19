@@ -10,25 +10,27 @@ export const authAPI = {
       .post('/login', { email, password })
       .then(response => {
         const token = response.headers['access-token']
+        const userId = response.data.data.uuid
         localStorage.setItem('jwtToken', token)
+        localStorage.setItem('userId', userId)
 
         return response
       })
       .catch(err => err.response)
   },
 
-  // getProfile(uuid) {
-  //   const token = localStorage.jwtToken
+  getProfile() {
+    const { jwtToken, userId } = localStorage
 
-  //   return instance
-  //     .get(`/user${uuid}`, {
-  //       headers: {
-  //         'x-api-key': token,
-  //       },
-  //     })
-  //     .then(response => response)
-  //     .catch(err => err.response)
-  // },
+    return instance
+      .get(`/user/${userId}`, {
+        headers: {
+          'x-api-key': jwtToken,
+        },
+      })
+      .then(response => response)
+      .catch(err => err.response)
+  },
 
   logout() {
     const token = localStorage.jwtToken
@@ -41,6 +43,7 @@ export const authAPI = {
       })
       .then(response => {
         localStorage.removeItem('jwtToken')
+        localStorage.removeItem('userId')
         return response
       })
       .catch(err => {
