@@ -5,15 +5,14 @@
   margin-top: 100px;
   position: absolute;
   top: 300px;
-  // right: 13vw;
-  right: get-vw1230(-250px);
+  right: get-vw1230(-270px);
 
   .hintBlock {
     color: $contrast-color;
     border: 1px solid $contrast-color;
     padding: 13px;
     border-radius: 5px;
-
+    max-width: get-vw1230(220px);
     font-size: get-vw1230(11px);
 
     .fontBold {

@@ -82,6 +82,6 @@ const LoginForm: React.FC<InjectedFormProps> = (props: InjectedFormProps) => {
   )
 }
 
-const LoginReduxForm = reduxForm({ form: 'login redux form' })(LoginForm)
+const LoginReduxForm = reduxForm({ form: 'login redux form', touchOnBlur: false })(LoginForm)
 
 export default Login

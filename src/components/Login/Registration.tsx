@@ -85,6 +85,6 @@ const RegistrationForm: React.FC<InjectedFormProps> = (props: InjectedFormProps)
   )
 }
 
-const RegistrationReduxForm = reduxForm({ form: 'login redux form' })(RegistrationForm)
+const RegistrationReduxForm = reduxForm({ form: 'login redux form', touchOnBlur: false })(RegistrationForm)
 
 export default Registration
