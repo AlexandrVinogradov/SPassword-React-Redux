@@ -1,7 +1,10 @@
 import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import style from './NavListBar.module.scss'
 import { GroupsType } from '../../../types/types'
+import Preloader from '../../common/Preloader/Preloader'
+import { AppStateType } from '../../../redux/store'
 
 type NavListBarPropsType = {
   groups: GroupsType[],
@@ -22,7 +25,12 @@ const NavListBar: React.FC<NavListBarPropsType> = (props: NavListBarPropsType) =
   const { groups, editModeToggle, selectGroup, isMobileNavList } = props
 
   const location = useLocation()
-  const selectedGroup = groups.find(i => i.name === location.pathname.slice(6))
+  let selectedGroup = null
+  if (groups) {
+    selectedGroup = groups.find(i => i.name === location.pathname.slice(6))
+  }
+
+  const isFetching = useSelector((state: AppStateType) => state.mainPage.isGroupFetching)
 
   let selectedGroupNew: any
 
@@ -37,16 +45,23 @@ const NavListBar: React.FC<NavListBarPropsType> = (props: NavListBarPropsType) =
   }
   findSelectedGroup()
 
-  const groupElement = groups.map(g => (
-    <Group
-      editModeToggle={editModeToggle}
-      isMobileNavList={isMobileNavList}
-      name={g.name}
-      login={g.login}
-      password={g.password}
-      key={g.id}
-    />
-  ))
+  let groupElement = null
+  if (groups) {
+    groupElement = groups.map(g => (
+      <Group
+        editModeToggle={editModeToggle}
+        isMobileNavList={isMobileNavList}
+        name={g.name}
+        login={g.login}
+        password={g.password}
+        key={g.id}
+      />
+    ))
+  }
+
+  if (isFetching) {
+    return <Preloader className={style.preloader} />
+  }
 
   return (
     <nav>

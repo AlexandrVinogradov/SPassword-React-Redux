@@ -29,6 +29,7 @@ type MapDispatchPropsTypes = {
   createGroupFetch: (name: string) => void,
   deleteGroupFetch: (uuid: string, title: string) => void,
   updateLoginFetch: (uuid: string, name: string, login: any) => void,
+  setUserGroups: (data: any, errorMessage: string | null) => void,
 }
 type OwnPropsTypes = {}
 
@@ -50,4 +51,5 @@ export default connect<MapStatePropsTypes, MapDispatchPropsTypes, OwnPropsTypes,
   createGroupFetch,
   deleteGroupFetch,
   updateLoginFetch,
+  setUserGroups: mainActions.setUserGroups,
 })(Main)

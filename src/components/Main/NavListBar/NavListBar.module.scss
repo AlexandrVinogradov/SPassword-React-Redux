@@ -2,6 +2,14 @@
 @import "../../../scss/mixins.scss";
 @import "../../../scss/variables.scss";
 
+.preloader {
+  padding-top: 40px;
+  padding-right: 10px;
+  & > img {
+    width: 100px;
+  }
+}
+
 .NavListBar_ul {
   display: flex;
   flex-direction: column;

@@ -26,6 +26,7 @@ type MapDispatchPropsTypes = {
   createGroupFetch: (name: string) => void,
   deleteGroupFetch: (uuid: string, title: string) => void,
   updateLoginFetch: (uuid: string, name: string, login: any) => void,
+  setUserGroups: (data: any, errorMessage: string | null) => void,
 }
 type OwnPropsTypes = {}
 type MainPropsTypes = MapStatePropsTypes & MapDispatchPropsTypes & OwnPropsTypes
@@ -45,6 +46,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
     createGroupFetch,
     deleteGroupFetch,
     updateLoginFetch,
+    setUserGroups,
   } = props
 
   const [showModal, toggleModal] = useState(false)
@@ -78,6 +80,7 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
 
   const handleLogout = () => {
     logout()
+    setUserGroups(null, null)
   }
 
   return (
@@ -119,17 +122,14 @@ const Main: React.FC<MainPropsTypes> = (props: MainPropsTypes) => {
           selectGroup={selectGroup}
         />
 
-        {/* <NavLink className={`${style.circle_btn} ${style.circle_btn__logout}`} to='/login'> */}
         <button onClick={handleLogout} className={`${style.circle_btn} ${style.circle_btn__logout}`} type='button'>
           <p>{t('Logout')}</p>
           <SVGIcon className={style.circle_btn__icon} name='logout' />
         </button>
-        {/* </NavLink> */}
       </section>
 
       <Interface
         updateLogin={updateLogin}
-        deleteGroup={deleteGroup}
         groups={groups}
         idOfSelectedGroup={idOfSelectedGroup}
         editModeToggle={editModeToggle}

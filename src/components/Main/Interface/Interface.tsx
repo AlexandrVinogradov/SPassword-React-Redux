@@ -17,7 +17,6 @@ type InterfacePropsTypes = {
   idOfSelectedGroup: number,
   updateLogin: (login: string) => void,
   groups: GroupsType[],
-  deleteGroup: (login: string) => void,
   editModeToggle: (toggle: boolean) => void,
   isEditMode: boolean,
   isMobileNavList: (toggle: boolean) => void,
@@ -33,7 +32,6 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
     idOfSelectedGroup,
     updateLogin,
     groups,
-    deleteGroup,
     isEditMode,
     editModeToggle,
     i18n,
@@ -55,7 +53,7 @@ const Interface: React.FC<InterfacePropsTypesWithTranslation> = (props: Interfac
   let login: string | null = null
   let password: string | null = null
 
-  if (idOfSelectedGroup !== undefined && groups[idOfSelectedGroup]) {
+  if (groups && idOfSelectedGroup !== undefined && groups[idOfSelectedGroup]) {
     const selectedGroup = props.groups[props.idOfSelectedGroup]
 
     title = selectedGroup.name

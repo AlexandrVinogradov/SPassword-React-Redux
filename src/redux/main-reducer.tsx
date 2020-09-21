@@ -17,6 +17,8 @@ export const SELECT_GROUP = 'spassword/main/SELECT_GROUP'
 export const UPDATE_LOGIN = 'spassword/main/UPDATE_LOGIN'
 
 export const SET_USER_GROUPS = 'spassword/main/SET_USER_GROUPS'
+export const TOGGLE_GROUPS_IS_FETCHING = 'spassword/auth/TOGGLE_GROUPS_IS_FETCHING'
+
 
 const initialState: any = {
   groups: [
@@ -27,6 +29,7 @@ const initialState: any = {
     { id: 4, name: 'La2 Accounts', login: 'password', password: 'password' },
   ],
   idOfSelectedGroup: 0,
+  isGroupFetching: false
 }
 
 
@@ -48,13 +51,16 @@ const mainReducer = (state = initialState, action: ActionsTypes): any => {
         ...state,
         idOfSelectedGroup: action.idOfSelectedGroup,
       }
-
     case UPDATE_LOGIN:
       return {
         // ...state.groups,
         groups: newLogin(state.groups, state.idOfSelectedGroup, action.login),
       }
-
+    case TOGGLE_GROUPS_IS_FETCHING:
+      return {
+        ...state, 
+        isGroupFetching: action.isFetching
+      }
     case SET_USER_GROUPS:
       return Object.assign({}, state, {
         groups: action.data
@@ -80,8 +86,9 @@ export const  mainActions = {
   updateLogin : (login: string): updateLoginActionType => ({ type: UPDATE_LOGIN, login } as const),
 
   //with API
-  setUserGroups: (data: any, errorMessage: string | null): any => ({type: SET_USER_GROUPS, data, errorMessage}as const)
-}
+  setUserGroups: (data: any, errorMessage: string | null): any => ({type: SET_USER_GROUPS, data, errorMessage}as const),
+  toggleGroupsIsFetching: (isFetching: any): any => ({type: TOGGLE_GROUPS_IS_FETCHING, isFetching} as const)
+} 
 
 
 // thunksCreators => thunks(dispatch, getState)
@@ -89,13 +96,13 @@ export const getGroupsFetch = (): ThunkType => async (dispatch, getState) => {
   const response = await groupAPI.getGroups()
 
   if (response.status === 200) {
-
+    dispatch(mainActions.toggleGroupsIsFetching(true))
     // set id 
     response.data.data.map((group: GroupsType, id: number) => {
       group.id = id
     })
-
     dispatch(mainActions.setUserGroups(response.data.data, null))
+    dispatch(mainActions.toggleGroupsIsFetching(false))
   } else {
     dispatch(mainActions.setUserGroups({}, response.data.error.message))
   }

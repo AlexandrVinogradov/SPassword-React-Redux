@@ -80,8 +80,10 @@ export const  getProfile = (): ThunkType => async (dispatch, getState) => {
   const token = localStorage.jwtToken
 
   if (token) {
+    dispatch(authActions.toggleIsFetching(true))
     const response = await authAPI.getProfile()
     dispatch(authActions.setUserAuthData(response.data.data, true, null))
+    dispatch(authActions.toggleIsFetching(false))
   }
 }
 
@@ -97,7 +99,6 @@ export const  logout = (): ThunkType => async (dispatch, getState) => {
 
 export const  registrationFetch = (email: string, password: string, firstName: string, lastName: string): ThunkType => async (dispatch, getState) => {
   const response = await authAPI.postRegistration(email, password, firstName, lastName)
-  console.log('123');
 }
 
 
