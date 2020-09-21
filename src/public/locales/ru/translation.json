@@ -22,7 +22,8 @@
   "registrationPlaceholderLogin": "Введите логин для регистрации",
   "registrationPlaceholderPassword": "Введите пароль для регистрации",
   "registrationPlaceholderFirstName": "Введите Имя для регистрации",
-  "registrationPlaceholderLastName": "Введите Фамилию для регистрации"
+  "registrationPlaceholderLastName": "Введите Фамилию для регистрации",
+  "you can register or use a test account": "Вы можете зарегистрироваться или воспользоваться тестовым аккаунтом"
 }
 
   

@@ -20,7 +20,3 @@ export const getErrorMessage = (state: AppStateType) => {
   return state.auth.errorMessage
 }
 
-// export const getUserUuid = (state: any) => {
-//   return state.auth.currentUser.uuid
-// }
-

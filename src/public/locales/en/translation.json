@@ -22,5 +22,6 @@
   "registrationPlaceholderLogin": "Enter Login for registration",
   "registrationPlaceholderPassword": "Enter password for registration",
   "registrationPlaceholderFirstName": "Enter First name for registration",
-  "registrationPlaceholderLastName": "Enter Last name for registration"
+  "registrationPlaceholderLastName": "Enter Last name for registration",
+  "you can register or use a test account": "you can register or use a test account"
 } 

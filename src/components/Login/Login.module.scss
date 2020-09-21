@@ -11,6 +11,7 @@
     margin: 0 auto;
     padding-top: get-vw1230(100px);
     padding-top: 56px;
+    position: relative;
   }
   @include min-width($tableWidth) {
     padding-top: 200px;

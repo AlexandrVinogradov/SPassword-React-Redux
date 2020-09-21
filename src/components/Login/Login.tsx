@@ -5,6 +5,7 @@ import { reduxForm, Field, InjectedFormProps } from 'redux-form'
 import { useSelector } from 'react-redux'
 import shield from '../../assets/images/shield.png'
 import style from './Login.module.scss'
+import TestAccountLogin from './TestAccountLogin/TestAccountLogin'
 import { Input } from '../common/FormsControls/FormControls'
 import { email, required } from '../../utils/validators'
 import Preloader from '../common/Preloader/Preloader'
@@ -36,6 +37,8 @@ const Login: React.FC<LoginPropsType> = (props: LoginPropsType) => {
       {errorMessage ? <div className={style.errorMessage}>{errorMessage}</div> : null}
 
       <LoginReduxForm onSubmit={onSubmit} />
+
+      <TestAccountLogin />
     </div>
   )
 }

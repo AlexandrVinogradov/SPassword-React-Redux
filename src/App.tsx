@@ -24,7 +24,7 @@ const App: React.FC<AppPropsTypes> = (props: AppPropsTypes) => {
   const { getProfile, login, isAuth, registrationFetch, errorMessage } = props
 
   useEffect(() => {
-    // we have checked isToken inside
+    // we have checked on isToken inside
     getProfile()
   }, [])
 
