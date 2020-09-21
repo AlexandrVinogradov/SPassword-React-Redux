@@ -1,5 +1,6 @@
 {
   "Login": "Login",
+  "Password": "Password",
   "placeholderLogin": "Login",
   "placeholderPassword": "Password",
   "your safe": "your safe",
@@ -23,5 +24,5 @@
   "registrationPlaceholderPassword": "Enter password for registration",
   "registrationPlaceholderFirstName": "Enter First name for registration",
   "registrationPlaceholderLastName": "Enter Last name for registration",
-  "you can register or use a test account": "you can register or use a test account"
+  "you can register or use a test account": "You can register or use a test account"
 } 

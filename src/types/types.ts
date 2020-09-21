@@ -46,6 +46,7 @@ export type AuthReducerInitialStateType = {
   isAuth: boolean,
   errorMessage: string | null,
   isAuthFetching: boolean,
+  testAccount: any,
 }
 // - AUTH REDUCER ACTIONS
 export type setUserAuthDataTypes = {

@@ -20,3 +20,7 @@ export const getErrorMessage = (state: AppStateType) => {
   return state.auth.errorMessage
 }
 
+export const getInitialValues = (state: AppStateType) => {
+  return state.auth.testAccount
+}
+

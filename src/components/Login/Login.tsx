@@ -15,10 +15,17 @@ type LoginPropsType = {
   login: (email: string, password: string) => void,
   isAuth: boolean,
   errorMessage: string | null,
+  loadTestAccountData: (data: any) => void,
+  initialValues: any,
 }
 
+// const testLoginData = {
+//   loginInputValue: 'admin@mail.dev',
+//   passwordInputValue: 'admin',
+// }
+
 const Login: React.FC<LoginPropsType> = (props: LoginPropsType) => {
-  const { login, isAuth, errorMessage } = props
+  const { initialValues, loadTestAccountData, login, isAuth, errorMessage } = props
   const { t } = useTranslation()
 
   const onSubmit = (formData: any) => {
@@ -36,20 +43,28 @@ const Login: React.FC<LoginPropsType> = (props: LoginPropsType) => {
 
       {errorMessage ? <div className={style.errorMessage}>{errorMessage}</div> : null}
 
-      <LoginReduxForm onSubmit={onSubmit} />
+      <LoginReduxForm initialValues={initialValues} loadTestAccountData={loadTestAccountData} onSubmit={onSubmit} />
 
-      <TestAccountLogin />
     </div>
   )
 }
 
-const LoginForm: React.FC<InjectedFormProps> = (props: InjectedFormProps) => {
-  const { handleSubmit } = props
+type LoginFormPropsTypes = {
+  loadTestAccountData: (data: any) => void,
+}
+type LoginFormOwnPropsTypes = InjectedFormProps & LoginFormPropsTypes
+
+const LoginForm: React.FC<any> = (props: LoginFormOwnPropsTypes) => {
+  const { handleSubmit, loadTestAccountData } = props
   const { t } = useTranslation()
   const isFetching = useSelector((state: AppStateType) => state.auth.isAuthFetching)
 
   if (isFetching) {
     return <Preloader className={style.preloader} />
+  }
+
+  const resetInitialValues = () => {
+    loadTestAccountData(null)
   }
 
   return (
@@ -60,6 +75,7 @@ const LoginForm: React.FC<InjectedFormProps> = (props: InjectedFormProps) => {
         component={Input}
         name='loginInputValue'
         autoFocus
+        onChange={resetInitialValues}
       />
       <Field
         active={false}
@@ -67,13 +83,22 @@ const LoginForm: React.FC<InjectedFormProps> = (props: InjectedFormProps) => {
         placeholder={t('placeholderPassword')}
         component={Input}
         name='passwordInputValue'
+        onChange={resetInitialValues}
       />
 
+      {/* <button type='button' onClick={() => loadTestAccountData(testLoginData)}>
+        Load Account
+      </button> */}
+
       <NavLink to='/registration'>
-        <button className={style.registration_toggle_btn} type='button'>
+        <button onClick={resetInitialValues} className={style.registration_toggle_btn} type='button'>
           {t('Registration')}
         </button>
       </NavLink>
+
+
+      <TestAccountLogin loadTestAccountData={loadTestAccountData} />
+
 
       <button onClick={handleSubmit} className={style.btn} type='button'>
         {t('Login')}
@@ -82,6 +107,8 @@ const LoginForm: React.FC<InjectedFormProps> = (props: InjectedFormProps) => {
   )
 }
 
-const LoginReduxForm = reduxForm({ form: 'login redux form', touchOnBlur: false })(LoginForm)
+const LoginReduxForm: any = reduxForm({ form: 'login redux form', touchOnBlur: false, enableReinitialize: true })(
+  LoginForm
+)
 
 export default Login

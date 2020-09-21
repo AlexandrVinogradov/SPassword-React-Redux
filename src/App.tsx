@@ -6,22 +6,24 @@ import store, { AppStateType } from './redux/store'
 import MainContainer from './components/Main/MainContainer'
 import Registration from './components/Login/Registration'
 import Login from './components/Login/Login'
-import { login, registrationFetch, getProfile } from './redux/auth-reducer'
-import { getIsAuth, getErrorMessage} from './redux/selector'
+import { login, registrationFetch, getProfile, authActions } from './redux/auth-reducer'
+import { getIsAuth, getErrorMessage, getInitialValues } from './redux/selector'
 
 type MapDispatchPropsTypes = {
   login: (email: string, password: string) => void,
   registrationFetch: (email: string, password: string, firstName: string, lastName: string) => void,
   getProfile: () => void,
+  loadTestAccountData: (data: any) => void,
 }
 type MapStatePropsTypes = {
   isAuth: boolean,
   errorMessage: string | null,
+  initialValues: any,
 }
 type AppPropsTypes = MapDispatchPropsTypes & MapStatePropsTypes
 
 const App: React.FC<AppPropsTypes> = (props: AppPropsTypes) => {
-  const { getProfile, login, isAuth, registrationFetch, errorMessage } = props
+  const { initialValues, loadTestAccountData, getProfile, login, isAuth, registrationFetch, errorMessage } = props
 
   useEffect(() => {
     // we have checked on isToken inside
@@ -37,7 +39,18 @@ const App: React.FC<AppPropsTypes> = (props: AppPropsTypes) => {
             path='/registration'
             render={() => <Registration registrationFetch={registrationFetch} isAuth={isAuth} />}
           />
-          <Route path='/' render={() => <Login errorMessage={errorMessage} login={login} isAuth={isAuth} />} />
+          <Route
+            path='/'
+            render={() => (
+              <Login
+                loadTestAccountData={loadTestAccountData}
+                errorMessage={errorMessage}
+                login={login}
+                isAuth={isAuth}
+                initialValues={initialValues}
+              />
+            )}
+          />
         </Switch>
       </BrowserRouter>
     </div>
@@ -48,6 +61,7 @@ const mapStateToProps = (state: any): MapStatePropsTypes => {
   return {
     isAuth: getIsAuth(state),
     errorMessage: getErrorMessage(state),
+    initialValues: getInitialValues(state), // pull initial values from account reducer
   }
 }
 
@@ -57,6 +71,7 @@ export const AppContainer: React.FC<any> = connect<MapStatePropsTypes, MapDispat
     login,
     registrationFetch,
     getProfile,
+    loadTestAccountData: authActions.loadTestAccountData,
   }
 )(App)
 

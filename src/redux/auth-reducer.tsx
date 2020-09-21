@@ -6,6 +6,7 @@ import { ThunkAction } from 'redux-thunk'
 
 export const SET_USER_AUTH_DATA = 'spassword/auth/SET_USER_AUTH_DATA'
 export const TOGGLE_IS_FETCHING = 'spassword/auth/TOGGLE_IS_FETCHING'
+export const LOAD_TEST_ACCOUNT_DATA = 'spassword/auth/LOAD_TEST_ACCOUNT_DATA'
 
 const initialState: AuthReducerInitialStateType = {
   currentUser: {
@@ -16,6 +17,11 @@ const initialState: AuthReducerInitialStateType = {
     password: null,
     firstName: null,
     lastName: null,
+  },
+  // testAccount: null,
+  testAccount: {
+    loginInputValue: 'lolo',
+    passwordInputValue: 'admin',
   },
   isAuth: false,
   errorMessage: null,
@@ -35,6 +41,12 @@ const authReducer = (state = initialState, action: ActionsTypes): AuthReducerIni
         return {
           ...state, 
           isAuthFetching: action.isFetching
+        }
+    case LOAD_TEST_ACCOUNT_DATA:
+        return {
+          ...state, 
+          testAccount: action.data
+          // testAccount.loginInputValue:
         }
     default:
       return state
@@ -59,7 +71,8 @@ export const authActions = {
     errorMessage: string | null
   ): setUserAuthDataTypes => ({type: SET_USER_AUTH_DATA, payload, isAuth, errorMessage, } as const),
 
-  toggleIsFetching: (isFetching: any): any => ({type: TOGGLE_IS_FETCHING, isFetching} as const)
+  toggleIsFetching: (isFetching: any): any => ({type: TOGGLE_IS_FETCHING, isFetching} as const),
+  loadTestAccountData: (data: any): any => ({type: LOAD_TEST_ACCOUNT_DATA, data} as const)
 }
 
 
