@@ -26,6 +26,7 @@ const TestAccountLogin: React.FC<TestAccountLoginPropsTypes> = (props: TestAccou
         <p>
           {t('Password')}: <span className={style.fontBold}>admin</span>
         </p>
+        <SVGIcon className={style.icon_click_here} name='iconClickHere' />
       </button>
       <SVGIcon className={style.icon_long_arrow} name='iconLongArrow' />
     </div>

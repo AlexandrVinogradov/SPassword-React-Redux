@@ -18,10 +18,9 @@ const initialState: AuthReducerInitialStateType = {
     firstName: null,
     lastName: null,
   },
-  // testAccount: null,
   testAccount: {
-    loginInputValue: 'lolo',
-    passwordInputValue: 'admin',
+    loginInputValue: '',
+    passwordInputValue: '',
   },
   isAuth: false,
   errorMessage: null,

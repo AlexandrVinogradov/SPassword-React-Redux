@@ -1,11 +1,33 @@
 @import "../../../scss/variables.scss";
 @import "../../../scss/mixins.scss";
 
+@keyframes animation-convulsions {
+  0% { transform: rotate(0deg);opacity:1; }
+  8.0% { transform: rotate(0deg);opacity:1; }
+  12.0% { transform: rotate(32deg);opacity:.7; }
+  16.0% { transform: rotate(-38deg);opacity:.5; }
+  20.0% { transform: rotate(0deg);opacity:1; }
+  23.0% { transform: rotate(32deg);opacity:.7; }
+  26.0% { transform: rotate(-20deg);opacity:.5; }
+  29.0% { transform: rotate(0deg);opacity:1; }
+  31.0% { transform: rotate(26deg);opacity:.7; }
+  33.0% { transform: rotate(-18deg);opacity:.5; }
+  35.0% { transform: rotate(0deg);opacity:1; }	
+  37.0% { transform: rotate(-12deg);opacity:.8; }
+  40.0% { transform: rotate(6deg);opacity:1; }
+  44.0% { transform: rotate(-3deg);opacity:.8; }
+  49.0% { transform: rotate(2deg);opacity:1; }
+  55.0% { transform: rotate(0deg);opacity:1; }
+  62.0% { transform: rotate(1deg);opacity:1; }
+  70.0% { transform: rotate(0deg);opacity:1; }
+}
+
 .TestAccountLogin {
   margin-top: 100px;
   position: absolute;
   top: 300px;
   right: get-vw1230(-270px);
+  animation: animation-convulsions 7000ms infinite; 
 
   & > button {
     background: none;
@@ -29,6 +51,7 @@
     border-radius: 5px;
     max-width: get-vw1230(220px);
     font-size: get-vw1230(11px);
+    position: relative;
 
     .fontBold {
       font-weight: 900;
@@ -39,5 +62,14 @@
     transform: scale(-1, -1);
     fill: $link-color;
     width: 100px;
+  }
+  .icon_click_here {
+    position: absolute;
+    right: 10px;
+    bottom: -25px;
+    width: get-vw1230(40px);
+    height: get-vw1230(40px);
+    fill: $contrast-color;
+
   }
 }
