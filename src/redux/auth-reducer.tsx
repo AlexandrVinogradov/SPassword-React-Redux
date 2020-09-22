@@ -1,7 +1,6 @@
 import { authAPI } from '../api/api'
 import { AuthReducerInitialStateType, CurrentUserTypes, setUserAuthDataTypes } from '../types/types'
 import { InfernActionsTypes, AppStateType } from './store'
-// import { Dispatch } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 
 export const SET_USER_AUTH_DATA = 'spassword/auth/SET_USER_AUTH_DATA'
@@ -45,7 +44,6 @@ const authReducer = (state = initialState, action: ActionsTypes): AuthReducerIni
         return {
           ...state, 
           testAccount: action.data
-          // testAccount.loginInputValue:
         }
     default:
       return state
