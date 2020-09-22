@@ -29,21 +29,6 @@
   right: get-vw1230(-270px);
   animation: animation-convulsions 7000ms infinite; 
 
-  & > button {
-    background: none;
-    display: block;
-    text-align: left;
-
-    span {
-      margin-bottom: 0px !important;
-      padding-bottom: 2px;
-    }
-    & > p {
-      display: flex;
-      align-items: center;
-    }
-  }
-
   .hintBlock {
     color: $contrast-color;
     border: 1px solid $contrast-color;
@@ -52,6 +37,24 @@
     max-width: get-vw1230(220px);
     font-size: get-vw1230(11px);
     position: relative;
+    background: none;
+    display: block;
+    text-align: left;
+
+    span {
+      margin-bottom: 0px;
+      padding-bottom: 2px;
+    }
+    & > p {
+      display: flex;
+      align-items: center;
+    }
+
+    &:active {
+      border: 1px solid $success-color;
+      color: $success-color;
+      transition: 0.1s;
+    }
 
     .fontBold {
       font-weight: 900;

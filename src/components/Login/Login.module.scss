@@ -70,6 +70,21 @@
       @include min-width($smPhoneWidth) {
         margin-bottom: 20px;
         width: 100%;
+        position: relative;
+        transition: 0.1s;
+        opacity: 0.75;
+
+        &:active {
+          color: red;
+          border: 1px solid black;
+        }
+        &:focus {
+          color: rgb(58, 56, 56);
+        }
+
+        &:not(:placeholder-shown) {
+          opacity: 1;
+        }
       }
       @include min-width($tableWidth) {
         margin-bottom: get-vw1230(20px);

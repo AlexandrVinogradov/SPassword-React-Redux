@@ -22,10 +22,7 @@ export const Input: React.FC<any> = (props: InputTypes) => {
           autoFocus={autoFocus}
           placeholder={placeholder}
           className={className}
-          // active={active}
-          // active='false'
-          active={active ? 1 : 0}
-
+          active={active}
           type='text'
           {...input}
           {...meta}

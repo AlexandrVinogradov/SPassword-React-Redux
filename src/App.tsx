@@ -61,7 +61,7 @@ const mapStateToProps = (state: any): MapStatePropsTypes => {
   return {
     isAuth: getIsAuth(state),
     errorMessage: getErrorMessage(state),
-    initialValues: getInitialValues(state), // pull initial values from account reducer
+    initialValues: getInitialValues(state), 
   }
 }
 

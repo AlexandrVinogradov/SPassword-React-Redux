@@ -85,20 +85,13 @@ const LoginForm: React.FC<any> = (props: LoginFormOwnPropsTypes) => {
         name='passwordInputValue'
         onChange={resetInitialValues}
       />
-
-      {/* <button type='button' onClick={() => loadTestAccountData(testLoginData)}>
-        Load Account
-      </button> */}
-
       <NavLink to='/registration'>
         <button onClick={resetInitialValues} className={style.registration_toggle_btn} type='button'>
           {t('Registration')}
         </button>
       </NavLink>
 
-
       <TestAccountLogin loadTestAccountData={loadTestAccountData} />
-
 
       <button onClick={handleSubmit} className={style.btn} type='button'>
         {t('Login')}
