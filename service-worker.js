@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/SPassword-React-Redux/precache-manifest.fdc437232cfb2607a9bf13535a2a3e6d.js"
+  "/SPassword-React-Redux/precache-manifest.a95e5d69cf70208bffbc59b3dee162e3.js"
 );
 
 self.addEventListener('message', (event) => {

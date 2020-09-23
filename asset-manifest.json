@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/SPassword-React-Redux/static/css/main.620fa565.chunk.css",
-    "main.js": "/SPassword-React-Redux/static/js/main.f8432f95.chunk.js",
-    "main.js.map": "/SPassword-React-Redux/static/js/main.f8432f95.chunk.js.map",
+    "main.css": "/SPassword-React-Redux/static/css/main.f2a075e2.chunk.css",
+    "main.js": "/SPassword-React-Redux/static/js/main.fe8fe22a.chunk.js",
+    "main.js.map": "/SPassword-React-Redux/static/js/main.fe8fe22a.chunk.js.map",
     "runtime-main.js": "/SPassword-React-Redux/static/js/runtime-main.3f67133a.js",
     "runtime-main.js.map": "/SPassword-React-Redux/static/js/runtime-main.3f67133a.js.map",
     "static/js/2.d027f2a4.chunk.js": "/SPassword-React-Redux/static/js/2.d027f2a4.chunk.js",
     "static/js/2.d027f2a4.chunk.js.map": "/SPassword-React-Redux/static/js/2.d027f2a4.chunk.js.map",
     "index.html": "/SPassword-React-Redux/index.html",
-    "precache-manifest.fdc437232cfb2607a9bf13535a2a3e6d.js": "/SPassword-React-Redux/precache-manifest.fdc437232cfb2607a9bf13535a2a3e6d.js",
+    "precache-manifest.a95e5d69cf70208bffbc59b3dee162e3.js": "/SPassword-React-Redux/precache-manifest.a95e5d69cf70208bffbc59b3dee162e3.js",
     "service-worker.js": "/SPassword-React-Redux/service-worker.js",
-    "static/css/main.620fa565.chunk.css.map": "/SPassword-React-Redux/static/css/main.620fa565.chunk.css.map",
+    "static/css/main.f2a075e2.chunk.css.map": "/SPassword-React-Redux/static/css/main.f2a075e2.chunk.css.map",
     "static/js/2.d027f2a4.chunk.js.LICENSE.txt": "/SPassword-React-Redux/static/js/2.d027f2a4.chunk.js.LICENSE.txt",
     "static/media/NavListBar.module.scss": "/SPassword-React-Redux/static/media/Montserrat-Regular.ee1fbd62.woff",
     "static/media/preloader.gif": "/SPassword-React-Redux/static/media/preloader.2afbbf02.gif"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.3f67133a.js",
     "static/js/2.d027f2a4.chunk.js",
-    "static/css/main.620fa565.chunk.css",
-    "static/js/main.f8432f95.chunk.js"
+    "static/css/main.f2a075e2.chunk.css",
+    "static/js/main.fe8fe22a.chunk.js"
   ]
 }
