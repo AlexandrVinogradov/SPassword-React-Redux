@@ -2,7 +2,7 @@
 
 ### Password storage service
 
-See the [Demo](https://alexandrvinogradov.github.io/SPassword-React-Redux/) :rocket:
+Link: http://spassword.online/ :rocket:
 
 Setup: `yarn && yarn dev`
 
@@ -17,8 +17,9 @@ stack:
 - React/Redux 
 - Typescript 
 - redux-form
+- redux-thunk
 - react-i18next
-- scss
+- scss modules
 - react-transition-group </br></br>
 
 
