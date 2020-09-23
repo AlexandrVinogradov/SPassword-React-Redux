@@ -19,11 +19,6 @@ type LoginPropsType = {
   initialValues: any,
 }
 
-// const testLoginData = {
-//   loginInputValue: 'admin@mail.dev',
-//   passwordInputValue: 'admin',
-// }
-
 const Login: React.FC<LoginPropsType> = (props: LoginPropsType) => {
   const { initialValues, loadTestAccountData, login, isAuth, errorMessage } = props
   const { t } = useTranslation()
