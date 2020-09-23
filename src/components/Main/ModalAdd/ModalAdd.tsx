@@ -6,7 +6,7 @@ import SVGIcon from '../../../SVGIcons'
 import style from './ModalAdd.module.scss'
 import { required, maxLengthCreator } from '../../../utils/validators'
 
-const maxLength = maxLengthCreator(20)
+const maxLength = maxLengthCreator(15)
 
 type ModalAddPropsTypes = {
   handleCloseModal: (isShowAcceptModal: any) => void,

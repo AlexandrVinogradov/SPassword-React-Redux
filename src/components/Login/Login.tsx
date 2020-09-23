@@ -79,6 +79,7 @@ const LoginForm: React.FC<any> = (props: LoginFormOwnPropsTypes) => {
         component={Input}
         name='passwordInputValue'
         onChange={resetInitialValues}
+        type='password'
       />
       <NavLink to='/registration'>
         <button onClick={resetInitialValues} className={style.registration_toggle_btn} type='button'>

@@ -27,14 +27,20 @@
   position: absolute;
   top: 300px;
   right: get-vw1230(-270px);
-  animation: animation-convulsions 7000ms infinite; 
+  animation: animation-convulsions 7000ms infinite;
+  
+  // removed animation bug with border-right
+  margin-right: 1px;
 
   @include max-width(1229px) {
     margin-top: get-vw1230(170px);
 
   }
   @include max-width($tableWidth) {
-    display: none;
+    animation: none;
+    position: static;
+    margin-top: 0px;
+    margin: 10px auto 27px;
   }
 
   .hintBlock {
@@ -49,12 +55,15 @@
     display: block;
     text-align: left;
 
-    // @include max-width($tableWidth) {
-    //   display: none;
-    // }
     @include max-width(992px) {
       font-size: get-vw1230(13px);
       max-width: get-vw1230(290px);
+    }
+
+    @include max-width($tableWidth) {
+      max-width: 220px;
+      width: 100%;
+      font-size: 11px;
     }
 
     span {
@@ -81,14 +90,21 @@
     transform: scale(-1, -1);
     fill: $link-color;
     width: get-vw1230(100px);
+
+    @include max-width($tableWidth) {
+      display: none;
+    }
   }
   .icon_click_here {
     position: absolute;
     right: 10px;
     bottom: -25px;
-    // width: get-vw1230(40px);
     width: 40px;
     height: get-vw1230(40px);
     fill: $contrast-color;
+
+    @include max-width($tableWidth) {
+      height: 35px;
+    }
   }
 }
